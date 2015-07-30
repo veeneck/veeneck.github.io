@@ -155,7 +155,8 @@ header {
   .main-content section .task-group-section .task-group:first-of-type {
     padding-top: 10px; }
     .main-content section .task-group-section .task-group:first-of-type .section-name {
-      padding-top: 15px; }
+      padding-top: 15px;
+      color: #808080; }
 
 .section {
   padding: 0 25px; }
