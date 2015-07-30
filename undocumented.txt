@@ -60,6 +60,8 @@ Character.swift
 	class CharacterEntity : GKEntity, GKAgentDelegate
 Time.swift
 	class Time
+MeshObstacle.swift
+	init()
 GameViewController.swift
 	class GameViewController: UIViewController
 LevelScene.swift
