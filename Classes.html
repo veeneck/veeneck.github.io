@@ -34,6 +34,9 @@
                 <a href="Classes/ActionBar.html">ActionBar</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes.html#/s:C14With_War___Woe12MeshObstacle">MeshObstacle</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/Navmesh.html">Navmesh</a>
               </li>
             </ul>
@@ -223,17 +226,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight plaintext"><code>Short description
+                        <p>Extension of <a href="https://developer.apple.com/library/prerelease/ios/documentation/GameplayKit/Reference/GKObstacleGraph_Class/">GKObstacleGraph</a> 
+that has built in utility methods for pathfinding. For example, if the desired point is inside of an obstacle, you can optionally find the 
+closest point on the graph. To achieve this, the graph is built with bodies of MeshObstacles.</p>
 
-lnger description
-
-Example link: [link](/Classes/Navmesh.html).
-- seealso: something else
-</code></pre>
-
-<p>another
-    - seealso: this guy too
-    - type: someType</p>
+<ul>
+<li>Note: Debug enabled using PathFinding flag</li>
+</ul>
 
                         <a href="Classes/Navmesh.html" class="slightly-smaller">See more</a>
                       </div>
@@ -242,6 +241,46 @@ Example link: [link](/Classes/Navmesh.html).
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Navmesh</span> <span class="p">:</span> <span class="kt">GKObstacleGraph</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C14With_War___Woe12MeshObstacle"></a>
+                    <a name="//apple_ref/swift/Class/MeshObstacle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C14With_War___Woe12MeshObstacle">MeshObstacle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Extension of <a href="https://developer.apple.com/library/prerelease/ios/documentation/GameplayKit/Reference/GKPolygonObstacle_Class/">GKPolygonObstacle</a>
+needed to access expanded pathfinding functionality. Three primary purposes are:</p>
+
+<ul>
+<li>Create obstacles with points using SKRegion, which has helpers like containsPoint</li>
+<li>Add real, edge based physics bodies to the world from the CGPath of the SKRegion</li>
+<li>Act as a GKObstacle for a GKGraph to use</li>
+</ul>
+
+<p>Additionally, expanded functionality could be added down the road, like an obstacle with spikes or different collision masks.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MeshObstacle</span> <span class="p">:</span> <span class="kt">GKPolygonObstacle</span></code></pre>
 
                         </div>
                       </div>
