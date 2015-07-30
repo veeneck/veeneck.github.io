@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Classes  Reference</title>
+    <title>Global Variables  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,7 +9,7 @@
     <script src="js/jazzy.js" defer></script>
   </head>
   <body>
-    <a title="Classes  Reference"></a>
+    <a title="Global Variables  Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="index.html"> Docs</a> (38% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="index.html"> Reference</a>
         <img id="carat" src="img/carat.png" />
-        Classes  Reference
+        Global Variables  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -203,8 +203,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Classes</h1>
-            <p>The following classes are available globally.</p>
+            <h1>Global Variables</h1>
+            <p>The following global variables are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -213,9 +213,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C14With_War___Woe7Navmesh"></a>
-                    <a name="//apple_ref/swift/Class/Navmesh" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C14With_War___Woe7Navmesh">Navmesh</a>
+                    <a name="/s:v14With_War___Woe6scenesGVSs10DictionarySSVS_11SceneObject_"></a>
+                    <a name="//apple_ref/swift/Global/scenes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:v14With_War___Woe6scenesGVSs10DictionarySSVS_11SceneObject_">scenes</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -223,29 +223,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>@group test
-Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to create the graph.
-<img src="http://Volumes/Triakas/Games/Xcode/With%20War%20&amp;%20Woe/With%20War%20&amp;%20Woe/Navmesh.swift" alt="see">
-- seealso: MoveCommand
-- ref: hmmm
-- superclass: hmmm
-- group: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmm
-- guide: hmmm</p>
+                        <p>A list of common scenes to prevent code duplicating. Each individual scene still choose what scene object gets displayed next</p>
 
-                        <a href="Classes/Navmesh.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Navmesh</span> <span class="p">:</span> <span class="kt">GKObstacleGraph</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">scenes</span> <span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">SceneObject</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span></code></pre>
 
                         </div>
                       </div>
@@ -259,9 +244,9 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C14With_War___Woe9ActionBar"></a>
-                    <a name="//apple_ref/swift/Class/ActionBar" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C14With_War___Woe9ActionBar">ActionBar</a>
+                    <a name="/s:v14With_War___Woe18globalTextureCacheGVSs10DictionarySSCSo14SKTextureAtlas_"></a>
+                    <a name="//apple_ref/swift/Global/globalTextureCache" class="dashAnchor"></a>
+                    <a class="token" href="#/s:v14With_War___Woe18globalTextureCacheGVSs10DictionarySSCSo14SKTextureAtlas_">globalTextureCache</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -269,21 +254,45 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Points to the node tree for the action bar on the combat scene.</p>
+                        <p>Global texture cache to minimize loading screens. Cleared only during major scene group changes</p>
 
-<ul>
-<li><p>superclass: ![SKReferenceNode]</p></li>
-<li><p>class: ActionBar</p></li>
-<li><p>paramater bob: DOSOMETHING</p></li>
-</ul>
-
-                        <a href="Classes/ActionBar.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ActionBar</span> <span class="p">:</span> <span class="kt">SKReferenceNode</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">globalTextureCache</span> <span class="o">=</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">SKTextureAtlas</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:v14With_War___WoeX3BxaSf"></a>
+                    <a name="//apple_ref/swift/Global/π" class="dashAnchor"></a>
+                    <a class="token" href="#/s:v14With_War___WoeX3BxaSf">π</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The value of π as a CGFloat</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">π</span> <span class="o">=</span> <span class="kt">Float</span><span class="p">(</span><span class="kt">M_PI</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

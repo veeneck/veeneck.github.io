@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Navmesh Class Reference</title>
+    <title>ActionBar Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Navmesh" class="dashAnchor"></a>
-    <a title="Navmesh Class Reference"></a>
+    <a name="//apple_ref/swift/Class/ActionBar" class="dashAnchor"></a>
+    <a title="ActionBar Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (38% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Navmesh Class Reference
+        ActionBar Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -204,22 +204,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Navmesh</h1>
-            <p>@group test
-Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to create the graph.
-<img src="http://Volumes/Triakas/Games/Xcode/With%20War%20&amp;%20Woe/With%20War%20&amp;%20Woe/Navmesh.swift" alt="see">
-- seealso: MoveCommand
-- ref: hmmm
-- superclass: hmmm
-- group: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmm
-- guide: hmmm</p>
+            <h1>ActionBar</h1>
+            <p>Points to the node tree for the action bar on the combat scene.</p>
+
+<ul>
+<li><p>superclass: ![SKReferenceNode]</p></li>
+<li><p>class: ActionBar</p></li>
+<li><p>paramater bob: DOSOMETHING</p></li>
+</ul>
 
           </section>
           <section class="section task-group-section">
@@ -228,9 +220,9 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe7NavmeshcFMS0_FT9obstaclesGSaCSo12SKSpriteNode__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(obstacles:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe7NavmeshcFMS0_FT9obstaclesGSaCSo12SKSpriteNode__S0_">init(obstacles:)</a>
+                    <a name="/s:vC14With_War___Woe9ActionBar13selectedSquadGSqCS_5Squad_"></a>
+                    <a name="//apple_ref/swift/Property/selectedSquad" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe9ActionBar13selectedSquadGSqCS_5Squad_">selectedSquad</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -238,14 +230,137 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>init somr</p>
+                        <p>Currently selected unit</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">obstacles</span><span class="p">:[</span><span class="kt">SKSpriteNode</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">selectedSquad</span> <span class="p">:</span> <span class="kt">Squad</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14With_War___Woe9ActionBar15pendingActionIDSi"></a>
+                    <a name="//apple_ref/swift/Property/pendingActionID" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe9ActionBar15pendingActionIDSi">pendingActionID</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Flag to indicate whether the UI is pending a player action
+ID corresponds to lookup in squad actions array</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">pendingActionID</span> <span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/User%20Selects%20Squad"></a>
+                  <a name="//apple_ref/swift/Section/User Selects Squad" class="dashAnchor"></a>
+                  <a href="#/User%20Selects%20Squad">
+                    <h3 class="section-name">User Selects Squad</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe9ActionBar11selectSquadFS0_FCS_5SquadT_"></a>
+                    <a name="//apple_ref/swift/Method/selectSquad(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe9ActionBar11selectSquadFS0_FCS_5SquadT_">selectSquad(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Creates a goal to move toward the agent</li>
+<li>@param agent the agent to seek</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">selectSquad</span><span class="p">(</span><span class="nv">squad</span><span class="p">:</span><span class="kt">Squad</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe9ActionBar12touchesBeganFS0_FTGVSs3SetCSo7UITouch_9withEventGSqCSo7UIEvent__T_"></a>
+                    <a name="//apple_ref/swift/Method/touchesBegan(_:withEvent:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe9ActionBar12touchesBeganFS0_FTGVSs3SetCSo7UITouch_9withEventGSqCSo7UIEvent__T_">touchesBegan(_:withEvent:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>MARK: USER INPUT</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">touchesBegan</span><span class="p">(</span><span class="nv">touches</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">UITouch</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">withEvent</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe9ActionBar11handleInputFS0_FVSC7CGPointT_"></a>
+                    <a name="//apple_ref/swift/Method/handleInput(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe9ActionBar11handleInputFS0_FVSC7CGPointT_">handleInput(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>MARK: SCENE INPUT</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">handleInput</span><span class="p">(</span><span class="nv">locationInWorld</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

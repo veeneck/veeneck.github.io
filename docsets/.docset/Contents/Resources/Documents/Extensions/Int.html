@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Navmesh Class Reference</title>
+    <title>Int Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Navmesh" class="dashAnchor"></a>
-    <a title="Navmesh Class Reference"></a>
+    <a name="//apple_ref/swift/Extension/Int" class="dashAnchor"></a>
+    <a title="Int Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (38% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Navmesh Class Reference
+        Int Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -204,23 +204,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Navmesh</h1>
-            <p>@group test
-Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to create the graph.
-<img src="http://Volumes/Triakas/Games/Xcode/With%20War%20&amp;%20Woe/With%20War%20&amp;%20Woe/Navmesh.swift" alt="see">
-- seealso: MoveCommand
-- ref: hmmm
-- superclass: hmmm
-- group: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmm
-- guide: hmmm</p>
-
+            <h1>Int</h1>
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -228,9 +213,9 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe7NavmeshcFMS0_FT9obstaclesGSaCSo12SKSpriteNode__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(obstacles:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe7NavmeshcFMS0_FT9obstaclesGSaCSo12SKSpriteNode__S0_">init(obstacles:)</a>
+                    <a name="/s:FE14With_War___WoeSi7clampedFSiFGVSs5RangeSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamped(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE14With_War___WoeSi7clampedFSiFGVSs5RangeSi_Si">clamped(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -238,14 +223,190 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>init somr</p>
+                        <ul>
+<li>Ensures that the integer value stays with the specified range.</li>
+</ul>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">obstacles</span><span class="p">:[</span><span class="kt">SKSpriteNode</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clamped</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE14With_War___WoeSi5clampFRSiFGVSs5RangeSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamp(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE14With_War___WoeSi5clampFRSiFGVSs5RangeSi_Si">clamp(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Ensures that the integer value stays with the specified range.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">clamp</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE14With_War___WoeSi7clampedFSiFTSiSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamped(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE14With_War___WoeSi7clampedFSiFTSiSi_Si">clamped(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Ensures that the integer value stays between the given values, inclusive.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clamped</span><span class="p">(</span><span class="nv">v1</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">v2</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FE14With_War___WoeSi5clampFRSiFTSiSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamp(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE14With_War___WoeSi5clampFRSiFTSiSi_Si">clamp(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Ensures that the integer value stays between the given values, inclusive.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">clamp</span><span class="p">(</span><span class="nv">v1</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">v2</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFE14With_War___WoeSi6randomFMSiFGVSs5RangeSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/random(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFE14With_War___WoeSi6randomFMSiFGVSs5RangeSi_Si">random(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Returns a random integer in the specified range.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">random</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFE14With_War___WoeSi6randomFMSiFSiSi"></a>
+                    <a name="//apple_ref/swift/Method/random(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFE14With_War___WoeSi6randomFMSiFSiSi">random(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Returns a random integer between 0 and n-1.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">random</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFE14With_War___WoeSi6randomFMSiFT3minSi3maxSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/random(min:max:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFE14With_War___WoeSi6randomFMSiFT3minSi3maxSi_Si">random(min:max:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <ul>
+<li>Returns a random integer in the range min&hellip;max, inclusive.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">random</span><span class="p">(</span><span class="n">min</span> <span class="nv">min</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>

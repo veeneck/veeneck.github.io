@@ -1,0 +1,163 @@
+PinchGesture.swift
+	class PinchGesture : UIPinchGestureRecognizer
+AttackCommand.swift
+	class AttackCommand : Command
+Follower.swift
+	class FollowerEntity : CharacterEntity
+PathfindingService.swift
+	class PathfindingService
+Idle.swift
+	class IdleState: GKState
+ReformService.swift
+	class ReformService
+String+Extensions.swift
+	func replace(target: String, withString: String) -> String
+GameScene.swift
+	protocol GameSceneDelegate
+	enum WorldLayer : Int
+	class GameScene : SKScene
+Leader.swift
+	class LeaderEntity : CharacterEntity
+ZPosition.swift
+	enum PositionCategory : Float
+	class ZPosition
+Slide.swift
+	protocol SlideMenu
+	class Slide : SKNode, SlideMenu
+Render.swift
+	class RenderComponent : GKComponent
+SquadFactory.swift
+	var squadIDCounter : Int = 0
+	class SquadFactory
+SoundEffectsService.swift
+	var MASTER_SOUND_VOLUME : Int = 8
+	class SoundEffects
+Queue.swift
+	class QueueComponent : GKComponent
+Heraldry.swift
+	class HeraldryComponent : GKComponent, ButtonNodeResponder
+MusicService.swift
+	var MASTER_MUSIC_VOLUME : Int = 4
+	class MusicService
+Wheel.swift
+	class WheelComponent : GKComponent
+RangedAttackCommand.swift
+	class RangedAttackCommand : Command
+PanGesture.swift
+	class PanGesture : UIPanGestureRecognizer
+Animation.swift
+	struct Animation
+	enum AnimationState : Int
+	class AnimaitonComponent : GKComponent
+float2+Extensions.swift
+	init(angle: Float)
+SceneObject.swift
+	enum SceneGroup : Int
+	init(classType:GameScene.Type, name:String, transition:SKTransition? = nil, preloadable:Bool = false, category:SceneGroup = SceneGroup.World)
+	var category : SceneGroup = SceneGroup.World
+	let baseSceneTransition = SKTransition.fadeWithDuration(1)
+Character.swift
+	class CharacterEntity : GKEntity, GKAgentDelegate
+Time.swift
+	class Time
+GameViewController.swift
+	class GameViewController: UIViewController
+LevelScene.swift
+	class LevelScene : GameScene, SKPhysicsContactDelegate
+Unit.swift
+	class UnitComponent : GKComponent
+Following.swift
+	class FollowingState: GKState
+Easing.swift
+	let M_PI_2_f = Float(M_PI_2)
+	let M_PI_f = Float(M_PI)
+	func dub(num:Float)->Float
+	func sinFloat(num:Float)->Float
+	func LinearInterpolation(p:Float)->Float
+	func  QuadraticEaseIn(p:Float)->Float
+	func QuadraticEaseOut(p:Float)->Float
+	func QuadraticEaseInOut(p:Float)->Float
+	func CubicEaseIn(p:Float)->Float
+	func CubicEaseOut(p:Float)->Float
+	func CubicEaseInOut(p:Float)->Float
+	func QuarticEaseIn(p:Float)->Float
+	func QuarticEaseOut(p:Float)->Float
+	func QuarticEaseInOut(p:Float)->Float
+	func QuinticEaseIn(p:Float)->Float
+	func QuinticEaseOut(p:Float)->Float
+	func QuinticEaseInOut(p:Float)->Float
+	func SineEaseIn(p:Float)->Float
+	func SineEaseOut(p:Float)->Float
+	func SineEaseInOut(p:Float)->Float
+	func CircularEaseIn(p:Float)->Float
+	func CircularEaseOut(p:Float)->Float
+	func CircularEaseInOut(p:Float)->Float
+	func ExponentialEaseIn(p:Float)->Float
+	func ExponentialEaseOut(p:Float)->Float
+	func ExponentialEaseInOut(p:Float)->Float
+	func ElasticEaseIn(p:Float)->Float
+	func ElasticEaseOut(p:Float)->Float
+	func ElasticEaseInOut(p:Float)->Float
+	func BackEaseIn(p:Float)->Float
+	func BackEaseOut(p:Float)->Float
+	func BackEaseInOut(p:Float)->Float
+	func BounceEaseIn(p:Float)->Float
+	func BounceEaseOut(p:Float)->Float
+	func BounceEaseInOut(p:Float)->Float
+CharacterFactory.swift
+	class CharacterFactory
+Intelligence.swift
+	class IntelligenceComponent: GKComponent
+ActionBar.swift
+	var root : SKNode?
+	init()
+	required init?(coder aDecoder: NSCoder)
+	func loadSelectedSquad(squad:Squad)
+	func addMaskForSelectedSquad(squad:Squad)
+	func hide()
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+Graphics.swift
+	class Graphics
+CharacterAgent.swift
+	class CharacterAgent : GKAgent2D
+Squad.swift
+	class Squad : GKEntity
+	func == (lh: Squad, rh: Squad) -> Bool
+Movement.swift
+	enum MovementType : Int
+	struct MoveInstructions
+	class MovementComponent : GKComponent
+Formation.swift
+	class FormationComponent : GKComponent
+CommandProtocol.swift
+	let commandMap : Dictionary<String, Command.Type> = [
+	protocol Command
+SceneManager.swift
+	class SceneManager : GameSceneDelegate
+DebugFlags.swift
+	enum Debug : Int
+	class DebugOverlay
+Reforming.swift
+	class ReformingState: GKState
+OffscreenIndicatorService.swift
+	struct AnchorPoint
+	class OffscreenIndicatorService
+MoveCommand.swift
+	class MoveCommand : Command
+ButtonNode.swift
+	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+	class ButtonNode : SKNode
+Forest.swift
+	class Forest : LevelScene
+Leading.swift
+	class LeadingState: GKState
+Settings.swift
+	class SettingsButton : ButtonNode, ButtonNodeResponder
+	class Settings : Slide
+AppDelegate.swift
+	class AppDelegate: UIResponder, UIApplicationDelegate
+CatchingUp.swift
+	class CatchingUpState: GKState

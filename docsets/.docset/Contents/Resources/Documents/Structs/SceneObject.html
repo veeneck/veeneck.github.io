@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Navmesh Class Reference</title>
+    <title>SceneObject Struct Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/Navmesh" class="dashAnchor"></a>
-    <a title="Navmesh Class Reference"></a>
+    <a name="//apple_ref/swift/Struct/SceneObject" class="dashAnchor"></a>
+    <a title="SceneObject Struct Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html"> Docs</a> (38% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
-        Navmesh Class Reference
+        SceneObject Struct Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -204,22 +204,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Navmesh</h1>
-            <p>@group test
-Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to create the graph.
-<img src="http://Volumes/Triakas/Games/Xcode/With%20War%20&amp;%20Woe/With%20War%20&amp;%20Woe/Navmesh.swift" alt="see">
-- seealso: MoveCommand
-- ref: hmmm
-- superclass: hmmm
-- group: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmmm
-- guide: hmm
-- guide: hmmm</p>
+            <h1>SceneObject</h1>
+            <p>When a scene decides which scene to load next, they will return this object</p>
 
           </section>
           <section class="section task-group-section">
@@ -228,9 +214,9 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe7NavmeshcFMS0_FT9obstaclesGSaCSo12SKSpriteNode__S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(obstacles:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe7NavmeshcFMS0_FT9obstaclesGSaCSo12SKSpriteNode__S0_">init(obstacles:)</a>
+                    <a name="/s:vV14With_War___Woe11SceneObject9classTypeMCS_9GameScene"></a>
+                    <a name="//apple_ref/swift/Property/classType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV14With_War___Woe11SceneObject9classTypeMCS_9GameScene">classType</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -238,14 +224,123 @@ Extension of <a href="/Classes/Navmesh.html">link</a> that uses MeshObstacles to
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>init somr</p>
+                        <p>The actual class of the scene. Need this to properly unarchive</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">obstacles</span><span class="p">:[</span><span class="kt">SKSpriteNode</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">classType</span> <span class="p">:</span> <span class="kt">GameScene</span><span class="o">.</span><span class="k">Type</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV14With_War___Woe11SceneObject4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV14With_War___Woe11SceneObject4nameSS">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the scene .sks file to load</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">name</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV14With_War___Woe11SceneObject10transitionGSqCSo12SKTransition_"></a>
+                    <a name="//apple_ref/swift/Property/transition" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV14With_War___Woe11SceneObject10transitionGSqCSo12SKTransition_">transition</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Default transition into this scene</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">transition</span> <span class="p">:</span> <span class="kt">SKTransition</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV14With_War___Woe11SceneObject11preloadableSb"></a>
+                    <a name="//apple_ref/swift/Property/preloadable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV14With_War___Woe11SceneObject11preloadableSb">preloadable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Whether or not the next scene should be preloaded.
+Hard coded as true for lightweight scenes where I know memory won&rsquo;t be an issue</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">preloadable</span> <span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV14With_War___Woe11SceneObject8userDataCSo19NSMutableDictionary"></a>
+                    <a name="//apple_ref/swift/Property/userData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV14With_War___Woe11SceneObject8userDataCSo19NSMutableDictionary">userData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to store specific data like <q>Intro</q> for type of Story scene</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">userData</span> <span class="o">=</span> <span class="kt">NSMutableDictionary</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
