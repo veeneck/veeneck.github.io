@@ -61,7 +61,7 @@ Character.swift
 Time.swift
 	class Time
 MeshObstacle.swift
-	init()
+	required init?(coder aDecoder: NSCoder)
 GameViewController.swift
 	class GameViewController: UIViewController
 LevelScene.swift
