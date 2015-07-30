@@ -1,0 +1,517 @@
+PinchGesture.swift
+	class PinchGesture : UIPinchGestureRecognizer
+	func handlePinch(recognizer:UIPinchGestureRecognizer, target:SKCameraNode)
+	func handlePinchChanged(recognizer:UIPinchGestureRecognizer, target:SKCameraNode)
+	func handlePinchEnded(recognizer:UIPinchGestureRecognizer, target:SKCameraNode)
+	func updateCameraBounds(target:SKCameraNode)
+	func boundScaleToWindow(scale:CGFloat) -> CGFloat
+AttackCommand.swift
+	class AttackCommand : Command
+	var desiredPosition : CGPoint? = nil
+	var iconName = "UI_TrainButton"
+	var iconDesc : String = "Attack"
+	let squad : Squad
+	var blocking : Bool = false
+	var completed : Bool = false
+	required init(squad:Squad)
+	func run()
+	func process(target: CGPoint)
+	func onFocus()
+	func onBlur()
+	func isAllowed() -> Bool
+	func markAsCompleted()
+Follower.swift
+	class FollowerEntity : CharacterEntity
+	override init(name:String)
+PathfindingService.swift
+	class PathfindingService
+	class func findPathToDesiredPoint(start:CGPoint, end:CGPoint, scene:LevelScene) -> GKPath?
+	class func connectedNodeForPoint(point: CGPoint, onObstacleGraphInScene scene: LevelScene) -> GKGraphNode2D?
+Idle.swift
+	class IdleState: GKState
+	unowned var entity: CharacterEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: CharacterEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+ReformService.swift
+	class ReformService
+	class func reorderUnitsTowardsNewPosition(units:Array<CharacterEntity>, positions:Array<CGPoint>) -> Array<CharacterEntity>
+String+Extensions.swift
+	func replace(target: String, withString: String) -> String
+GameScene.swift
+	protocol GameSceneDelegate
+	func sceneDidFinish(nextScene:SceneObject)
+	enum WorldLayer : Int
+	case World = 0, UI, Debug, PermanentDebug
+	case World = 0, UI, Debug, PermanentDebug
+	case World = 0, UI, Debug, PermanentDebug
+	case World = 0, UI, Debug, PermanentDebug
+	class GameScene : SKScene
+	var viewDelegate : GameSceneDelegate?
+	func addChild(node:SKNode, layer:WorldLayer)
+	func clickedOrTapped(location:CGPoint)
+	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func registerGestures()
+	func detectPan(recognizer:UIPanGestureRecognizer)
+	func detectPinch(recognizer:UIPinchGestureRecognizer)
+	class func loadSceneAssetsWithCompletionHandler(handler:()->())
+	func hideModalMenus()
+Leader.swift
+	class LeaderEntity : CharacterEntity
+	override init(name:String)
+	override func agentDidUpdate(agent: GKAgent)
+ZPosition.swift
+	enum PositionCategory : Float
+	case WorldMax = 5000, Environment, Flag, Display
+	case WorldMax = 5000, Environment, Flag, Display
+	case WorldMax = 5000, Environment, Flag, Display
+	case WorldMax = 5000, Environment, Flag, Display
+	class ZPosition
+	class func getGroundZPosition() -> Float
+	class func getUIPosition() -> Float
+Slide.swift
+	protocol SlideMenu
+	func show()
+	func hide()
+	class Slide : SKNode, SlideMenu
+	var root : SKReferenceNode?
+	var desiredPosition : CGPoint?
+	init(sceneName:String, scene:GameScene)
+	required init?(coder aDecoder: NSCoder)
+	func show()
+	func hide()
+	func initDecorations()
+	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+	func handleButtonPress(name:String, node:SKNode)
+	func getDesiredPosition(content:SKNode) -> (pos:CGPoint, offset:CGFloat)
+Render.swift
+	class RenderComponent : GKComponent
+	var node : SKSpriteNode
+	var lastPosition = CGPoint(x:0, y:0)
+	var lastHeading : Float = 0
+	init(image:String)
+	func loadShadow()
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func setDirectionToFace()
+	func updateZPosition()
+	func resetToBaseFrame()
+SquadFactory.swift
+	var squadIDCounter : Int = 0
+	class SquadFactory
+	static let sharedInstance = SquadFactory()
+	func createSquad(unit:String, count: Int, position:CGPoint, scene:GameScene, enemy:Bool = false, heading:Float? = nil, columns:Int = 3, spacing:Int = 48) -> Squad
+	func addUnit(unit:String, position:CGPoint, heading:Float?, isLeader:Bool) -> CharacterEntity
+SoundEffectsService.swift
+	var MASTER_SOUND_VOLUME : Int = 8
+	class SoundEffects
+	var ui = Dictionary<String, SKAction>()
+	var player : AVAudioPlayer?
+	class var sharedInstance: SoundEffects
+	struct Static
+	static var instance: SoundEffects?
+	static var token: dispatch_once_t = 0
+	init()
+	func setup()
+	func initUISounds()
+	func buildSoundAction(name:String) -> SKAction
+	func getSoundVolume() -> Float
+	func changeVolume(change:Int)
+Queue.swift
+	class QueueComponent : GKComponent
+	var queue = Array<Command>()
+	var currentCommand : Command? = nil
+	override init()
+	func getNextCommand() -> Command?
+	func emptyQueue()
+	func addCommand(command:Command)
+	func completeCommand()
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+Heraldry.swift
+	class HeraldryComponent : GKComponent, ButtonNodeResponder
+	var root : ButtonNode?
+	var maskedHealthBars = SKSpriteNode()
+	var touchCallback : ()->() = { }
+	func snapToLeadersPosition()
+	func moveToDesiredPositionWithBounds(desired:CGPoint, scene:GameScene)
+	func highlightCrest()
+	func unhighlightCrest()
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+MusicService.swift
+	var MASTER_MUSIC_VOLUME : Int = 4
+	class MusicService
+	var player : AVAudioPlayer?
+	var crossPlayer : AVAudioPlayer?
+	class var sharedInstance: MusicService
+	struct Static
+	static var instance: MusicService?
+	static var token: dispatch_once_t = 0
+	init()
+	func playBackgroundMusic(filename: String)
+	func changeVolume(change:Int)
+	func getSoundVolume() -> Float
+Wheel.swift
+	class WheelComponent : GKComponent
+	init(radius:Float, reform:Float)
+RangedAttackCommand.swift
+	class RangedAttackCommand : Command
+	var desiredPosition : CGPoint? = nil
+	var iconName = "UI_CampButton"
+	var iconDesc : String = "Attack"
+	let squad : Squad
+	var blocking : Bool = false
+	var completed : Bool = false
+	required init(squad:Squad)
+	func run()
+	func process(target: CGPoint)
+	func onFocus()
+	func onBlur()
+	func isAllowed() -> Bool
+	func markAsCompleted()
+PanGesture.swift
+	class PanGesture : UIPanGestureRecognizer
+	func handlePan(recognizer:UIPanGestureRecognizer, target:SKCameraNode)
+	func handlePanChanged(recognizer:UIPanGestureRecognizer, target:SKCameraNode)
+	func handlePanEnded(recognizer:UIPanGestureRecognizer, target:SKCameraNode)
+Animation.swift
+	struct Animation
+	var textures = Array<SKTexture>()
+	var rightAnchor = CGPoint(x: 0, y: 0)
+	var leftAnchor = CGPoint(x: 0, y: 0)
+	var speed : NSTimeInterval = 0.1
+	var shouldRepeat : Bool = true
+	enum AnimationState : Int
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	var key : String
+	class AnimaitonComponent : GKComponent
+	var animations = Dictionary<AnimationState, Animation>()
+	var requestedAnimation : AnimationState?
+	var currentAnimation : AnimationState?
+	override init()
+	func resolveRequestedAnimation()
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+float2+Extensions.swift
+	init(angle: Float)
+SceneObject.swift
+	enum SceneGroup : Int
+	case Main = 0, World, Battle, Misc
+	case Main = 0, World, Battle, Misc
+	case Main = 0, World, Battle, Misc
+	case Main = 0, World, Battle, Misc
+	init(classType:GameScene.Type, name:String, transition:SKTransition? = nil, preloadable:Bool = false, category:SceneGroup = SceneGroup.World)
+	var category : SceneGroup = SceneGroup.World
+	let baseSceneTransition = SKTransition.fadeWithDuration(1)
+Character.swift
+	class CharacterEntity : GKEntity, GKAgentDelegate
+	let identifier : String
+	var agent : CharacterAgent
+	var renderComponent : RenderComponent?
+	var movementComponent : MovementComponent?
+	var unitComponent : UnitComponent?
+	init(name:String)
+	func agentDidUpdate(_: GKAgent)
+	func agentWillUpdate(agent: GKAgent)
+Time.swift
+	class Time
+	class func delay(delay:Double, closure:()->())
+GameViewController.swift
+	class GameViewController: UIViewController
+	var sceneManager : SceneManager?
+	override func viewDidLoad()
+	override func shouldAutorotate() -> Bool
+	override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
+	override func didReceiveMemoryWarning()
+	override func prefersStatusBarHidden() -> Bool
+LevelScene.swift
+	class LevelScene : GameScene, SKPhysicsContactDelegate
+	var lastUpdateTimeInterval: NSTimeInterval = 0
+	let maximumUpdateDeltaTime: NSTimeInterval = 1.0 / 60.0
+	var entities = Array<GKEntity>()
+	var navmesh : GKObstacleGraph?
+	var actionBar : ActionBar?
+	var obstacleSpriteNodes : [SKSpriteNode]?
+	lazy var componentSystems: [GKComponentSystem] =
+	override func clickedOrTapped(location:CGPoint)
+Unit.swift
+	class UnitComponent : GKComponent
+	var squad : Squad?
+	var orderedPosition : CGPoint?
+	override init()
+Following.swift
+	class FollowingState: GKState
+	unowned var entity: CharacterEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: CharacterEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func getDesiredPosition() -> CGPoint?
+	func moveTowardsDesiredPosition(desired:CGPoint)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+Easing.swift
+	let M_PI_2_f = Float(M_PI_2)
+	let M_PI_f = Float(M_PI)
+	func dub(num:Float)->Float
+	func sinFloat(num:Float)->Float
+	func LinearInterpolation(p:Float)->Float
+	func  QuadraticEaseIn(p:Float)->Float
+	func QuadraticEaseOut(p:Float)->Float
+	func QuadraticEaseInOut(p:Float)->Float
+	func CubicEaseIn(p:Float)->Float
+	func CubicEaseOut(p:Float)->Float
+	func CubicEaseInOut(p:Float)->Float
+	func QuarticEaseIn(p:Float)->Float
+	func QuarticEaseOut(p:Float)->Float
+	func QuarticEaseInOut(p:Float)->Float
+	func QuinticEaseIn(p:Float)->Float
+	func QuinticEaseOut(p:Float)->Float
+	func QuinticEaseInOut(p:Float)->Float
+	func SineEaseIn(p:Float)->Float
+	func SineEaseOut(p:Float)->Float
+	func SineEaseInOut(p:Float)->Float
+	func CircularEaseIn(p:Float)->Float
+	func CircularEaseOut(p:Float)->Float
+	func CircularEaseInOut(p:Float)->Float
+	func ExponentialEaseIn(p:Float)->Float
+	func ExponentialEaseOut(p:Float)->Float
+	func ExponentialEaseInOut(p:Float)->Float
+	func ElasticEaseIn(p:Float)->Float
+	func ElasticEaseOut(p:Float)->Float
+	func ElasticEaseInOut(p:Float)->Float
+	func BackEaseIn(p:Float)->Float
+	func BackEaseOut(p:Float)->Float
+	func BackEaseInOut(p:Float)->Float
+	func BounceEaseIn(p:Float)->Float
+	func BounceEaseOut(p:Float)->Float
+	func BounceEaseInOut(p:Float)->Float
+CharacterFactory.swift
+	class CharacterFactory
+	static let sharedInstance = CharacterFactory()
+	private init()
+	func createCharacter(name:String, leader:Bool = false) -> CharacterEntity?
+	func loadPListData(name:String) -> NSDictionary
+	func loadAllAnimations(character:CharacterEntity,  data:NSDictionary, name:String) -> CharacterEntity
+	func loadAnimation(animationName:String, name:String, data:NSDictionary) -> Animation
+Intelligence.swift
+	class IntelligenceComponent: GKComponent
+	let stateMachine: GKStateMachine
+	let initialStateClass: AnyClass
+	init(states: [GKState])
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func enterInitialState()
+ActionBar.swift
+	var root : SKNode?
+	init()
+	required init?(coder aDecoder: NSCoder)
+	func loadSelectedSquad(squad:Squad)
+	func addMaskForSelectedSquad(squad:Squad)
+	func hide()
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+Graphics.swift
+	class Graphics
+	class func imageFadeOutAndRemove(img:SKNode, duration:NSTimeInterval)
+	class func pulseBlendFactor(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKSpriteNode)
+	class func pulseAlpha(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKNode)
+	class func pulseScale(min:CGFloat, max:CGFloat, maxDelay:CGFloat, node:SKNode)
+	class func pulseScale(min:CGFloat, max:CGFloat, delay:CGFloat, node:SKNode)
+	class func loadFramesFromAtlas(atlasNamed:String, baseFileName:String, numberOfFrames:Int) -> Array<SKTexture>
+	class func loadFramesFromAtlas(atlas:SKTextureAtlas, baseFileName:String, numberOfFrames:Int) -> Array<SKTexture>
+	class func getRightBound(sceneWidth:CGFloat = 2730) -> CGFloat
+CharacterAgent.swift
+	class CharacterAgent : GKAgent2D
+	var actualPosition = CGPoint(x:0, y:0)
+	var actualHeading : Float = 0
+	override init()
+	func setHeading(rotation:Float)
+	func setPos(position:CGPoint)
+Squad.swift
+	class Squad : GKEntity
+	var actions = Array<Command>()
+	init(id:String, columns:Int, maxUnits:Int, spacing:Int = 48)
+	func getLeader() -> CharacterEntity?
+	func == (lh: Squad, rh: Squad) -> Bool
+Movement.swift
+	enum MovementType : Int
+	case Towards = 0, Teleport, Path
+	case Towards = 0, Teleport, Path
+	case Towards = 0, Teleport, Path
+	struct MoveInstructions
+	let targetPosition : CGPoint?
+	let targetPath : GKPath?
+	let type : MovementType
+	var callback : ()->() = {}
+	var trackingAgent : GKAgent2D?
+	init(position:CGPoint? = nil, path:GKPath? = nil, type:MovementType)
+	class MovementComponent : GKComponent
+	var nextMove : MoveInstructions?
+	override init()
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func cancelExistingMove()
+	func moveTowardsPoint(move:MoveInstructions)
+	func followPath(move:MoveInstructions)
+Formation.swift
+	class FormationComponent : GKComponent
+	init(columns:Int, maxUnits:Int, spacing:Int)
+	func getVectorAtPosition(position:Int) -> float2
+	func buildPositions(maxUnits:Int, spacing:Int)
+	func addRow(depthX:Int, leftSpots:Int, rightSpots:Int, spacing:Int)
+CommandProtocol.swift
+	let commandMap : Dictionary<String, Command.Type> = [
+	protocol Command
+	init(squad:Squad)
+	var blocking : Bool { get set }
+	var completed : Bool { get set }
+	var iconName : String { get set }
+	var iconDesc : String { get set }
+	func process(target:CGPoint)
+	func run()
+	func onFocus()
+	func onBlur()
+	func markAsCompleted()
+	func isAllowed() -> Bool
+SceneManager.swift
+	class SceneManager : GameSceneDelegate
+	let view : SKView
+	let loadingScene : SKScene
+	var currentScene : SceneObject?
+	init(view:SKView)
+	func presentScene(scene:SKScene, sceneObj:SceneObject?)
+	func sceneDidFinish(nextScene:SceneObject)
+	func clearSceneCacheIfNecessary(sceneObj:SceneObject) -> Bool
+	func preloadRelatedScenesInBackground(sceneObj:SceneObject)
+DebugFlags.swift
+	enum Debug : Int
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions
+	var enabled : Bool
+	class DebugOverlay
+	class func drawNavmesh(scene:LevelScene)
+	class func drawPoints(points:Array<CGPoint>, scene:LevelScene)
+Reforming.swift
+	class ReformingState: GKState
+	unowned var entity: CharacterEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: CharacterEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func getDesiredPosition() -> CGPoint?
+	func moveTowardsDesiredPosition(desired:CGPoint)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+OffscreenIndicatorService.swift
+	struct AnchorPoint
+	let point : CGFloat
+	var occupied : Bool
+	let side : Int
+	class OffscreenIndicatorService
+	let screenSize = CGSize(width: 2048, height: 1536)
+	var anchorPoints : Array<AnchorPoint> = []
+	class var sharedInstance: OffscreenIndicatorService
+	struct Static
+	static var instance: OffscreenIndicatorService?
+	static var token: dispatch_once_t = 0
+	func initAnchorPoints()
+	func getIntersectingSideOfScene(var position:CGPoint, node:SKSpriteNode, scene:GameScene) -> (CGPoint, Int)
+	func pointsIntersect(a1:CGPoint, a2:CGPoint, b1:CGPoint, b2:CGPoint) -> CGPoint
+MoveCommand.swift
+	class MoveCommand : Command
+	var desiredPosition : CGPoint? = nil
+	var iconName = "UI_MapButton"
+	var iconDesc : String = "Move"
+	let squad : Squad
+	var blocking : Bool = false
+	var completed : Bool = false
+	required init(squad:Squad)
+	func run()
+	func process(target: CGPoint)
+	func onFocus()
+	func onBlur()
+	func isAllowed() -> Bool
+	func markAsCompleted()
+ButtonNode.swift
+	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+	class ButtonNode : SKNode
+	var responder : ButtonNodeResponder?
+	init(responder:ButtonNodeResponder)
+	override init()
+	func setResponder(responder:ButtonNodeResponder)
+	required init?(coder aDecoder: NSCoder)
+	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+Forest.swift
+	class Forest : LevelScene
+	override func didMoveToView(view: SKView)
+	func addSquad(name:String, count:Int, columns:Int, position:CGPoint)
+	override func clickedOrTapped(location: CGPoint)
+	override class func loadSceneAssetsWithCompletionHandler(handler:()->())
+Leading.swift
+	class LeadingState: GKState
+	unowned var entity: CharacterEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: CharacterEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+	func handleCommand(nextCommand:Command)
+Settings.swift
+	class SettingsButton : ButtonNode, ButtonNodeResponder
+	override init()
+	required init?(coder aDecoder: NSCoder)
+	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+	class Settings : Slide
+	init(scene:GameScene)
+	required init?(coder aDecoder: NSCoder)
+	override func hide()
+	func resumeButtonTapped()
+	func quitButtonTapped()
+	func soundDownButtonTapped()
+	func soundUpButtonTapped()
+	func updateSoundLabel()
+	func musicDownButtonTapped()
+	func musicUpButtonTapped()
+	func updateMusicLabel()
+	override func handleButtonPress(name: String, node: SKNode)
+CGPath+Extensions.swift
+	class func lineToPoint(start:CGPoint, end:CGPoint) -> CGMutablePathRef
+	class func arcToPoint(start:CGPoint, end:CGPoint, next:CGPoint?) -> CGMutablePathRef
+	class func evenCurveToPoint(start:CGPoint, end:CGPoint, lift:CGFloat) -> CGMutablePathRef
+AppDelegate.swift
+	class AppDelegate: UIResponder, UIApplicationDelegate
+	var window: UIWindow?
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+	func applicationWillResignActive(application: UIApplication)
+	func applicationDidEnterBackground(application: UIApplication)
+	func applicationWillEnterForeground(application: UIApplication)
+	func applicationDidBecomeActive(application: UIApplication)
+	func applicationWillTerminate(application: UIApplication)
+CatchingUp.swift
+	class CatchingUpState: GKState
+	unowned var entity: CharacterEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: CharacterEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func getDesiredPosition() -> CGPoint?
+	func moveTowardsDesiredPosition(desired:CGPoint)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
