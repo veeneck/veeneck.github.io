@@ -115,7 +115,7 @@ One of the two is needed for containsPoint. Neither would be needed if SKPhysics
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize a MeshObstacle clockwise along the points.</p>
+                        <p>Initialize a MeshObstacle clockwise along the points. Must be manually added to the scene for physics to work.</p>
 
                       </div>
                       <div class="declaration">
@@ -123,6 +123,44 @@ One of the two is needed for containsPoint. Neither would be needed if SKPhysics
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">points</span><span class="p">:[</span><span class="kt">CGPoint</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Interacting%20with%20a%20MeshObstacle"></a>
+                  <a name="//apple_ref/swift/Section/Interacting with a MeshObstacle" class="dashAnchor"></a>
+                  <a href="#/Interacting%20with%20a%20MeshObstacle">
+                    <h3 class="section-name">Interacting with a MeshObstacle</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe12MeshObstacle13containsPointFS0_FVSC7CGPointSb"></a>
+                    <a name="//apple_ref/swift/Method/containsPoint(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe12MeshObstacle13containsPointFS0_FVSC7CGPointSb">containsPoint(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Overrides SKNode to implement containsPoint off of the polygon contained in the local SKRegion.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">containsPoint</span><span class="p">(</span><span class="nv">p</span><span class="p">:</span> <span class="kt">CGPoint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
