@@ -18,6 +18,9 @@ GameScene.swift
 	class GameScene : SKScene
 Leader.swift
 	class LeaderEntity : CharacterEntity
+PhysicsHandler.swift
+	enum ColliderType: UInt32
+	class PhysicsHandler
 ZPosition.swift
 	enum PositionCategory : Float
 	class ZPosition
@@ -60,6 +63,8 @@ Character.swift
 	class CharacterEntity : GKEntity, GKAgentDelegate
 Time.swift
 	class Time
+Navmesh.swift
+	init(obstacles:[MeshObstacle])
 MeshObstacle.swift
 	required init?(coder aDecoder: NSCoder)
 GameViewController.swift
@@ -152,6 +157,8 @@ ButtonNode.swift
 	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
 	class ButtonNode : SKNode
+SKCameraNode+Extensions.swift
+	func panToPoint(point:CGPoint)
 Forest.swift
 	class Forest : LevelScene
 Leading.swift
