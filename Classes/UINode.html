@@ -13,7 +13,7 @@
     <a title="UINode Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">WithWarWoe Docs</a> (41% documented)</p>
+        <p><a href="../index.html">WithWarWoe Docs</a> (42% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -59,6 +59,37 @@ for the scene so that every child of UINode will remain in view.</p>
 
           </section>
           <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14With_War___Woe6UINode12anchorPointsGSaVS_13UIAnchorPoint_"></a>
+                    <a name="//apple_ref/swift/Property/anchorPoints" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe6UINode12anchorPointsGSaVS_13UIAnchorPoint_">anchorPoints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stores the anchor points when in use</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">anchorPoints</span> <span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UIAnchorPoint</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
                 <div class="task-name-container">
                   <a name="/Initializing%20a%20UINode"></a>
@@ -128,6 +159,72 @@ with a scene you will be given a settings button, etc constructed for you</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">func</span> <span class="nf">addSettingsButton</span><span class="p">(</span><span class="nv">scene</span><span class="p">:</span><span class="kt">GameScene</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Working%20with%20Anchor%20Points"></a>
+                  <a name="//apple_ref/swift/Section/Working with Anchor Points" class="dashAnchor"></a>
+                  <a href="#/Working%20with%20Anchor%20Points">
+                    <h3 class="section-name">Working with Anchor Points</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode16initAnchorPointsFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/initAnchorPoints()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode16initAnchorPointsFS0_FT_T_">initAnchorPoints()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Based on the scene size, anchor points will be created 120px apart.
+No two nodes can occupy an anchor point at any given time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">initAnchorPoints</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode17debugAnchorPointsFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/debugAnchorPoints()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode17debugAnchorPointsFS0_FT_T_">debugAnchorPoints()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Place a dot on each anchor point. Does not live update to show which are occupied in real time.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">debugAnchorPoints</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
