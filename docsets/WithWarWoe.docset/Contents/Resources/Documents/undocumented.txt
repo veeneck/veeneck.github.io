@@ -128,6 +128,11 @@ Graphics.swift
 	class Graphics
 CharacterAgent.swift
 	class CharacterAgent : GKAgent2D
+CGRect+Extensions.swift
+	case Left = 1, Top = 2, Right = 3, Bottom = 4
+	case Left = 1, Top = 2, Right = 3, Bottom = 4
+	case Left = 1, Top = 2, Right = 3, Bottom = 4
+	case Left = 1, Top = 2, Right = 3, Bottom = 4
 Squad.swift
 	class Squad : GKEntity
 	func == (lh: Squad, rh: Squad) -> Bool
@@ -147,9 +152,6 @@ DebugFlags.swift
 	class DebugOverlay
 Reforming.swift
 	class ReformingState: GKState
-OffscreenIndicatorService.swift
-	struct AnchorPoint
-	class OffscreenIndicatorService
 MoveCommand.swift
 	class MoveCommand : Command
 ButtonNode.swift
@@ -157,8 +159,6 @@ ButtonNode.swift
 	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
 	class ButtonNode : SKNode
-SKCameraNode+Extensions.swift
-	func panToPoint(point:CGPoint)
 Forest.swift
 	class Forest : LevelScene
 Leading.swift

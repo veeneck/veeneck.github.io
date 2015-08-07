@@ -13,7 +13,7 @@
     <a title="UINode Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">WithWarWoe Docs</a> (42% documented)</p>
+        <p><a href="../index.html">WithWarWoe Docs</a> (44% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -46,6 +46,17 @@
                 <a href="/Classes/MeshObstacle.html"> MeshObstacle </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-group-name">
+              <a href="">Extensions</a>
+              <ul class="nav-group-tasks">
+                  <li class="nav-group-task">
+                      <a href="/Classes/CGRect.html"> CGRect </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/SKCameraNode.html"> SKCameraNode </a>
+                  </li>
+              </ul>
           </li>
         </ul>
       </nav>
@@ -82,6 +93,33 @@ for the scene so that every child of UINode will remain in view.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">var</span> <span class="nv">anchorPoints</span> <span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">UIAnchorPoint</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14With_War___Woe6UINode8viewportGSQVSC6CGSize_"></a>
+                    <a name="//apple_ref/swift/Property/viewport" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe6UINode8viewportGSQVSC6CGSize_">viewport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Size of the UINode minus overlays like action bar set when initDefaults is called.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">viewport</span> <span class="p">:</span> <span class="kt">CGSize</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -207,6 +245,194 @@ No two nodes can occupy an anchor point at any given time.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC14With_War___Woe6UINode17anchorIsNecessaryFS0_FTVSC7CGPoint4nodeCSo12SKSpriteNode_GSqS1__"></a>
+                    <a name="//apple_ref/swift/Method/anchorIsNecessary(_:node:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode17anchorIsNecessaryFS0_FTVSC7CGPoint4nodeCSo12SKSpriteNode_GSqS1__">anchorIsNecessary(_:node:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Any object that wants to anchor itself when offscreen can call this function. This is the main entry point for anchors.
+-parameter desired: The intended offscreen position of the node provided in the UINode coordinate system</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">anchorIsNecessary</span><span class="p">(</span><span class="nv">desired</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span><span class="kt">SKSpriteNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode19occupyClosestAnchorFS0_FTVSC7CGPoint4nodeCSo6SKNode4sideOS_10CGRectSide_GSqS1__"></a>
+                    <a name="//apple_ref/swift/Method/occupyClosestAnchor(_:node:side:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode19occupyClosestAnchorFS0_FTVSC7CGPoint4nodeCSo6SKNode4sideOS_10CGRectSide_GSqS1__">occupyClosestAnchor(_:node:side:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Given a properly intiialized node that has userData[<q>anchorIndex</q>] set
+and a target position for the node, we can find that correct anchor and lock the node to it
+Returns Bool so that caller can run additional code when the lock is successful</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">occupyClosestAnchor</span><span class="p">(</span><span class="nv">position</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span><span class="kt">SKNode</span><span class="p">,</span> <span class="nv">side</span><span class="p">:</span><span class="kt">CGRectSide</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGPoint</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode22findClosestAnchorPointFS0_FTVSC7CGPoint4sideOS_10CGRectSide_GSqSi_"></a>
+                    <a name="//apple_ref/swift/Method/findClosestAnchorPoint(_:side:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode22findClosestAnchorPointFS0_FTVSC7CGPoint4sideOS_10CGRectSide_GSqSi_">findClosestAnchorPoint(_:side:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loop through anchor points and find closest unoccupied point to desired position</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">findClosestAnchorPoint</span><span class="p">(</span><span class="nv">position</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">side</span><span class="p">:</span><span class="kt">CGRectSide</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode14unoccupyAnchorFS0_FSiT_"></a>
+                    <a name="//apple_ref/swift/Method/unoccupyAnchor(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode14unoccupyAnchorFS0_FSiT_">unoccupyAnchor(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear occupied point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">unoccupyAnchor</span><span class="p">(</span><span class="nv">pos</span><span class="p">:</span><span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Geometry%20Helpers"></a>
+                  <a name="//apple_ref/swift/Section/Geometry Helpers" class="dashAnchor"></a>
+                  <a href="#/Geometry%20Helpers">
+                    <h3 class="section-name">Geometry Helpers</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode8containsFS0_FVSC6CGRectSb"></a>
+                    <a name="//apple_ref/swift/Method/contains(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode8containsFS0_FVSC6CGRectSb">contains(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Modifies CGRect.contains(), which checks union between two rectangles and returns true if the union the size of the larger rect</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">contains</span><span class="p">(</span><span class="nv">rect</span><span class="p">:</span><span class="kt">CGRect</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode29offscreenViewportIntersectionFS0_FVSC7CGPointGSqT12intersectionS1_4sideOS_10CGRectSide__"></a>
+                    <a name="//apple_ref/swift/Method/offscreenViewportIntersection(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode29offscreenViewportIntersectionFS0_FVSC7CGPointGSqT12intersectionS1_4sideOS_10CGRectSide__">offscreenViewportIntersection(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Given a point outside of the viewport, this will return the intersecting point of the supplied point and the center of the viewport.
+The side is also returned as a convenience</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">offscreenViewportIntersection</span><span class="p">(</span><span class="nv">offscreenPoint</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">intersection</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">side</span><span class="p">:</span><span class="kt">CGRectSide</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Debugging%20Utilities"></a>
+                  <a name="//apple_ref/swift/Section/Debugging Utilities" class="dashAnchor"></a>
+                  <a href="#/Debugging%20Utilities">
+                    <h3 class="section-name">Debugging Utilities</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC14With_War___Woe6UINode17debugAnchorPointsFS0_FT_T_"></a>
                     <a name="//apple_ref/swift/Method/debugAnchorPoints()" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC14With_War___Woe6UINode17debugAnchorPointsFS0_FT_T_">debugAnchorPoints()</a>
@@ -231,12 +457,39 @@ No two nodes can occupy an anchor point at any given time.</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe6UINode13debugViewportFS0_FCS_9GameSceneT_"></a>
+                    <a name="//apple_ref/swift/Method/debugViewport(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe6UINode13debugViewportFS0_FCS_9GameSceneT_">debugViewport(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Place a square on the screen representing the viewport of this node</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">debugViewport</span><span class="p">(</span><span class="nv">scene</span><span class="p">:</span><span class="kt">GameScene</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-06)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-07)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
