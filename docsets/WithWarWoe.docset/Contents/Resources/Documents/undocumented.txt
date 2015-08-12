@@ -16,6 +16,8 @@ GameScene.swift
 	protocol GameSceneDelegate
 	enum WorldLayer : Int
 	class GameScene : SKScene
+Battle.swift
+	class BattleComponent : GKComponent
 Leader.swift
 	class LeaderEntity : CharacterEntity
 PhysicsHandler.swift
@@ -35,6 +37,9 @@ SquadFactory.swift
 SoundEffectsService.swift
 	var MASTER_SOUND_VOLUME : Int = 8
 	class SoundEffects
+Engaging.swift
+	var engageID = 0
+	class EngagingState: GKState
 Queue.swift
 	class QueueComponent : GKComponent
 Heraldry.swift
@@ -42,6 +47,8 @@ Heraldry.swift
 MusicService.swift
 	var MASTER_MUSIC_VOLUME : Int = 4
 	class MusicService
+Combat.swift
+	class CombatComponent : GKComponent
 Wheel.swift
 	class WheelComponent : GKComponent
 RangedAttackCommand.swift
@@ -63,10 +70,6 @@ Character.swift
 	class CharacterEntity : GKEntity, GKAgentDelegate
 Time.swift
 	class Time
-Navmesh.swift
-	init(obstacles:[MeshObstacle])
-MeshObstacle.swift
-	required init?(coder aDecoder: NSCoder)
 GameViewController.swift
 	class GameViewController: UIViewController
 LevelScene.swift
@@ -160,6 +163,8 @@ ButtonNode.swift
 	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
 	class ButtonNode : SKNode
 Forest.swift
+	var squad1 : Squad?
+	var squad2 : Squad?
 	class Forest : LevelScene
 Leading.swift
 	class LeadingState: GKState
