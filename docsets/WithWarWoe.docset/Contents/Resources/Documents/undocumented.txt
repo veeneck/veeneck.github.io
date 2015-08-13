@@ -27,9 +27,6 @@ ZPosition.swift
 Slide.swift
 	protocol SlideMenu
 	class Slide : SKNode, SlideMenu
-Render.swift
-	func setDirectionToFace()
-	func resetToBaseFrame()
 SquadFactory.swift
 	var squadIDCounter : Int = 0
 	class SquadFactory
