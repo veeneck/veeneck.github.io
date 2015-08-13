@@ -4,8 +4,6 @@ AttackCommand.swift
 	class AttackCommand : Command
 Follower.swift
 	class FollowerEntity : CharacterEntity
-PathfindingService.swift
-	class PathfindingService
 Idle.swift
 	class IdleState: GKState
 ReformService.swift
@@ -70,6 +68,8 @@ Character.swift
 	class CharacterEntity : GKEntity, GKAgentDelegate
 Time.swift
 	class Time
+Navmesh.swift
+	var meshObstacles = [MeshObstacle]()
 GameViewController.swift
 	class GameViewController: UIViewController
 LevelScene.swift
