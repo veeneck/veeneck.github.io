@@ -12,7 +12,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">WithWarWoe Docs</a> (47% documented)</p>
+        <p><a href="index.html">WithWarWoe Docs</a> (50% documented)</p>
         <p class="header-right"><a href=""><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -32,6 +32,17 @@
               <ul class="nav-group-tasks">
                   <li class="nav-group-task">
                       <a href="/Classes/UINode.html"> UINode </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/EntitySpriteNode.html"> EntitySpriteNode </a>
+                  </li>
+              </ul>
+          </li>
+          <li class="nav-group-name">
+              <a href="">Components</a>
+              <ul class="nav-group-tasks">
+                  <li class="nav-group-task">
+                      <a href="/Classes/RenderComponent.html"> Render </a>
                   </li>
               </ul>
           </li>
@@ -93,6 +104,39 @@ for Navmesh decisions.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MeshObstacle</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C14With_War___Woe15RenderComponent"></a>
+                    <a name="//apple_ref/swift/Class/RenderComponent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C14With_War___Woe15RenderComponent">RenderComponent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Controls the base visual display of an entity. This includes the sprite itself, along with updates to make sure the sprite is
+facing the proper direction and has the correct zPosition.</p>
+
+                        <a href="Classes/RenderComponent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">RenderComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
 
                         </div>
                       </div>
@@ -199,6 +243,39 @@ closest point on the graph.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ActionBar</span> <span class="p">:</span> <span class="kt">SKReferenceNode</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C14With_War___Woe16EntitySpriteNode"></a>
+                    <a name="//apple_ref/swift/Class/EntitySpriteNode" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C14With_War___Woe16EntitySpriteNode">EntitySpriteNode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Spritekit physcis contacts only contain informaiton about the node in contact, and not the entity. Because of this, we need this empty class to store the node / entity
+relationship. Then during a physcis event, the entity can be looked up, and the proper component can be called.</p>
+
+                        <a href="Classes/EntitySpriteNode.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">EntitySpriteNode</span> <span class="p">:</span> <span class="kt">SKSpriteNode</span></code></pre>
 
                         </div>
                       </div>

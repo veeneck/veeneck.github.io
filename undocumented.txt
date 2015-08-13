@@ -28,7 +28,8 @@ Slide.swift
 	protocol SlideMenu
 	class Slide : SKNode, SlideMenu
 Render.swift
-	class RenderComponent : GKComponent
+	func setDirectionToFace()
+	func resetToBaseFrame()
 SquadFactory.swift
 	var squadIDCounter : Int = 0
 	class SquadFactory
