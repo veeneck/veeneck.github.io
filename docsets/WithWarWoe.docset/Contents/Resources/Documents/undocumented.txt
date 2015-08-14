@@ -19,8 +19,8 @@ Battle.swift
 Leader.swift
 	class LeaderEntity : CharacterEntity
 PhysicsHandler.swift
+	protocol ContactNotifiableType
 	enum ColliderType: UInt32
-	class PhysicsHandler
 ZPosition.swift
 	enum PositionCategory : Float
 	class ZPosition
@@ -63,7 +63,17 @@ SceneObject.swift
 	var category : SceneGroup = SceneGroup.World
 	let baseSceneTransition = SKTransition.fadeWithDuration(1)
 Character.swift
-	class CharacterEntity : GKEntity, GKAgentDelegate
+	let identifier : String
+	var agent : CharacterAgent
+	var renderComponent : RenderComponent?
+	var movementComponent : MovementComponent?
+	var unitComponent : UnitComponent?
+	func agentDidUpdate(_: GKAgent)
+	func agentWillUpdate(agent: GKAgent)
+	func contactWithEntityDidBegin(entity: GKEntity)
+	func contactWithEntityDidEnd(entity: GKEntity)
+	func contactWithNodeDidBegin(node: SKNode)
+	func contactWithNodeDidEnd(node: SKNode)
 Time.swift
 	class Time
 Navmesh.swift

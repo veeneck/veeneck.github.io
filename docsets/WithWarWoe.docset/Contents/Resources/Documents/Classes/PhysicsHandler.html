@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>EntitySpriteNode Class Reference</title>
+    <title>PhysicsHandler Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/EntitySpriteNode" class="dashAnchor"></a>
-    <a title="EntitySpriteNode Class Reference"></a>
+    <a name="//apple_ref/swift/Class/PhysicsHandler" class="dashAnchor"></a>
+    <a title="PhysicsHandler Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">WithWarWoe Docs</a> (49% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">WithWarWoe Reference</a>
         <img id="carat" src="../img/carat.png" />
-        EntitySpriteNode Class Reference
+        PhysicsHandler Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -82,9 +82,9 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>EntitySpriteNode</h1>
-            <p>Spritekit physcis contacts only contain informaiton about the node in contact, and not the entity. Because of this, we need this empty class to store the node / entity
-relationship. Then during a physcis event, the entity can be looked up, and the proper component can be called.</p>
+            <h1>PhysicsHandler</h1>
+            <p>Convenience handler for physcis. While scenes are still the physcis delegates (which allows each scene to control individual physcis settings),
+they can just call this directly.</p>
 
           </section>
           <section class="section task-group-section">
@@ -93,9 +93,9 @@ relationship. Then during a physcis event, the entity can be looked up, and the 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC14With_War___Woe16EntitySpriteNode6entityGSqCS_15CharacterEntity_"></a>
-                    <a name="//apple_ref/swift/Property/entity" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC14With_War___Woe16EntitySpriteNode6entityGSqCS_15CharacterEntity_">entity</a>
+                    <a name="/s:ZFC14With_War___Woe14PhysicsHandler15didBeginContactFMS0_FCSo16SKPhysicsContactT_"></a>
+                    <a name="//apple_ref/swift/Method/didBeginContact(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC14With_War___Woe14PhysicsHandler15didBeginContactFMS0_FCSo16SKPhysicsContactT_">didBeginContact(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -103,41 +103,15 @@ relationship. Then during a physcis event, the entity can be looked up, and the 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Character entity related to this sprite</p>
+                        <p>Will route any contact between a node and entity on either side of the event to trigger the notification.
+Only ContactNotifableType objects will be called.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">entity</span> <span class="p">:</span> <span class="kt">CharacterEntity</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC14With_War___Woe16EntitySpriteNode18setCharacterEntityFS0_FCS_15CharacterEntityT_"></a>
-                    <a name="//apple_ref/swift/Method/setCharacterEntity(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe16EntitySpriteNode18setCharacterEntityFS0_FCS_15CharacterEntityT_">setCharacterEntity(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Set the character entity for this sprite node. Required for physcis to work properly</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setCharacterEntity</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">didBeginContact</span><span class="p">(</span><span class="nv">contact</span><span class="p">:</span> <span class="kt">SKPhysicsContact</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
