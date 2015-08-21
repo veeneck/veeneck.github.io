@@ -102,6 +102,7 @@ LevelScene.swift
 Unit.swift
 	class UnitComponent : GKComponent
 Following.swift
+	enum Following : CGFloat
 	class FollowingState: GKState
 Easing.swift
 	let M_PI_2_f = Float(M_PI_2)

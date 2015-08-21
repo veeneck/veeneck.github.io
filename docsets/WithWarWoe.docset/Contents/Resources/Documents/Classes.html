@@ -378,14 +378,14 @@ closest point on the graph.</p>
                         <p>The state machine for a CharacterEntity. The various states and their intentions are:</p>
 
 <ul>
-<li><p>Idle: Use minimal resources. Unit will only leave this if their leader is moving, or during a 3 second check. Last scenarion would
+<li><p><strong>Idle</strong>: Use minimal resources. Unit will only leave this if their leader is moving, or during a 3 second check. Last scenarion would
     be during an external command like attack in which case another piece of code would force the unit out of this state.</p></li>
-<li><p>Leading: The squad handles the logic for most orders, but one of the units has to be the dummy leader. The leader moves to this state. Leaders have slightly different checks. For example, when moving to a point
+<li><p><strong>Leading</strong>: The squad handles the logic for most orders, but one of the units has to be the dummy leader. The leader moves to this state. Leaders have slightly different checks. For example, when moving to a point
         the leader will follow a path while the followers seek an agent. So for group based actions, Leading is the state for leaders. During an individual action like attacking, all units will behave the same.</p></li>
-<li><p>Following: Main goal is to reach the orderedPosition of the UnitComponent. Runs logic checks to see if the unit is stuck or blocked, and moves / changes accordingly.</p></li>
-<li><p>Blocked: When the leader / squad orders a unit to an invalid position (i.e.: on a physics object) the unit will transfer to blocked state and decide what to do. Options are to wait, go back to idle if leader isn&rsquo;t moving, 
+<li><p><strong>Following</strong>: Main goal is to reach the orderedPosition of the UnitComponent. Runs logic checks to see if the unit is stuck or blocked, and moves / changes accordingly.</p></li>
+<li><p><strong>Blocked</strong>: When the leader / squad orders a unit to an invalid position (i.e.: on a physics object) the unit will transfer to blocked state and decide what to do. Options are to wait, go back to idle if leader isn&rsquo;t moving,
         use steering to stay close by, etc.</p></li>
-<li><p>Catching Up: When a unit may be stuck this state is triggered. Stuck can be distance, or contact woth an environment object. When catching up, unit will use actual pathfinding and navmesh to find its way back.
+<li><p><strong>Catching Up</strong>: When a unit may be stuck this state is triggered. Stuck can be distance, or contact woth an environment object. When catching up, unit will use actual pathfinding and navmesh to find its way back.
             This is resource intensive, so only used for edge case scenarios.</p></li>
 </ul>
 
