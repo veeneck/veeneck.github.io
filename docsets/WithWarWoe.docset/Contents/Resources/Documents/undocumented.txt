@@ -4,10 +4,17 @@ AttackCommand.swift
 	class AttackCommand : Command
 Follower.swift
 	class FollowerEntity : CharacterEntity
+Moving.swift
+	class MovingState: GKState
 Idle.swift
-	class IdleState: GKState
-ReformService.swift
-	class ReformService
+	unowned var entity: CharacterEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: CharacterEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+GroupIntelligence.swift
+	class GroupIntelligenceComponent: GKComponent
 String+Extensions.swift
 	func replace(target: String, withString: String) -> String
 GameScene.swift
@@ -18,9 +25,19 @@ Battle.swift
 	class BattleComponent : GKComponent
 Leader.swift
 	class LeaderEntity : CharacterEntity
+Blocked.swift
+	class BlockedState: GKState
+Physics.swift
+	case Ground = 0, GroundLeader, Flying, Invisible
+	case Ground = 0, GroundLeader, Flying, Invisible
+	case Ground = 0, GroundLeader, Flying, Invisible
+	case Ground = 0, GroundLeader, Flying, Invisible
+	func contactWithEnvironmentEnded(node:SKNode)
+	func contactWithUnitEnded(entity:CharacterEntity)
 PhysicsHandler.swift
 	protocol ContactNotifiableType
 	enum ColliderType: UInt32
+	class func didEndContact(contact: SKPhysicsContact)
 ZPosition.swift
 	enum PositionCategory : Float
 	class ZPosition
@@ -122,21 +139,31 @@ Easing.swift
 	func BounceEaseIn(p:Float)->Float
 	func BounceEaseOut(p:Float)->Float
 	func BounceEaseInOut(p:Float)->Float
+Thinking.swift
+	class ThinkingState: GKState
 CharacterFactory.swift
 	class CharacterFactory
 Intelligence.swift
-	class IntelligenceComponent: GKComponent
+	let stateMachine: GKStateMachine
+	let initialStateClass: AnyClass
+	init(states: [GKState])
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func enterInitialState()
 ActionBar.swift
 	var root : SKNode?
+	var testRecognizer : UILongPressGestureRecognizer?
 	init()
 	required init?(coder aDecoder: NSCoder)
 	func loadSelectedSquad(squad:Squad)
 	func addMaskForSelectedSquad(squad:Squad)
 	func hide()
+	func detectLong(recognizer:UILongPressGestureRecognizer)
 	override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
 	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
 Graphics.swift
 	class Graphics
+CharacterGoals.swift
+	class CharacterGoals
 CharacterAgent.swift
 	class CharacterAgent : GKAgent2D
 CGRect+Extensions.swift

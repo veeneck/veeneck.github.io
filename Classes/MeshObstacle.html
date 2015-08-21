@@ -45,6 +45,12 @@
                   <li class="nav-group-task">
                       <a href="/Classes/RenderComponent.html"> Render </a>
                   </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/PhysicsComponent.html"> Physics </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/IntelligenceComponent.html"> Intelligence </a>
+                  </li>
               </ul>
           </li>
           <li class="nav-group-name">
@@ -139,6 +145,33 @@ for Navmesh decisions.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="k">let</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">CGPath</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14With_War___Woe12MeshObstacle12bufferedPathCSo6CGPath"></a>
+                    <a name="//apple_ref/swift/Property/bufferedPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe12MeshObstacle12bufferedPathCSo6CGPath">bufferedPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Path with buffer applied</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">bufferedPath</span><span class="p">:</span> <span class="kt">CGPath</span></code></pre>
 
                         </div>
                       </div>
@@ -255,6 +288,33 @@ read from a plist file and finally initalized here.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:FC14With_War___Woe12MeshObstacle21containsPointInBufferFS0_FVSC7CGPointSb"></a>
+                    <a name="//apple_ref/swift/Method/containsPointInBuffer(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe12MeshObstacle21containsPointInBufferFS0_FVSC7CGPointSb">containsPointInBuffer(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Used to check if the current unit / hit check is already within the buffered polygon. Coordinates are based on World layer</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">containsPointInBuffer</span><span class="p">(</span><span class="nv">point</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:FC14With_War___Woe12MeshObstacle18closestSideToPointFS0_FV4simd6float2T5startS2_3endS2__"></a>
                     <a name="//apple_ref/swift/Method/closestSideToPoint(_:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:FC14With_War___Woe12MeshObstacle18closestSideToPointFS0_FV4simd6float2T5startS2_3endS2__">closestSideToPoint(_:)</a>
@@ -320,9 +380,9 @@ read from a plist file and finally initalized here.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe12MeshObstacle14debugVerticiesFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/debugVerticies()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe12MeshObstacle14debugVerticiesFS0_FT_T_">debugVerticies()</a>
+                    <a name="/s:FC14With_War___Woe12MeshObstacle14debugVerticiesFS0_FTSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/debugVerticies(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe12MeshObstacle14debugVerticiesFS0_FTSb_T_">debugVerticies(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -337,7 +397,34 @@ read from a plist file and finally initalized here.</p>
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">debugVerticies</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">debugVerticies</span><span class="p">(</span><span class="nv">override</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe12MeshObstacle11debugBufferFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/debugBuffer()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe12MeshObstacle11debugBufferFS0_FT_T_">debugBuffer()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Drops a stoke around the buffered polygon if Debug.MeshObstacles is enabled</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">debugBuffer</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -376,7 +463,7 @@ read from a plist file and finally initalized here.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-14)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-21)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

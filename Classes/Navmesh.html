@@ -45,6 +45,12 @@
                   <li class="nav-group-task">
                       <a href="/Classes/RenderComponent.html"> Render </a>
                   </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/PhysicsComponent.html"> Physics </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/IntelligenceComponent.html"> Intelligence </a>
+                  </li>
               </ul>
           </li>
           <li class="nav-group-name">
@@ -157,9 +163,9 @@ Call this function when the obstacle have already been loaded</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe7Navmesh13loadPListDataFS0_FSSCSo12NSDictionary"></a>
+                    <a name="/s:ZFC14With_War___Woe7Navmesh13loadPListDataFMS0_FSSCSo12NSDictionary"></a>
                     <a name="//apple_ref/swift/Method/loadPListData(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe7Navmesh13loadPListDataFS0_FSSCSo12NSDictionary">loadPListData(_:)</a>
+                    <a class="token" href="#/s:ZFC14With_War___Woe7Navmesh13loadPListDataFMS0_FSSCSo12NSDictionary">loadPListData(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -174,7 +180,7 @@ Call this function when the obstacle have already been loaded</p>
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadPListData</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSDictionary</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">loadPListData</span><span class="p">(</span><span class="nv">file</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSDictionary</span></code></pre>
 
                         </div>
                       </div>
@@ -184,9 +190,9 @@ Call this function when the obstacle have already been loaded</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe7Navmesh14buildObstaclesFS0_FTCSo12NSDictionary5sceneCS_9GameScene_T_"></a>
+                    <a name="/s:ZFC14With_War___Woe7Navmesh14buildObstaclesFMS0_FTCSo12NSDictionary5sceneCS_9GameScene_GSaCS_12MeshObstacle_"></a>
                     <a name="//apple_ref/swift/Method/buildObstacles(_:scene:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe7Navmesh14buildObstaclesFS0_FTCSo12NSDictionary5sceneCS_9GameScene_T_">buildObstacles(_:scene:)</a>
+                    <a class="token" href="#/s:ZFC14With_War___Woe7Navmesh14buildObstaclesFMS0_FTCSo12NSDictionary5sceneCS_9GameScene_GSaCS_12MeshObstacle_">buildObstacles(_:scene:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -201,7 +207,7 @@ Call this function when the obstacle have already been loaded</p>
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">buildObstacles</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span><span class="kt">NSDictionary</span><span class="p">,</span> <span class="nv">scene</span><span class="p">:</span><span class="kt">GameScene</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">buildObstacles</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span><span class="kt">NSDictionary</span><span class="p">,</span> <span class="nv">scene</span><span class="p">:</span><span class="kt">GameScene</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">MeshObstacle</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -278,6 +284,72 @@ and end node (i.e.: a unit lies inside of an obstacle and needs to get out).</p>
             </div>
             <div class="task-group">
                 <div class="task-name-container">
+                  <a name="/Utility"></a>
+                  <a name="//apple_ref/swift/Section/Utility" class="dashAnchor"></a>
+                  <a href="#/Utility">
+                    <h3 class="section-name">Utility</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe7Navmesh12pointIsValidFS0_FV4simd6float2Sb"></a>
+                    <a name="//apple_ref/swift/Method/pointIsValid(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe7Navmesh12pointIsValidFS0_FV4simd6float2Sb">pointIsValid(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines if a point lies on an obstacle. If this doesn&rsquo;t perform well, we can loop through the MeshObstacles and call
+containsPoint() on each one. Expects world point</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">pointIsValid</span><span class="p">(</span><span class="nv">point</span><span class="p">:</span><span class="n">float2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe7Navmesh25getBuffersContainingPointFS0_FV4simd6float2GSaCSo17GKPolygonObstacle_"></a>
+                    <a name="//apple_ref/swift/Method/getBuffersContainingPoint(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe7Navmesh25getBuffersContainingPointFS0_FV4simd6float2GSaCSo17GKPolygonObstacle_">getBuffersContainingPoint(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Builds a list of all buffer regions of obstacles containing a point. Used for ignoreBufferRadius when adding a GKGraphNode to the mesh.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getBuffersContainingPoint</span><span class="p">(</span><span class="nv">point</span><span class="p">:</span><span class="n">float2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">GKPolygonObstacle</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
                   <a name="/Debug"></a>
                   <a name="//apple_ref/swift/Section/Debug" class="dashAnchor"></a>
                   <a href="#/Debug">
@@ -339,12 +411,39 @@ and end node (i.e.: a unit lies inside of an obstacle and needs to get out).</p>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe7Navmesh14debugAllPointsFS0_FCS_9GameSceneT_"></a>
+                    <a name="//apple_ref/swift/Method/debugAllPoints(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe7Navmesh14debugAllPointsFS0_FCS_9GameSceneT_">debugAllPoints(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Will try to debug every node to amke sure it can be connected. Spaced by 20 pixels. Debug.ConnectedNodes.enabled must be true</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">debugAllPoints</span><span class="p">(</span><span class="nv">scene</span><span class="p">:</span><span class="kt">GameScene</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-14)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-21)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

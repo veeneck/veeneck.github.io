@@ -44,6 +44,12 @@
                   <li class="nav-group-task">
                       <a href="/Classes/RenderComponent.html"> Render </a>
                   </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/PhysicsComponent.html"> Physics </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/IntelligenceComponent.html"> Intelligence </a>
+                  </li>
               </ul>
           </li>
           <li class="nav-group-name">
@@ -91,6 +97,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C14With_War___Woe9IdleState"></a>
+                    <a name="//apple_ref/swift/Class/IdleState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C14With_War___Woe9IdleState">IdleState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When a unit is idle, its only job is to stay near the formation. So, it has to check if the leader is moving, and every so often
+it has to switch back to following to make sure it&rsquo;s in the right place. For example, a physics object could bump it, and it needs to move back to
+formation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">IdleState</span><span class="p">:</span> <span class="kt">GKState</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C14With_War___Woe12MeshObstacle"></a>
                     <a name="//apple_ref/swift/Class/MeshObstacle" class="dashAnchor"></a>
                     <a class="token" href="#/s:C14With_War___Woe12MeshObstacle">MeshObstacle</a>
@@ -112,6 +151,40 @@ for Navmesh decisions.</p>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">MeshObstacle</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C14With_War___Woe16PhysicsComponent"></a>
+                    <a name="//apple_ref/swift/Class/PhysicsComponent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C14With_War___Woe16PhysicsComponent">PhysicsComponent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handles initiation of physics and contact logic for characters touching various physics objects.
+<strong>Note</strong>: Can later be subclassed for different types like flying character, invisible character, and so on.
+That would allow a simple swap of the physics component on the entity to handle dynamic situations.</p>
+
+                        <a href="Classes/PhysicsComponent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">PhysicsComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
 
                         </div>
                       </div>
@@ -292,6 +365,50 @@ closest point on the graph.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C14With_War___Woe21IntelligenceComponent"></a>
+                    <a name="//apple_ref/swift/Class/IntelligenceComponent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C14With_War___Woe21IntelligenceComponent">IntelligenceComponent</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The state machine for a CharacterEntity. The various states and their intentions are:</p>
+
+<ul>
+<li><p>Idle: Use minimal resources. Unit will only leave this if their leader is moving, or during a 3 second check. Last scenarion would
+    be during an external command like attack in which case another piece of code would force the unit out of this state.</p></li>
+<li><p>Leading: The squad handles the logic for most orders, but one of the units has to be the dummy leader. The leader moves to this state. Leaders have slightly different checks. For example, when moving to a point
+        the leader will follow a path while the followers seek an agent. So for group based actions, Leading is the state for leaders. During an individual action like attacking, all units will behave the same.</p></li>
+<li><p>Following: Main goal is to reach the orderedPosition of the UnitComponent. Runs logic checks to see if the unit is stuck or blocked, and moves / changes accordingly.</p></li>
+<li><p>Blocked: When the leader / squad orders a unit to an invalid position (i.e.: on a physics object) the unit will transfer to blocked state and decide what to do. Options are to wait, go back to idle if leader isn&rsquo;t moving, 
+        use steering to stay close by, etc.</p></li>
+<li><p>Catching Up: When a unit may be stuck this state is triggered. Stuck can be distance, or contact woth an environment object. When catching up, unit will use actual pathfinding and navmesh to find its way back.
+            This is resource intensive, so only used for edge case scenarios.</p></li>
+</ul>
+
+                        <a href="Classes/IntelligenceComponent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">IntelligenceComponent</span><span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C14With_War___Woe9ActionBar"></a>
                     <a name="//apple_ref/swift/Class/ActionBar" class="dashAnchor"></a>
                     <a class="token" href="#/s:C14With_War___Woe9ActionBar">ActionBar</a>
@@ -361,7 +478,7 @@ relationship. Then during a physcis event, the entity can be looked up, and the 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-14)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-21)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
