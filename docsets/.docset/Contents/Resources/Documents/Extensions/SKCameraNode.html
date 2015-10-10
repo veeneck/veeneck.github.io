@@ -13,14 +13,14 @@
     <a title="SKCameraNode Extension Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (41% documented)</p>
+        <p><a href="../index.html">WithWarWoe Docs</a> (49% documented)</p>
         <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="../index.html"> Reference</a>
+        <a href="../index.html">WithWarWoe Reference</a>
         <img id="carat" src="../img/carat.png" />
         SKCameraNode Extension Reference
       </p>
@@ -34,6 +34,23 @@
                   <li class="nav-group-task">
                       <a href="/Classes/UINode.html"> UINode </a>
                   </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/EntitySpriteNode.html"> EntitySpriteNode </a>
+                  </li>
+              </ul>
+          </li>
+          <li class="nav-group-name">
+              <a href="">Components</a>
+              <ul class="nav-group-tasks">
+                  <li class="nav-group-task">
+                      <a href="/Classes/RenderComponent.html"> Render </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/PhysicsComponent.html"> Physics </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Classes/IntelligenceComponent.html"> Intelligence </a>
+                  </li>
               </ul>
           </li>
           <li class="nav-group-name">
@@ -43,9 +60,28 @@
                 <a href="/Classes/Navmesh.html"> Navmesh </a>
               </li>
               <li class="nav-group-task">
-                <a href="/Classes/MeshObstacle.html"> MeshObstacle </a>
+                  <a href="/Classes/MeshObstacle.html"> MeshObstacle </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-group-name">
+              <a href="">Physics</a>
+              <ul class="nav-group-tasks">
+                  <li class="nav-group-task">
+                      <a href="/Classes/PhysicsHandler.html"> PhysicsHandler </a>
+                  </li>
+              </ul>
+          </li>
+          <li class="nav-group-name">
+              <a href="">Extensions</a>
+              <ul class="nav-group-tasks">
+                  <li class="nav-group-task">
+                      <a href="/Extensions/CGRect.html"> CGRect </a>
+                  </li>
+                  <li class="nav-group-task">
+                      <a href="/Extensions/SKCameraNode.html"> SKCameraNode </a>
+                  </li>
+              </ul>
           </li>
         </ul>
       </nav>
@@ -53,8 +89,7 @@
         <section>
           <section class="section">
             <h1>SKCameraNode</h1>
-            <p>Determine if the entire node is in the camera viewport.
-containsNode() only checks the center point of the node</p>
+            <p>Use this to move camera around manually.</p>
 
           </section>
           <section class="section task-group-section">
@@ -63,9 +98,9 @@ containsNode() only checks the center point of the node</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FE14With_War___WoeCSo12SKCameraNode16containsFullNodeFS0_FCSo6SKNodeSb"></a>
-                    <a name="//apple_ref/swift/Method/containsFullNode(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE14With_War___WoeCSo12SKCameraNode16containsFullNodeFS0_FCSo6SKNodeSb">containsFullNode(_:)</a>
+                    <a name="/s:FE14With_War___WoeCSo12SKCameraNode10panToPointFS0_FTVSC7CGPoint8durationSd_T_"></a>
+                    <a name="//apple_ref/swift/Method/panToPoint(_:duration:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE14With_War___WoeCSo12SKCameraNode10panToPointFS0_FTVSC7CGPoint8durationSd_T_">panToPoint(_:duration:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -73,15 +108,14 @@ containsNode() only checks the center point of the node</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Determine if the entire node is in the camera viewport.
-containsNode() only checks the center point of the node</p>
+                        <p>Use this to move camera around manually.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">containsFullNode</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span><span class="kt">SKNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">panToPoint</span><span class="p">(</span><span class="nv">point</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">duration</span><span class="p">:</span><span class="kt">Double</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -93,7 +127,7 @@ containsNode() only checks the center point of the node</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-08-06)</p>
+          <p>&copy; 2015 <a class="link" href="" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-08-21)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.2.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

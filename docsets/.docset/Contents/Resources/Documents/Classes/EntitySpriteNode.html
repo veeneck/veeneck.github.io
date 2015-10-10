@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Global Variables  Reference</title>
-    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
-    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <title>EntitySpriteNode Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
-    <script src="js/jquery.min.js" defer></script>
-    <script src="js/jazzy.js" defer></script>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a title="Global Variables  Reference"></a>
+    <a name="//apple_ref/swift/Class/EntitySpriteNode" class="dashAnchor"></a>
+    <a title="EntitySpriteNode Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">WithWarWoe Docs</a> (49% documented)</p>
-        <p class="header-right"><a href=""><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+        <p><a href="../index.html">WithWarWoe Docs</a> (49% documented)</p>
+        <p class="header-right"><a href=""><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="index.html">WithWarWoe Reference</a>
-        <img id="carat" src="img/carat.png" />
-        Global Variables  Reference
+        <a href="../index.html">WithWarWoe Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        EntitySpriteNode Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -87,8 +88,9 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Global Variables</h1>
-            <p>The following global variables are available globally.</p>
+            <h1>EntitySpriteNode</h1>
+            <p>Spritekit physcis contacts only contain informaiton about the node in contact, and not the entity. Because of this, we need this empty class to store the node / entity
+relationship. Then during a physcis event, the entity can be looked up, and the proper component can be called.</p>
 
           </section>
           <section class="section task-group-section">
@@ -97,9 +99,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:v14With_War___Woe6scenesGVSs10DictionarySSVS_11SceneObject_"></a>
-                    <a name="//apple_ref/swift/Global/scenes" class="dashAnchor"></a>
-                    <a class="token" href="#/s:v14With_War___Woe6scenesGVSs10DictionarySSVS_11SceneObject_">scenes</a>
+                    <a name="/s:vC14With_War___Woe16EntitySpriteNode6entityGSqCS_15CharacterEntity_"></a>
+                    <a name="//apple_ref/swift/Property/entity" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe16EntitySpriteNode6entityGSqCS_15CharacterEntity_">entity</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -107,30 +109,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A list of common scenes to prevent code duplicating. Each individual scene still choose what scene object gets displayed next</p>
+                        <p>Character entity related to this sprite</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">scenes</span> <span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">SceneObject</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">entity</span> <span class="p">:</span> <span class="kt">CharacterEntity</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:v14With_War___Woe18globalTextureCacheGVSs10DictionarySSCSo14SKTextureAtlas_"></a>
-                    <a name="//apple_ref/swift/Global/globalTextureCache" class="dashAnchor"></a>
-                    <a class="token" href="#/s:v14With_War___Woe18globalTextureCacheGVSs10DictionarySSCSo14SKTextureAtlas_">globalTextureCache</a>
+                    <a name="/s:FC14With_War___Woe16EntitySpriteNode18setCharacterEntityFS0_FCS_15CharacterEntityT_"></a>
+                    <a name="//apple_ref/swift/Method/setCharacterEntity(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16EntitySpriteNode18setCharacterEntityFS0_FCS_15CharacterEntityT_">setCharacterEntity(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -138,45 +136,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Global texture cache to minimize loading screens. Cleared only during major scene group changes</p>
+                        <p>Set the character entity for this sprite node. Required for physcis to work properly</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">globalTextureCache</span> <span class="o">=</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">SKTextureAtlas</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:v14With_War___WoeX3BxaSf"></a>
-                    <a name="//apple_ref/swift/Global/π" class="dashAnchor"></a>
-                    <a class="token" href="#/s:v14With_War___WoeX3BxaSf">π</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The value of π as a CGFloat</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">π</span> <span class="o">=</span> <span class="kt">Float</span><span class="p">(</span><span class="kt">M_PI</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setCharacterEntity</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>

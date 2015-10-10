@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>RenderComponent Class Reference</title>
+    <title>PhysicsComponent Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/RenderComponent" class="dashAnchor"></a>
-    <a title="RenderComponent Class Reference"></a>
+    <a name="//apple_ref/swift/Class/PhysicsComponent" class="dashAnchor"></a>
+    <a title="PhysicsComponent Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">WithWarWoe Docs</a> (49% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">WithWarWoe Reference</a>
         <img id="carat" src="../img/carat.png" />
-        RenderComponent Class Reference
+        PhysicsComponent Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -88,9 +88,10 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>RenderComponent</h1>
-            <p>Controls the base visual display of an entity. This includes the sprite itself, along with updates to make sure the sprite is
-facing the proper direction and has the correct zPosition.</p>
+            <h1>PhysicsComponent</h1>
+            <p>Handles initiation of physics and contact logic for characters touching various physics objects.
+<strong>Note</strong>: Can later be subclassed for different types like flying character, invisible character, and so on.
+That would allow a simple swap of the physics component on the entity to handle dynamic situations.</p>
 
           </section>
           <section class="section task-group-section">
@@ -99,9 +100,9 @@ facing the proper direction and has the correct zPosition.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC14With_War___Woe15RenderComponent4nodeCS_16EntitySpriteNode"></a>
-                    <a name="//apple_ref/swift/Property/node" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC14With_War___Woe15RenderComponent4nodeCS_16EntitySpriteNode">node</a>
+                    <a name="/s:vC14With_War___Woe16PhysicsComponent10collisionsGVSs10DictionaryOS_21CharacterPhysicsStateVSs6UInt32_"></a>
+                    <a name="//apple_ref/swift/Property/collisions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe16PhysicsComponent10collisionsGVSs10DictionaryOS_21CharacterPhysicsStateVSs6UInt32_">collisions</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -109,14 +110,14 @@ facing the proper direction and has the correct zPosition.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The sprite node on the scene</p>
+                        <p>Lookup for which states should respond to which collisions</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">node</span> <span class="p">:</span> <span class="kt">EntitySpriteNode</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">collisions</span> <span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">CharacterPhysicsState</span><span class="p">,</span> <span class="kt">UInt32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span></code></pre>
 
                         </div>
                       </div>
@@ -126,9 +127,9 @@ facing the proper direction and has the correct zPosition.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC14With_War___Woe15RenderComponent6shadowGSqCSo12SKSpriteNode_"></a>
-                    <a name="//apple_ref/swift/Property/shadow" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC14With_War___Woe15RenderComponent6shadowGSqCSo12SKSpriteNode_">shadow</a>
+                    <a name="/s:vC14With_War___Woe16PhysicsComponent8contactsGVSs10DictionaryOS_21CharacterPhysicsStateVSs6UInt32_"></a>
+                    <a name="//apple_ref/swift/Property/contacts" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe16PhysicsComponent8contactsGVSs10DictionaryOS_21CharacterPhysicsStateVSs6UInt32_">contacts</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -136,14 +137,14 @@ facing the proper direction and has the correct zPosition.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A shadow for the sprite</p>
+                        <p>Lookup for which states should respond to which contacts</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">shadow</span> <span class="p">:</span> <span class="kt">SKSpriteNode</span><span class="p">?</span></code></pre>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">contacts</span> <span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">CharacterPhysicsState</span><span class="p">,</span> <span class="kt">UInt32</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span></code></pre>
 
                         </div>
                       </div>
@@ -153,9 +154,9 @@ facing the proper direction and has the correct zPosition.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC14With_War___Woe15RenderComponent10feetOffsetVSC7CGPoint"></a>
-                    <a name="//apple_ref/swift/Property/feetOffset" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC14With_War___Woe15RenderComponent10feetOffsetVSC7CGPoint">feetOffset</a>
+                    <a name="/s:vC14With_War___Woe16PhysicsComponent5stateOS_21CharacterPhysicsState"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe16PhysicsComponent5stateOS_21CharacterPhysicsState">state</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -163,41 +164,14 @@ facing the proper direction and has the correct zPosition.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The node is anchored at 0.5, 0.5, but the feet are below that point</p>
+                        <p>Handle on the current CharacterPhysicsState of the component</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">feetOffset</span> <span class="p">:</span> <span class="kt">CGPoint</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="o">-</span><span class="mi">20</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC14With_War___Woe15RenderComponent12basePositionVSC7CGPoint"></a>
-                    <a name="//apple_ref/swift/Property/basePosition" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC14With_War___Woe15RenderComponent12basePositionVSC7CGPoint">basePosition</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Returns the standing position of the node where the feet touch the ground</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">basePosition</span> <span class="p">:</span> <span class="kt">CGPoint</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">state</span> <span class="p">:</span> <span class="kt">CharacterPhysicsState</span></code></pre>
 
                         </div>
                       </div>
@@ -208,19 +182,19 @@ facing the proper direction and has the correct zPosition.</p>
             </div>
             <div class="task-group">
                 <div class="task-name-container">
-                  <a name="/Initializing%20a%20RenderComponent"></a>
-                  <a name="//apple_ref/swift/Section/Initializing a RenderComponent" class="dashAnchor"></a>
-                  <a href="#/Initializing%20a%20RenderComponent">
-                    <h3 class="section-name">Initializing a RenderComponent</h3>
+                  <a name="/Initializing%20a%20PhysicsComponent"></a>
+                  <a name="//apple_ref/swift/Section/Initializing a PhysicsComponent" class="dashAnchor"></a>
+                  <a href="#/Initializing%20a%20PhysicsComponent">
+                    <h3 class="section-name">Initializing a PhysicsComponent</h3>
                   </a>
                 </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe15RenderComponentcFMS0_FT5imageSS6shadowSb6entityCS_15CharacterEntity_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(image:shadow:entity:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe15RenderComponentcFMS0_FT5imageSS6shadowSb6entityCS_15CharacterEntity_S0_">init(image:shadow:entity:)</a>
+                    <a name="/s:FC14With_War___Woe16PhysicsComponentcFMS0_FT8categoryVSs6UInt325stateOS_21CharacterPhysicsState6radiusV12CoreGraphics7CGFloat6entityCS_15CharacterEntity_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(category:state:radius:entity:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16PhysicsComponentcFMS0_FT8categoryVSs6UInt325stateOS_21CharacterPhysicsState6radiusV12CoreGraphics7CGFloat6entityCS_15CharacterEntity_S0_">init(category:state:radius:entity:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -228,41 +202,14 @@ facing the proper direction and has the correct zPosition.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates the sprite, sets up the physics body, links the shadow</p>
+                        <p>Adds a physicsbody to the node of a character. Requires RenderComponent to be initialized before calling this.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">shadow</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC14With_War___Woe15RenderComponent10loadShadowFS0_FT_CSo12SKSpriteNode"></a>
-                    <a name="//apple_ref/swift/Method/loadShadow()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe15RenderComponent10loadShadowFS0_FT_CSo12SKSpriteNode">loadShadow()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Sets up a shadow with constraints. Still has to be manually added to world wherever the CharacterEntity is originally initialized.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">loadShadow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">SKSpriteNode</span></code></pre>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">category</span><span class="p">:</span><span class="kt">UInt32</span><span class="p">,</span> <span class="nv">state</span><span class="p">:</span><span class="kt">CharacterPhysicsState</span><span class="p">,</span> <span class="nv">radius</span><span class="p">:</span><span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -273,19 +220,19 @@ facing the proper direction and has the correct zPosition.</p>
             </div>
             <div class="task-group">
                 <div class="task-name-container">
-                  <a name="/Update%20Loop"></a>
-                  <a name="//apple_ref/swift/Section/Update Loop" class="dashAnchor"></a>
-                  <a href="#/Update%20Loop">
-                    <h3 class="section-name">Update Loop</h3>
+                  <a name="/Utility"></a>
+                  <a name="//apple_ref/swift/Section/Utility" class="dashAnchor"></a>
+                  <a href="#/Utility">
+                    <h3 class="section-name">Utility</h3>
                   </a>
                 </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe15RenderComponent19updateWithDeltaTimeFS0_FSdT_"></a>
-                    <a name="//apple_ref/swift/Method/updateWithDeltaTime(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe15RenderComponent19updateWithDeltaTimeFS0_FSdT_">updateWithDeltaTime(_:)</a>
+                    <a name="/s:FC14With_War___Woe16PhysicsComponent18changePhysicsStateFS0_FTOS_21CharacterPhysicsState8categoryGSqVSs6UInt32__T_"></a>
+                    <a name="//apple_ref/swift/Method/changePhysicsState(_:category:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16PhysicsComponent18changePhysicsStateFS0_FTOS_21CharacterPhysicsState8categoryGSqVSs6UInt32__T_">changePhysicsState(_:category:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -293,14 +240,41 @@ facing the proper direction and has the correct zPosition.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called each frame to update the component</p>
+                        <p>Change a physics body at run time. For example, an invisible spell is cast on someone</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">updateWithDeltaTime</span><span class="p">(</span><span class="nv">seconds</span><span class="p">:</span> <span class="kt">NSTimeInterval</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">changePhysicsState</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span><span class="kt">CharacterPhysicsState</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span><span class="kt">UInt32</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe16PhysicsComponent13inContactWithFS0_FOS_12ColliderTypeSb"></a>
+                    <a name="//apple_ref/swift/Method/inContactWith(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16PhysicsComponent13inContactWithFS0_FOS_12ColliderTypeSb">inContactWith(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Checks if the node is currently in contact with the parameter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">inContactWith</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span><span class="kt">ColliderType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -311,19 +285,19 @@ facing the proper direction and has the correct zPosition.</p>
             </div>
             <div class="task-group">
                 <div class="task-name-container">
-                  <a name="/Controlling%20Base%20Frame,%20Direction%20&amp;%20ZPosition"></a>
-                  <a name="//apple_ref/swift/Section/Controlling Base Frame, Direction &amp; ZPosition" class="dashAnchor"></a>
-                  <a href="#/Controlling%20Base%20Frame,%20Direction%20&amp;%20ZPosition">
-                    <h3 class="section-name">Controlling Base Frame, Direction &amp; ZPosition</h3>
+                  <a name="/Responding%20to%20ContactNotifiableType"></a>
+                  <a name="//apple_ref/swift/Section/Responding to ContactNotifiableType" class="dashAnchor"></a>
+                  <a href="#/Responding%20to%20ContactNotifiableType">
+                    <h3 class="section-name">Responding to ContactNotifiableType</h3>
                   </a>
                 </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe15RenderComponent18setDirectionToFaceFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/setDirectionToFace()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe15RenderComponent18setDirectionToFaceFS0_FT_T_">setDirectionToFace()</a>
+                    <a name="/s:FC14With_War___Woe16PhysicsComponent27contactWithEnvironmentBeganFS0_FCSo6SKNodeT_"></a>
+                    <a name="//apple_ref/swift/Method/contactWithEnvironmentBegan(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16PhysicsComponent27contactWithEnvironmentBeganFS0_FCSo6SKNodeT_">contactWithEnvironmentBegan(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -331,15 +305,14 @@ facing the proper direction and has the correct zPosition.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Changing the scale can be expensive to CPU, so we only want to change it if it differs
-from what is already set on the node</p>
+                        <p>Environment nodes are barriers on that cannot be walked through.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setDirectionToFace</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">contactWithEnvironmentBegan</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span><span class="kt">SKNode</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -349,9 +322,9 @@ from what is already set on the node</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe15RenderComponent15updateZPositionFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/updateZPosition()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe15RenderComponent15updateZPositionFS0_FT_T_">updateZPosition()</a>
+                    <a name="/s:FC14With_War___Woe16PhysicsComponent20contactWithUnitBeganFS0_FCS_15CharacterEntityT_"></a>
+                    <a name="//apple_ref/swift/Method/contactWithUnitBegan(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16PhysicsComponent20contactWithUnitBeganFS0_FCS_15CharacterEntityT_">contactWithUnitBegan(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -359,42 +332,14 @@ from what is already set on the node</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the characters zPosition to 3500 - their y position. This causes characters lower in the screen to be higher, which gives fake depth.</p>
+                        <p>Contact with another Unit</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateZPosition</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC14With_War___Woe15RenderComponent16resetToBaseFrameFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/resetToBaseFrame()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe15RenderComponent16resetToBaseFrameFS0_FT_T_">resetToBaseFrame()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>We don&rsquo;t want to call this every update because an animation could be running
-So, this is just a utility function that is mainly called when animations are stopped</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">resetToBaseFrame</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">contactWithUnitBegan</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
