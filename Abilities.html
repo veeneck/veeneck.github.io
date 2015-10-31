@@ -28,14 +28,6 @@
       <nav class="sidebar">
         <ul class="nav-groups">
           <li class="nav-group-name">
-          <a href="Tutorials.html">Tutorials</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Tutorials.html#/s:C14With_War___Woe17AbilitiesTutorial">AbilitiesTutorial</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
           <a href="Scene Management.html">Scene Management</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
@@ -362,9 +354,6 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Classes/Ability.html">Ability</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Enums/AbilityType.html">AbilityType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Modifier.html">Modifier</a>
@@ -910,21 +899,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Container for every action a squad, hero, or commander can perform in the game. Using a class instead of a struct because the
-intention is for this to be immutable and to have all units reference the same pointer instead of making a copy for each unit.
-Modifier class can be used to change values in specific case without touching the stored value of the ability.</p>
+                        <p>Every action, command, spell, buff, etc comes down to an Ability. This class mainly serves as a container for the data while other portions of the code make the magic happen. Let&rsquo;s go over some terminology which shows the ways an Ability may interact with other portions of the code.</p>
 
-<p><strong>Example 1: Moving</strong></p>
-
-<p>Ability type is Move, which uses move specific code and no modifiers.</p>
-
-<p><strong>Example 2: Sprint</strong></p>
-
-<p>Ability type is Move, and an instant modifier is set which increases squad movement speed for a duration specified.</p>
-
-<p><strong>Example 3: Charge</strong></p>
-
-<p>Ability type is Instant, and a timed modifier is set to movement speed and damage. Conditions are must be engaging, and must be within range.</p>
+<ul>
+<li><a href="/Classes/Ability.html">Ability</a>: Base class which contains all information about the ability including name, description, cooldown, particles and more.</li>
+<li><a href="/Classes/Ability/Behavior.html">Behavior</a>: Enum describing the different types of abilities offered.</li>
+<li><a href="/Classes/AbilityFactory.html">AbilityFactory</a>: The only way an ability should ever be created. Reads pList file.</li>
+<li><a href="/Structs/Modifier.html">Modifier</a>: An actual change an ability may incur. For example, +10 HP or +20 Speed</li>
+<li><a href="/Classes/Damage.html">Damage</a>: During combat, a Damage struct is created and passed around. It will contain select information from the ability.</li>
+<li><a href="/Classes/Command.html">Command</a>: An ability on its own will do nothing. A Command is a container for abilities that allows Squads to work with it. A squad will execute a command either instantly, or added to its <a href="/Classes/QueueComponent.html">QueueComponent</a>.</li>
+<li><a href="/Structs/CommandInstructions.html">CommandInstructions</a>: Abilities have no context. CommandInstructions provide the context by specifying target, location, etc.</li>
+<li><p><a href="/Classes/Action.html">Action</a>: A wrapper around an ability specificly for UI purposes. Actions will update icons when they are locked, cooling down, etc and give UI feedback.</p></li>
+</ul>
 
                         <a href="Classes/Ability.html" class="slightly-smaller">See more</a>
                       </div>
@@ -933,56 +919,6 @@ Modifier class can be used to change values in specific case without touching th
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">Ability</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:O14With_War___Woe11AbilityType"></a>
-                    <a name="//apple_ref/swift/Enum/AbilityType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O14With_War___Woe11AbilityType">AbilityType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specific to Ability. Abilities are made as dynamic as possible, but certain categories require specific code.
-    All abilities should fit into one of these categories, and then various asects of the code will run conditional logic off of the type</p>
-
-<pre class="highlight plaintext"><code>**Move**
-
-Moves the units on screen. Has access to all MoveAction features in Actionbar
-
-**Melee**
-
-Moves the units to engage a target. Has target selection via ActionBar.
-
-**Ranged**
-
-Requires unit to be in range. Will show range via action bar, allow target selection, and then trigger Ranged state behavior
-
-**Instant**
-
-Immediately add a modifier to the squad triggering the action
-
-**Spell**
-
-Same as instant, but allows target selection. Does not involve state machine.
-</code></pre>
-
-                        <a href="Enums/AbilityType.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">AbilityType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
