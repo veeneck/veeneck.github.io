@@ -71,14 +71,13 @@ BattleReport.swift
 String+Extensions.swift
 	func replace(target: String, withString: String) -> String
 Action.swift
-	class Action
+	class Action : NSObject
 	var pending : Bool = false
 	var ability : Ability
 	var locked : Bool = false
 	var cooling : Bool = false
 	var override : Bool = false
 	var entity : ActionBar
-	var currentCommand : Command? = nil
 	var squad : Squad
 	init(squad:Squad, ability:Ability, entity:ActionBar)
 	func playErrorSound()
@@ -88,6 +87,9 @@ Action.swift
 	func isCoolingDown() -> Bool
 	func cool()
 	func uncool()
+	func addIndicatorOnSquadFocus()
+	func addTargetIndicator(target:Squad)
+	func removeTargetIndicator(target:Squad)
 GameDataAccessor.swift
 	class GameDataAccessor
 	init()
@@ -100,13 +102,14 @@ GameDataAccessor.swift
 	class func saveFileExists(name:String) -> Bool
 	class func deleteSaveFile(name:String)
 Modifier.swift
-	enum Attribute : Int
-	case Base = 0, WalkingSpeed, HitPoints
-	case Base = 0, WalkingSpeed, HitPoints
-	case Base = 0, WalkingSpeed, HitPoints
-	struct Modifier
-	init(type:Attribute, ticks:Int, interval:Double, name:String)
-	init(type:Attribute, duration:Double, name:String)
+	case Instant = "Instant", Duration = "Duration", DoT = "DoT", Permanent = "Permanent"
+	case Instant = "Instant", Duration = "Duration", DoT = "DoT", Permanent = "Permanent"
+	case Instant = "Instant", Duration = "Duration", DoT = "DoT", Permanent = "Permanent"
+	case Instant = "Instant", Duration = "Duration", DoT = "DoT", Permanent = "Permanent"
+	case Blunt = 0, Piercing, Slashing, Elemental
+	case Blunt = 0, Piercing, Slashing, Elemental
+	case Blunt = 0, Piercing, Slashing, Elemental
+	case Blunt = 0, Piercing, Slashing, Elemental
 GameScene.swift
 	protocol GameSceneDelegate
 	func sceneDidFinish(nextScene:SceneObject)
@@ -194,23 +197,27 @@ ArmyDataAccessor.swift
 	class func updateSquadAtIndex(index:Int, squad:SquadData)
 	class func changeColumns(squadName:String, count:Int)
 AI.swift
-	enum Fact: String
-	case closeToTarget = "closeToTarget"
-	case likelyToWin = "likelyToWin"
-	struct ActionRuleTargetData
 	let distanceByNodes : Float
 	let distanceByAir : Float
 	let lineOfSight : Bool = true
-	class ActionRuleSnapshot
-	var targets = Dictionary<Squad, ActionRuleTargetData>()
+	var targets = Dictionary<Squad, AbilityRuleTargetData>()
+	var target : Squad?
 	var subject : Squad?
-	var attackDelegate : AttackDelegate?
-	class AIComponenet : GKComponent
-	var elapsedTime: NSTimeInterval = -1
-	var actionRuleSystem: GKRuleSystem
+	var ability : Ability?
+	case closeToTarget = "closeToTarget"
+	case likelyToWin = "likelyToWin"
+	case abilityIsValid = "abilityIsValid"
 	override init()
 	init(rules: [GKRule])
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func determineNextAction()
+	func buildStateDictionary() -> AbilityRuleSnapshot?
+	override func grade() -> Float
+	init() { super.init(fact: AIComponenet.Fact.closeToTarget) }
+	override func grade() -> Float
+	init() { super.init(fact: AIComponenet.Fact.likelyToWin) }
+	override func grade() -> Float
+	init() { super.init(fact: AIComponenet.Fact.abilityIsValid) }
 ZPosition.swift
 	enum PositionCategory : Float
 	case WorldMax = 5000, Environment, Flag, Display
@@ -253,6 +260,11 @@ Slide.swift
 	func getStartingRight(content:SKNode, scene:GameScene) -> CGPoint
 	func getLeftPosition(content:SKNode) -> (pos:CGPoint, offset:CGFloat)
 	func getRightPosition(content:SKNode) -> (pos:CGPoint, offset:CGFloat)
+CacheService.swift
+	class CacheService : NSCache
+	static let sharedInstance = CacheService()
+	override init()
+	deinit
 WaveFactory.swift
 	class WaveFactory
 	class func createWavesFromNSArray(data:NSArray) -> Array<Wave>?
@@ -270,12 +282,7 @@ SquadFactory.swift
 	class SquadFactory
 	static let sharedInstance = SquadFactory()
 	var squads = [Squad]()
-	func createSquad(unit:String, count: Int, position:CGPoint, scene:GameScene, enemy:Bool = false, heading:Float? = nil, columns:Int = 3, spacing:Int = 48) -> Squad
-	func addUnit(unit:String, position:CGPoint, heading:Float?, isLeader:Bool) -> CharacterEntity
-	func getAllSquadLeaderAgents() -> [GKAgent2D]
-	func getFriendlySquads() -> Array<Squad>
-	func getEnemySquads() -> Array<Squad>
-	func removeSquad(squad:Squad)
+	func createSquad(unit:String, count: Int, position:CGPoint, scene:GameScene, enemy:Bool = false, heading:Float? = nil, columns:Int = 3, spacing:Int = 48, exp:Double = 0) -> Squad
 WorldMap.swift
 	class WorldMap : GameScene
 	var pins = Array<MapPin>()
@@ -300,13 +307,21 @@ SoundEffectsService.swift
 	func initUISounds()
 	func getSoundVolume() -> Float
 	func changeVolume(change:Int)
-Ranged.swift
-	class RangedAttackType : AttackDelegate
-	var projectile : Projectile
-	init(damage:Damage, range:CGFloat, speed:CGFloat, projectile:Projectile)
-	func shootProjectile(unit:CharacterEntity, target:CharacterEntity)
+Attributes.swift
+	class AttributesComponent : GKComponent
+	enum Attribute : String
+	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
+	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
+	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
+	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
+	func getWalkingSpeed(entity:CharacterEntity) -> Float
+	func getStrength(entity:CharacterEntity) -> Float
+	func getAmountFromModifiers(entity:CharacterEntity, attribute:Attribute) -> Float
 Defending.swift
-	class DefendingState: GKState
+	unowned var entity: Squad
+	func shouldEngageTarget(target:Squad) -> Bool
+Engaging.swift
+	class EngagingState: GKState
 	unowned var entity: Squad
 	var elapsedTime: NSTimeInterval = 0.0
 	required init(entity: Squad)
@@ -314,11 +329,6 @@ Defending.swift
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 	override func isValidNextState(stateClass: AnyClass) -> Bool
 	override func willExitWithNextState(nextState: GKState)
-Engaging.swift
-	class EngagingState: GKState
-	unowned var entity: Squad
-	var elapsedTime: NSTimeInterval = 0.0
-	required init(entity: Squad)
 HeroSelect.swift
 	class HeroSelect : Slide
 	init(scene:GameScene)
@@ -399,8 +409,7 @@ Combat.swift
 	func pickTargetFromSquad(enemy:Squad) -> CharacterEntity?
 	func shouldEngageBasedOnTargetsAttacking(enemy:CharacterEntity) -> Bool
 	func pickTargetToVolley(enemy:Squad) -> CharacterEntity?
-	func resolveCombat(attack:Damage)
-	func calculateDamageOfAttack(attack:Damage) -> Float
+	func resolveCombat(ability:Ability, attacker:CharacterEntity)
 Wheel.swift
 	class WheelComponent : GKComponent
 	init(radius:Float, reform:Float)
@@ -471,15 +480,13 @@ Sound.swift
 	override init()
 	func addSounds()
 	func stopMarching()
-Melee.swift
-	class MeleeAttackType : AttackDelegate
-	init(damage:Damage, range:CGFloat, speed:CGFloat)
 Character.swift
 	let identifier : String
 	var agent : CharacterAgent
 	var renderComponent : RenderComponent?
 	var movementComponent : MovementComponent?
 	var unitComponent : UnitComponent?
+	var attributeComponent : AttributesComponent?
 	var debug : Bool = false
 	var isLeader: Bool = false
 	func agentDidUpdate(_: GKAgent)
@@ -539,9 +546,6 @@ NavBar.swift
 	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
-Damage.swift
-	class Damage
-	init(damage:Float, type:CombatAttribute)
 Camp.swift
 	class Camp : LevelScene
 	var selectedSquad : Squad?
@@ -576,7 +580,8 @@ ArmyData.swift
 	var currentUnits : Int
 	var maxUnits : Int
 	var columns : Int
-	init(name:String, currentUnits:Int, maxUnits:Int, columns:Int)
+	var exp : Double
+	init(name:String, currentUnits:Int, maxUnits:Int, columns:Int, exp:Double = 0)
 	required init?(coder: NSCoder)
 	func encodeWithCoder(coder: NSCoder)
 	class ArmyData : NSObject, NSCoding
@@ -591,6 +596,7 @@ LevelScene.swift
 	var entities = Array<GKEntity>()
 	var navmesh : Navmesh?
 	lazy var componentSystems: [GKComponentSystem] =
+	func loadInitialTroops()
 	func beginBattle()
 	func beginWaves()
 	func waveStarting()
@@ -599,6 +605,7 @@ LevelScene.swift
 	func didEndContact(contact: SKPhysicsContact)
 	override func clickedOrTapped(location:CGPoint)
 	func getDeathNotification(entity:Squad)
+	func showBattleReport(victory:Bool)
 	func finishLevel()
 	func markLevelAsCompleted(id:Int)
 Volleying.swift
@@ -717,8 +724,6 @@ CharacterFactory.swift
 	func loadPListData(name:String) -> NSDictionary
 	func configureCombat(var character:CharacterEntity,  data:NSDictionary, name:String) -> CharacterEntity
 	func loadGeneralCombatData(character:CharacterEntity, data:NSDictionary) -> CharacterEntity
-	func loadAttackObject(name:String, character:CharacterEntity, data:NSDictionary) -> [AttackDelegate]
-	func loadProjectiles(name:String, data:NSDictionary) -> Projectile
 	func loadAllAnimations(character:CharacterEntity,  data:NSDictionary, name:String) -> CharacterEntity
 	func loadAnimation(animationName:String, name:String, data:NSDictionary, shouldRepeat:Bool) -> Animation
 Heroes.swift
@@ -734,6 +739,13 @@ Intelligence.swift
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 	func enterInitialState()
 	func debugState()
+AttackAction.swift
+	class AttackAction : Action
+	override init(squad:Squad, ability:Ability, entity:ActionBar)
+	func processAttackCommand(enemy:Squad)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func highlightAttackableEnemies()
+	func unhighlightAttackableEnemies()
 Graphics.swift
 	enum UIUserInterfaceIdiom : Int
 	case Unspecified
@@ -768,6 +780,12 @@ Engaged.swift
 	var heading : Float = 0.0
 	var initialPos : CGPoint?
 	required init(entity: Squad)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+	override func willExitWithNextState(nextState: GKState)
+	func checkForFleeing()
+	func debugAttacking()
 Wandering.swift
 	unowned var entity: CharacterEntity
 	var elapsedTime: NSTimeInterval = 0.0
@@ -790,22 +808,18 @@ Squad.swift
 	func == (lh: Squad, rh: Squad) -> Bool
 Abilities.swift
 	override init()
+	func getModifiers(ability:Ability) -> [Modifier]
 	func shouldAddToQueue(ability:Ability) -> Bool
 	func addCooldown(ability:Ability)
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 Attack.swift
-	enum CombatAttribute : Int
-	case Blunt = 0, Piercing, Slashing, Elemental
-	case Blunt = 0, Piercing, Slashing, Elemental
-	case Blunt = 0, Piercing, Slashing, Elemental
-	case Blunt = 0, Piercing, Slashing, Elemental
-	protocol AttackDelegate
 	class AttackComponent : GKComponent
 	var attackRequested : Bool = false
-	var currentAttack : AttackDelegate
-	var attacks : [AttackDelegate]
-	init(attacks:[AttackDelegate])
+	var currentAttack : Ability?
+	override init()
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func animationHasBegun(character:CharacterEntity)
+	func shootProjectile(unit:CharacterEntity, target:CharacterEntity, ability:Ability)
 Movement.swift
 	enum MovementType : Int
 	case Towards = 0, Teleport, Path
@@ -834,10 +848,19 @@ Formation.swift
 	func getVectorAtPosition(position:Int) -> float2
 	func buildPositions(maxUnits:Int, spacing:Int)
 	func addRow(depthX:Int, leftSpots:Int, rightSpots:Int, spacing:Int)
+ExperienceReport.swift
+	class ExperienceReport : Slide
+	var victory : Bool = false
+	var experienceTemplate : SKNode!
+	init(scene:GameScene, victory:Bool)
+	required init?(coder aDecoder: NSCoder)
+	override func show()
+	func setDefaults(victory:Bool)
+	func addExperienceNodeForSquad(squadData:SquadData, indexOffset:Int)
+	override func handleButtonPress(name: String, node: SKNode)
 Modifiers.swift
 	class ModifierComponent : GKComponent
 	override init()
-	func processModifier(modifier:Modifier)
 UnitDesc.swift
 	class UnitDesc : Slide
 	let squad : Squad
@@ -891,6 +914,10 @@ Targeting.swift
 	unowned var entity: Squad
 	var elapsedTime: NSTimeInterval = 0.0
 	required init(entity: Squad)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+	func debugTargeting()
 Dying.swift
 	unowned var entity: CharacterEntity
 	var elapsedTime: NSTimeInterval = 0.0
@@ -912,16 +939,15 @@ ButtonNode.swift
 	override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
 FuzzyRule.swift
 	class FuzzyRule: GKRule
-	var snapshot: ActionRuleSnapshot!
+	var snapshot: AbilityRuleSnapshot!
 	func grade() -> Float { return 0.0 }
-	let fact: Fact
-	init(fact: Fact)
+	let fact: AIComponenet.Fact
+	init(fact: AIComponenet.Fact)
 	override func evaluatePredicateWithSystem(system: GKRuleSystem) -> Bool
 	override func performActionWithSystem(system: GKRuleSystem)
 CommandFactory.swift
-	case Moving = 1
-	func isCoolingDown(squad:Squad, ability:Ability) -> Bool
-	func checkAllCommandValidations(squad:Squad, ability:Ability) -> Bool
+	func validateMelee(squad:Squad, ability:Ability, instructions:CommandInstructions) -> Bool
+	func validateRanged(squad:Squad, ability:Ability, instructions:CommandInstructions) -> Bool
 ScreenRecording.swift
 	var RECORDING : Bool = false
 	var screenRecordingToggleEnabled: Bool
@@ -931,16 +957,10 @@ ScreenRecording.swift
 	func discardRecording()
 	func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?)
 	func previewControllerDidFinish(previewController: RPPreviewViewController)
-ModifierService.swift
-	class ModifierService
-	func getWalkingSpeed(entity:CharacterEntity) -> Float
-	func getAmountFromModifiers(entity:CharacterEntity, attribute:Attribute) -> Float
 Forest.swift
 	class Forest : LevelScene
 	override func didMoveToView(view: SKView)
 	func markAsRevealed()
-	func buildTestSquads()
-	func addSquad(name:String, count:Int, columns:Int, position:CGPoint, heading:Float, spacing:Int)
 	func loadWaves()
 	override func clickedOrTapped(location: CGPoint)
 	override class func loadSceneAssetsWithCompletionHandler(handler:()->())
@@ -976,6 +996,11 @@ Shooting.swift
 	var heading : Float = 0.0
 	var initialPos : CGPoint?
 	required init(entity: Squad)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+	override func willExitWithNextState(nextState: GKState)
+	func debugShooting()
 RevealService.swift
 	class RevealService
 	class func revealNextLevel(map:SKNode, var level:Level)
@@ -1002,14 +1027,6 @@ AnimatedNode.swift
 	func setDirectionToFace(start:CGPoint, end:CGPoint)
 	func fireAnimationForState(frames:Array<SKTexture>, key:String)
 	func loopAnimationForState(frames:Array<SKTexture>, key:String)
-Awaiting.swift
-	unowned var entity: CharacterEntity
-	var elapsedTime: NSTimeInterval = 1.0
-	required init(entity: CharacterEntity)
-	override func didEnterWithPreviousState(previousState: GKState?)
-	override func updateWithDeltaTime(seconds: NSTimeInterval)
-	override func isValidNextState(stateClass: AnyClass) -> Bool
-	override func willExitWithNextState(nextState: GKState)
 AppDelegate.swift
 	class AppDelegate: UIResponder, UIApplicationDelegate
 	var window: UIWindow?
@@ -1019,6 +1036,15 @@ AppDelegate.swift
 	func applicationWillEnterForeground(application: UIApplication)
 	func applicationDidBecomeActive(application: UIApplication)
 	func applicationWillTerminate(application: UIApplication)
+RangedAttack.swift
+	class ShootAction : Action
+	override init(squad:Squad, ability:Ability, entity:ActionBar)
+	func processAttackCommand(enemy:Squad)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func showRange()
+	func highlightAttackableEnemies()
+	func unhighlightAttackableEnemies()
+	func targetIsValid(enemy:Squad) -> Bool
 CatchingUp.swift
 	class CatchingUpState: GKState
 	unowned var entity: CharacterEntity
@@ -1049,8 +1075,12 @@ WaveService.swift
 	func spawnCurrentWave()
 	func isLastWave() -> Bool
 Ability.swift
-	case Move = 1, Melee, Ranged, Instant, Spell
-	case Move = 1, Melee, Ranged, Instant, Spell
-	case Move = 1, Melee, Ranged, Instant, Spell
-	case Move = 1, Melee, Ranged, Instant, Spell
-	case Move = 1, Melee, Ranged, Instant, Spell
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
+	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
+	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
+	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
+	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
