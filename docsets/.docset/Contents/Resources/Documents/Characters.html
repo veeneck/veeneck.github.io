@@ -1305,9 +1305,18 @@ That would allow a simple swap of the physics component on the entity to handle 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Goal is to store all active modifiers. If a modifier is permanent, it will call AttributesComponenet to adjust the value. If temporary, it will just hold on to the modifier.
+Will take care of expiring Duration and DoT modifiers.</p>
 
                         <a href="Classes/ModifierComponent.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ModifierComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>

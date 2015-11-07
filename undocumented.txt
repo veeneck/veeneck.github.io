@@ -106,6 +106,8 @@ Modifier.swift
 	case Instant = "Instant", Duration = "Duration", DoT = "DoT", Permanent = "Permanent"
 	case Instant = "Instant", Duration = "Duration", DoT = "DoT", Permanent = "Permanent"
 	case Instant = "Instant", Duration = "Duration", DoT = "DoT", Permanent = "Permanent"
+	case Permanent = "Permanent", Temporary = "Temporary"
+	case Permanent = "Permanent", Temporary = "Temporary"
 	case Blunt = 0, Piercing, Slashing, Elemental
 	case Blunt = 0, Piercing, Slashing, Elemental
 	case Blunt = 0, Piercing, Slashing, Elemental
@@ -308,15 +310,10 @@ SoundEffectsService.swift
 	func getSoundVolume() -> Float
 	func changeVolume(change:Int)
 Attributes.swift
-	class AttributesComponent : GKComponent
-	enum Attribute : String
 	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
 	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
 	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
 	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
-	func getWalkingSpeed(entity:CharacterEntity) -> Float
-	func getStrength(entity:CharacterEntity) -> Float
-	func getAmountFromModifiers(entity:CharacterEntity, attribute:Attribute) -> Float
 Defending.swift
 	unowned var entity: Squad
 	func shouldEngageTarget(target:Squad) -> Bool
@@ -806,12 +803,6 @@ Squad.swift
 	func getAgentsToAvoid(exclude:CharacterEntity? = nil) -> [GKAgent]
 	func getAgents(exclude:CharacterEntity? = nil) -> [GKAgent]
 	func == (lh: Squad, rh: Squad) -> Bool
-Abilities.swift
-	override init()
-	func getModifiers(ability:Ability) -> [Modifier]
-	func shouldAddToQueue(ability:Ability) -> Bool
-	func addCooldown(ability:Ability)
-	override func updateWithDeltaTime(seconds: NSTimeInterval)
 Attack.swift
 	class AttackComponent : GKComponent
 	var attackRequested : Bool = false
@@ -859,7 +850,6 @@ ExperienceReport.swift
 	func addExperienceNodeForSquad(squadData:SquadData, indexOffset:Int)
 	override func handleButtonPress(name: String, node: SKNode)
 Modifiers.swift
-	class ModifierComponent : GKComponent
 	override init()
 UnitDesc.swift
 	class UnitDesc : Slide

@@ -961,33 +961,6 @@ Modifiers are attached to objects and the processed either instantly, after an a
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV14With_War___Woe8Modifier11isStackableSb"></a>
-                    <a name="//apple_ref/swift/Property/isStackable" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV14With_War___Woe8Modifier11isStackableSb">isStackable</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>If this can be placed on top of another modifier</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">isStackable</span> <span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:vV14With_War___Woe8Modifier11timeElapsedSd"></a>
                     <a name="//apple_ref/swift/Property/timeElapsed" class="dashAnchor"></a>
                     <a class="token" href="#/s:vV14With_War___Woe8Modifier11timeElapsedSd">timeElapsed</a>
@@ -1096,6 +1069,33 @@ Modifiers are attached to objects and the processed either instantly, after an a
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:vV14With_War___Woe8Modifier12modificationOS0_12Modification"></a>
+                    <a name="//apple_ref/swift/Property/modification" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV14With_War___Woe8Modifier12modificationOS0_12Modification">modification</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defines if the results of the modifier should permanently or temporarily change an attribute</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">let</span> <span class="nv">modification</span> <span class="p">:</span> <span class="kt">Modifier</span><span class="o">.</span><span class="kt">Modification</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:vV14With_War___Woe8Modifier15combatAttributeGSqOS0_15CombatAttribute_"></a>
                     <a name="//apple_ref/swift/Property/combatAttribute" class="dashAnchor"></a>
                     <a class="token" href="#/s:vV14With_War___Woe8Modifier15combatAttributeGSqOS0_15CombatAttribute_">combatAttribute</a>
@@ -1133,8 +1133,7 @@ Modifiers are attached to objects and the processed either instantly, after an a
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount to modify by
-We calculate this for each copied modifier because a character can get a +Str buff which would change modifie ron the fly.</p>
+                        <p>The amount to modify by</p>
 
                       </div>
                       <div class="declaration">
@@ -1151,9 +1150,9 @@ We calculate this for each copied modifier because a character can get a +Str bu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute5ticksSi8intervalSd4nameSS_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(behavior:type:ticks:interval:name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute5ticksSi8intervalSd4nameSS_S0_">init(behavior:type:ticks:interval:name:)</a>
+                    <a name="/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute5ticksSi8intervalSd4nameSS12modificationOS0_12Modification_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(behavior:type:ticks:interval:name:modification:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute5ticksSi8intervalSd4nameSS12modificationOS0_12Modification_S0_">init(behavior:type:ticks:interval:name:modification:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1168,7 +1167,7 @@ We calculate this for each copied modifier because a character can get a +Str bu
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">behavior</span><span class="p">:</span><span class="kt">Modifier</span><span class="o">.</span><span class="kt">Behavior</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span><span class="kt">AttributesComponent</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">,</span> <span class="nv">ticks</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">behavior</span><span class="p">:</span><span class="kt">Modifier</span><span class="o">.</span><span class="kt">Behavior</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span><span class="kt">AttributesComponent</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">,</span> <span class="nv">ticks</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">modification</span><span class="p">:</span><span class="kt">Modification</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1178,9 +1177,9 @@ We calculate this for each copied modifier because a character can get a +Str bu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute8durationSd4nameSS_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(behavior:type:duration:name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute8durationSd4nameSS_S0_">init(behavior:type:duration:name:)</a>
+                    <a name="/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute8durationSd4nameSS12modificationOS0_12Modification_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(behavior:type:duration:name:modification:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute8durationSd4nameSS12modificationOS0_12Modification_S0_">init(behavior:type:duration:name:modification:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1195,7 +1194,7 @@ We calculate this for each copied modifier because a character can get a +Str bu
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">behavior</span><span class="p">:</span><span class="kt">Modifier</span><span class="o">.</span><span class="kt">Behavior</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span><span class="kt">AttributesComponent</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">,</span> <span class="nv">duration</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">behavior</span><span class="p">:</span><span class="kt">Modifier</span><span class="o">.</span><span class="kt">Behavior</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span><span class="kt">AttributesComponent</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">,</span> <span class="nv">duration</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">modification</span><span class="p">:</span><span class="kt">Modification</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1205,9 +1204,9 @@ We calculate this for each copied modifier because a character can get a +Str bu
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute4nameSS_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(behavior:type:name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute4nameSS_S0_">init(behavior:type:name:)</a>
+                    <a name="/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute4nameSS12modificationOS0_12Modification_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(behavior:type:name:modification:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV14With_War___Woe8ModifiercFMS0_FT8behaviorOS0_8Behavior4typeOCS_19AttributesComponent9Attribute4nameSS12modificationOS0_12Modification_S0_">init(behavior:type:name:modification:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1222,7 +1221,7 @@ We calculate this for each copied modifier because a character can get a +Str bu
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">behavior</span><span class="p">:</span><span class="kt">Modifier</span><span class="o">.</span><span class="kt">Behavior</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span><span class="kt">AttributesComponent</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">behavior</span><span class="p">:</span><span class="kt">Modifier</span><span class="o">.</span><span class="kt">Behavior</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span><span class="kt">AttributesComponent</span><span class="o">.</span><span class="kt">Attribute</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">modification</span><span class="p">:</span><span class="kt">Modification</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1256,10 +1255,10 @@ We calculate this for each copied modifier because a character can get a +Str bu
                         <p>Hard coded options for how a modifier can behave. Used across the entire code base.</p>
 
 <ul>
-<li>Instant: Instantly apply with permanent results. Example: Attack</li>
+<li>Instant: Instantly apply and forget</li>
 <li>Duration: Instantly apply and then remove after duration</li>
-<li>DoT: Apply with permanent results at equal increments over time</li>
-<li>Permanent: Sticks around indefinitely, but doesn&rsquo;t alter a variable. Instant would take away -10 HP forever, while permanent would take it away as long as it exists in the modifier array</li>
+<li>DoT: Apply with ticks overan interval</li>
+<li>Permanent: Same as duration but never expires</li>
 </ul>
 
                         <a href="../Structs/Modifier/Behavior.html" class="slightly-smaller">See more</a>
@@ -1269,6 +1268,50 @@ We calculate this for each copied modifier because a character can get a +Str bu
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Behavior</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Type%20of%20Modification"></a>
+                  <a name="//apple_ref/swift/Section/Type of Modification" class="dashAnchor"></a>
+                  <a href="#/Type%20of%20Modification">
+                    <h3 class="section-name">Type of Modification</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OV14With_War___Woe8Modifier12Modification"></a>
+                    <a name="//apple_ref/swift/Enum/Modification" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OV14With_War___Woe8Modifier12Modification">Modification</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Hard coded options for how a modifier can behave. Used across the entire code base.</p>
+
+<ul>
+<li>Temporary: Only alters attribute while modifier is active</li>
+<li>Permanent: Alter the actual value of an attribute</li>
+</ul>
+
+                        <a href="../Structs/Modifier/Modification.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Modification</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>

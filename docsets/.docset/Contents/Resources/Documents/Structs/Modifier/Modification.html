@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Attribute Enum Reference</title>
+    <title>Modification Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/Attribute" class="dashAnchor"></a>
-    <a title="Attribute Enum Reference"></a>
+    <a name="//apple_ref/swift/Enum/Modification" class="dashAnchor"></a>
+    <a title="Modification Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../../index.html"> Docs</a> (32% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../../index.html"> Reference</a>
         <img id="carat" src="../../img/carat.png" />
-        Attribute Enum Reference
+        Modification Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -863,20 +863,18 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Attribute</h1>
+            <h1>Modification</h1>
               <div class="declaration">
                 <div class="Swift">
-                  <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Attribute</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Modification</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                 </div>
               </div>
-            <p>Attributes that can be referenced and modified</p>
+            <p>Hard coded options for how a modifier can behave. Used across the entire code base.</p>
 
 <ul>
-<li>Base: Empty placeholder.</li>
-<li>WalkingSpeed: CharacterAgent.maxSpeed / Acceleration</li>
-<li>HitPoints: Combat.Health</li>
-<li>Strength: Combat.Strength</li>
+<li>Temporary: Only alters attribute while modifier is active</li>
+<li>Permanent: Alter the actual value of an attribute</li>
 </ul>
 
           </section>
@@ -886,9 +884,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOC14With_War___Woe19AttributesComponent9Attribute4BaseFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/Base" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC14With_War___Woe19AttributesComponent9Attribute4BaseFMS1_S1_">Base</a>
+                    <a name="/s:FOV14With_War___Woe8Modifier12Modification9PermanentFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/Permanent" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOV14With_War___Woe8Modifier12Modification9PermanentFMS1_S1_">Permanent</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -903,7 +901,7 @@
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Attribute</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Modification</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -913,9 +911,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FOC14With_War___Woe19AttributesComponent9Attribute12WalkingSpeedFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/WalkingSpeed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC14With_War___Woe19AttributesComponent9Attribute12WalkingSpeedFMS1_S1_">WalkingSpeed</a>
+                    <a name="/s:FOV14With_War___Woe8Modifier12Modification9TemporaryFMS1_S1_"></a>
+                    <a name="//apple_ref/swift/Element/Temporary" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FOV14With_War___Woe8Modifier12Modification9TemporaryFMS1_S1_">Temporary</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -930,61 +928,7 @@
                         <h4>Declaration</h4>
                         <div class="Swift">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Attribute</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOC14With_War___Woe19AttributesComponent9Attribute9HitPointsFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/HitPoints" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC14With_War___Woe19AttributesComponent9Attribute9HitPointsFMS1_S1_">HitPoints</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Attribute</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FOC14With_War___Woe19AttributesComponent9Attribute8StrengthFMS1_S1_"></a>
-                    <a name="//apple_ref/swift/Element/Strength" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FOC14With_War___Woe19AttributesComponent9Attribute8StrengthFMS1_S1_">Strength</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="Swift">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Attribute</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Modification</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>

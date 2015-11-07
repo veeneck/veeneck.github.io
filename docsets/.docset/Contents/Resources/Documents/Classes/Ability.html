@@ -876,7 +876,7 @@
 <li><a href="/Classes/Ability.html">Ability</a>: Base class which contains all information about the ability including name, description, cooldown, particles and more.</li>
 <li><a href="/Classes/Ability/Behavior.html">Behavior</a>: Enum describing the different types of abilities offered.</li>
 <li><a href="/Structs/Modifier.html">Modifier</a>: An actual change an ability may incur. For example, +10 HP or +20 Speed</li>
-<li><a href="/Classes/Damage.html">Damage</a>: During combat, a Damage struct is created and passed around. It will contain select information from the ability.</li>
+<li><a href="/Classes/AbilitiesComponenet.html">AbilitiesComponenet</a>: Entry point for processing an ability on a Squad. Will either run it immediately, or add to Queue via Command.</li>
 <li><a href="/Classes/Command.html">Command</a>: An ability on its own will do nothing. A Command is a container for abilities that allows Squads to work with it. A squad will execute a command either instantly, or added to its <a href="/Classes/QueueComponent.html">QueueComponent</a>.</li>
 <li><a href="/Structs/CommandInstructions.html">CommandInstructions</a>: Abilities have no context. CommandInstructions provide the context by specifying target, location, etc.</li>
 <li><p><a href="/Classes/Action.html">Action</a>: A wrapper around an ability specificly for UI purposes. Actions will update icons when they are locked, cooling down, etc and give UI feedback.</p></li>
@@ -1034,7 +1034,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The modifier for the ability. For example, sprint might have a +speed modifier</p>
+                        <p>The modifier for the ability. For example, sprint might have a +speed modifier
+- seealso: <a href="/Classes/AbilitiesComponenet.html#/s:FC14With_War___Woe19AbilitiesComponenet12getModifiersFS0_FCS_7AbilityGSaVS_8Modifier_">AbilitiesComponenet.getModifiers</a> which is how modifiers should be accessed when using squad abilities.</p>
 
                       </div>
                       <div class="declaration">

@@ -864,7 +864,13 @@
         <section>
           <section class="section">
             <h1>AttributesComponent</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">AttributesComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
+
+                </div>
+              </div>
+            <p>The goal of this component is to act as a gateway for all character attributes. Anything changed, read, or altered over time should be accessed from here.</p>
 
           </section>
           <section class="section task-group-section">
@@ -890,9 +896,101 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Attributes that can be referenced and modified</p>
+
+<ul>
+<li>Base: Empty placeholder.</li>
+<li>WalkingSpeed: CharacterAgent.maxSpeed / Acceleration</li>
+<li>HitPoints: Combat.Health</li>
+<li>Strength: Combat.Strength</li>
+</ul>
 
                         <a href="../Classes/AttributesComponent/Attribute.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Attribute</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Notify%20of%20New%20%20Temporary%20Modification"></a>
+                  <a name="//apple_ref/swift/Section/Notify of New  Temporary Modification" class="dashAnchor"></a>
+                  <a href="#/Notify%20of%20New%20%20Temporary%20Modification">
+                    <h3 class="section-name">Notify of New  Temporary Modification</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe19AttributesComponent30adjustAttributeForModificationFS0_FVS_8ModifierT_"></a>
+                    <a name="//apple_ref/swift/Method/adjustAttributeForModification(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe19AttributesComponent30adjustAttributeForModificationFS0_FVS_8ModifierT_">adjustAttributeForModification(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When a modifiction is temporarily added, some attributes may need more complex changes to pull in the new value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">adjustAttributeForModification</span><span class="p">(</span><span class="nv">modifier</span><span class="p">:</span><span class="kt">Modifier</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/Setting%20Attribute%20Values"></a>
+                  <a name="//apple_ref/swift/Section/Setting Attribute Values" class="dashAnchor"></a>
+                  <a href="#/Setting%20Attribute%20Values">
+                    <h3 class="section-name">Setting Attribute Values</h3>
+                  </a>
+                </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe19AttributesComponent20setValueForAttributeFS0_FTOS0_9Attribute5valuePSs9AnyObject__T_"></a>
+                    <a name="//apple_ref/swift/Method/setValueForAttribute(_:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe19AttributesComponent20setValueForAttributeFS0_FTOS0_9Attribute5valuePSs9AnyObject__T_">setValueForAttribute(_:value:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Permanently alter an attribute of the character. A temporary modifier would never call this, but -10 HP would via a .Instant modifier.
+Another example would be squads reaching new levels &hellip; may be granted +5 STR when character is constructed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setValueForAttribute</span><span class="p">(</span><span class="nv">attribute</span><span class="p">:</span><span class="kt">Attribute</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span><span class="kt">AnyObject</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -948,8 +1046,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Return agent baseSpeed + any active modifiers.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getWalkingSpeed</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Float</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -967,8 +1073,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Return Combat.Strength + any active modifiers.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getStrength</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Float</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -986,7 +1100,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Loop over ModifiersComponent and look for any active modifiers affecting the Attribute in question.
+- returns: Sum of modifications</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getAmountFromModifiers</span><span class="p">(</span><span class="nv">entity</span><span class="p">:</span><span class="kt">CharacterEntity</span><span class="p">,</span> <span class="nv">attribute</span><span class="p">:</span><span class="kt">Attribute</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Float</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Sum of modifications</p>
 
                       </div>
                     </section>

@@ -864,7 +864,14 @@
         <section>
           <section class="section">
             <h1>ModifierComponent</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ModifierComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
+
+                </div>
+              </div>
+            <p>Goal is to store all active modifiers. If a modifier is permanent, it will call AttributesComponenet to adjust the value. If temporary, it will just hold on to the modifier.
+Will take care of expiring Duration and DoT modifiers.</p>
 
           </section>
           <section class="section task-group-section">
@@ -912,6 +919,14 @@
                       <div class="abstract">
                         <p>Undocumented</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ModifierComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1102,7 +1117,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Some modifiers needed to be manually triggered because it is too intensive to check them every frame.</p>
+                        <p>Some modifiers needed to be manually triggered because it is too intensive to check them every frame.
+Others can only be instant (like hitpoints) and need to modify the value directly.
+But the majority just exist in modifiers array, and the AttributesComponenet will factor them into their value.</p>
 
                       </div>
                       <div class="declaration">

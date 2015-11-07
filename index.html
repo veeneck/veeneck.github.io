@@ -869,13 +869,14 @@
 <p>This is the main repository for the entire With War &amp; Woe project. There are no sub modules or other configuration options needs. Just download, build and run to get started. Simulator performance is horrible, so work with a connected device. Currently requires at least an iPhone6 or iPad Air running iOS9. As of iOS9.2, performance returns to expected levels.</p>
 <a href='#abilities_modifiers_and_attributes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='abilities_modifiers_and_attributes'>Abilities, Modifiers and Attributes</h3>
 
-<p><a href="http://veeneck.github.io/Classes/Ability.html">Ability</a> | <a href="http://veeneck.github.io/Classes/Modifier.html">Modifier</a> | <a href="http://veeneck.github.io/Classes/AbilitiesComponent.html">AbilitiesComponent</a></p>
+<p><a href="http://veeneck.github.io/Classes/Ability.html">Ability</a> &middot; <a href="http://veeneck.github.io/Classes/Modifier.html">Modifier</a> &middot; <a href="http://veeneck.github.io/Classes/AbilitiesComponent.html">AbilitiesComponent</a> &middot;
+<a href="http://veeneck.github.io/Classes/AttributesComponent.html">AttributesComponent</a></p>
 
 <p>One of the more complex parts of the code which needs to remain flexible. Let&rsquo;s start with definitions.</p>
 
-<p><strong>Ability</strong>: An action carried out by a squad, character, hero or commander. Contains a modifier which defines the result of the ability.</p>
+<p><strong>Ability</strong>: An action carried out by a squad, character, hero or commander. Contains <a href="http://veeneck.github.io/Classes/Ability.html#/s:vC14With_War___Woe7Ability9modifiersGSqGSaVS_8Modifier__"><code>[Modifier]</code></a> which defines the result of the ability.</p>
 
-<p><strong>Modifier</strong>: A small container that modifies any Attribute of a CharacterEntity immediately, overtime, or in intervals.</p>
+<p><strong>Modifier</strong>: A small container that modifies any <a href="http://veeneck.github.io/Classes/AttributesComponent.html#/s:OC14With_War___Woe19AttributesComponent9Attribute">Attribute</a> of a <a href="http://veeneck.github.io/Classes/CharacterEntity.html">CharacterEntity</a> immediately, overtime, or in intervals.</p>
 
 <p><strong>Attribute</strong>: Defining characteristic of a CharacterEntity such as Health, WalkingSpeed or Strength.</p>
 
@@ -883,23 +884,43 @@
 
 <hr>
 
+<p><em>How does an ability get processed?</em></p>
+
+<p>The end result of an ability is always for the <a href="http://veeneck.github.io/Classes/Ability.html#/s:vC14With_War___Woe7Ability9modifiersGSqGSaVS_8Modifier__"><code>[Modifier]</code></a> member variable to make its way on to a target <a href="http://veeneck.github.io/Classes/CharacterEntity.html">CharacterEntity</a>. This can happen in three main ways.</p>
+
+<ul>
+<li>An ability like heal from the Commander does not have an associated animation. it is instant. So, the <a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:FC14With_War___Woe19AbilitiesComponenet10runAbilityFS0_FTCS_7Ability12instructionsVS_19CommandInstructions_GSqCS_7Command_"><code>runAbility</code></a> method will set the Modifier to each unit of the target squad instantly.</li>
+<li>An ability like Attack requires each character to do something over time, play an animation, and then transfer an ability to an individual target. At the time of the command, <a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:FC14With_War___Woe19AbilitiesComponenet10runAbilityFS0_FTCS_7Ability12instructionsVS_19CommandInstructions_GSqCS_7Command_"><code>runAbility</code></a> adds the command to the <a href="http://veeneck.github.io/Classes/QueueComponent.html">QueueComponent</a> and the Ability is set to the <a href="http://veeneck.github.io/Classes/AttackComponent.html#/s:vC14With_War___Woe15AttackComponent13currentAttackGSqCS_7Ability_"><code>currentAttack</code></a> setting of the Character. Then, when the character processes the attack, the ability will be passed to the <a href="http://veeneck.github.io/Classes/CombatComponent.html">CombatComponent</a> which will resolve combat and place the appropriate modifiers on the target.</li>
+<li>If something physical is added to the world like an AoE fire circle, the physics delegate can process this and add the appropriate modifiers. Not implemented yet.</li>
+</ul>
+
+<hr>
+
 <p><em>+5 strength to a squad when it levels up</em></p>
 
-<p>squad.pList contains +5 strength modifier in appropriate level. When SquadFactory loads the squad, it will search modifiers for this level and apply them. By setting no abilityName in the pList, the code will not apply the modifier to the squads abilitiyModifiers container. Instead, it will store the modifier in <strong>TODO: Figure this out</strong> which propogates the modifier down to the CharacterEntity&rsquo;s ModifierComponent.</p>
+<p><a href="https://github.com/veeneck/With-War-Woe/blob/master/With%20War%20&amp;%20Woe/Melee1Info.plist">SquadName.pList</a> contains +5 strength modifier in appropriate level. When <a href="http://veeneck.github.io/Classes/SquadFactory.html">SquadFactory</a> loads the squad, it will search modifiers for this level and apply them. By setting no <code>abilityName</code> in the pList, the code will not apply the modifier to the squads <a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:vC14With_War___Woe19AbilitiesComponenet16abilityModifiersGVSs10DictionarySSGSaVS_8Modifier__"><code>abilitiyModifiers</code></a> container. Instead, it will store the modifier in <strong>TODO: Figure this out</strong> which propogates the modifier down to the CharacterEntity&rsquo;s ModifierComponent.</p>
 
 <hr>
 
 <p><em>-10 HP to the <q>Attack</q> ability when a squad levels up</em></p>
 
-<p>squad.pList contains -10 HP modifier in appropriate level and has the abilityName set to <q>Attack</q>. When the SquadFactory loads this modifier, it will be stored in the Squads abilityModifiers container. From here, any code that processes the ability should call <code>AbilitiesComponent.getModifier(ability)</code> which will return <code>[Modifier]</code> containing the abiltiies base modofiers combined with any squad modifiers. This function must be called in real time because live code could alter a squads capabilities.</p>
+<p><a href="https://github.com/veeneck/With-War-Woe/blob/master/With%20War%20&amp;%20Woe/Melee1Info.plist">SquadName.pList</a> contains -10 HP modifier in appropriate level and has the <code>abilityName</code> set to <q>Attack</q>. When the <a href="http://veeneck.github.io/Classes/SquadFactory.html">SquadFactory</a> loads this modifier, it will be stored in the Squads <a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:vC14With_War___Woe19AbilitiesComponenet16abilityModifiersGVSs10DictionarySSGSaVS_8Modifier__"><code>abilitiyModifiers</code></a> container. From here, any code that processes the ability should call <a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:FC14With_War___Woe19AbilitiesComponenet12getModifiersFS0_FCS_7AbilityGSaVS_8Modifier_"><code>AbilitiesComponent.getModifier(ability)</code></a> which will return <code>[Modifier]</code> containing the abiltiies base modofiers combined with any squad modifiers. This function must be called in real time because live code could alter a squads capabilities.</p>
 
 <hr>
 
 <p><em>Create a new Ability that increases walking speed. Limit use to squads not in combat</em></p>
 
-<p>Add a new entry to Abilities.pList named <q>Sprint</q>. Reference other entries to see specific format. Key decisions about the ability would be to give it a behavior of <code>.Instant</code> which means it applies when clicked. A validation of <code>.Move</code> can be applied which will limit its use to moving squads. Finally, a Modifier of <code>.Duration</code> can be applied with +WalkingSpeed which will make the unit walk faster until the time has expired.</p>
+<p>Add a new entry to <a href="https://github.com/veeneck/With-War-Woe/blob/master/With%20War%20%26%20Woe/Abilities.plist">Abilities.pList</a> named <q>Sprint</q>. Reference other entries to see specific format. Key decisions about the ability would be to give it a <a href="http://veeneck.github.io/Classes/Ability.html#/s:OC14With_War___Woe7Ability8Behavior">behavior</a> of <code>.Instant</code> which means it applies when clicked. A <a href="http://veeneck.github.io/Classes/Ability.html#/s:OC14With_War___Woe7Ability10Validation">validation</a> of <code>.Move</code> can be applied which will limit its use to moving squads. Finally, a <a href="http://veeneck.github.io/Structs/Modifier.html#/s:OV14With_War___Woe8Modifier8Behavior">Modifier behavior</a> of <code>.Duration</code> can be applied with +WalkingSpeed which will make the unit walk faster until the time has expired.</p>
 
 <hr>
+<a href='#navigation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='navigation'>Navigation</h3>
+
+<p><a href="http://veeneck.github.io/Classes/Navmesh.html">Navmesh</a> &middot;
+<a href="http://veeneck.github.io/Classes/Navmesh.html">MeshPolygon</a></p>
+
+<p>Navmesh is an extension of GKObstacle graph that has built in utility. MeshPolygons act as the obstacles for the graph, and also store the CGPath which allows easy checks on bounds and buffer radius. The graph is built using <a href="https://www.codeandweb.com/physicseditor">PhysicsEditor</a> and exporting the results. Watch the video below for a walkthrough.</p>
+
+<p><a href="http://www.youtube.com/watch?v=rDlf3wPTZqE" title="Navigation"><img src="http://img.youtube.com/vi/rDlf3wPTZqE/0.jpg" alt="Navigation"></a></p>
 <a href='#documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='documentation'>Documentation</h3>
 
 <p>Docs can be found at <a href="http://veeneck.github.io">veeneck.github.io</a> and they are auto generated with <a href="https://github.com/Realm/jazzy">Jazzy</a> from the source files.</p>
