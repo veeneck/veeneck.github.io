@@ -12,7 +12,7 @@
     <a title="  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (32% documented)</p>
+        <p><a href="index.html"> Docs</a> (33% documented)</p>
         <p class="header-right"><a href="https://github.com/veeneck/With-War-Woe"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -898,7 +898,7 @@
 
 <p><em>+5 strength to a squad when it levels up</em></p>
 
-<p><a href="https://github.com/veeneck/With-War-Woe/blob/master/With%20War%20&amp;%20Woe/Melee1Info.plist">SquadName.pList</a> contains +5 strength modifier in appropriate level. When <a href="http://veeneck.github.io/Classes/SquadFactory.html">SquadFactory</a> loads the squad, it will search modifiers for this level and apply them. By setting no <code>abilityName</code> in the pList, the code will not apply the modifier to the squads <a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:vC14With_War___Woe19AbilitiesComponenet16abilityModifiersGVSs10DictionarySSGSaVS_8Modifier__"><code>abilitiyModifiers</code></a> container. Instead, it will store the modifier in <strong>TODO: Figure this out</strong> which propogates the modifier down to the CharacterEntity&rsquo;s ModifierComponent.</p>
+<p><a href="https://github.com/veeneck/With-War-Woe/blob/master/With%20War%20&amp;%20Woe/Melee1Info.plist">SquadName.pList</a> contains +5 strength modifier in appropriate level. When <a href="http://veeneck.github.io/Classes/SquadFactory.html">SquadFactory</a> loads the squad, it will search modifiers for this level and apply them. By setting no <code>abilityName</code> in the pList, the code will not apply the modifier to the squads <a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:vC14With_War___Woe19AbilitiesComponenet16abilityModifiersGVSs10DictionarySSGSaVS_8Modifier__"><code>abilitiyModifiers</code></a> container. Instead, it will store the modifier in [<code>unitModifiers</code>] which propogates the modifier down to the CharacterEntity&rsquo;s ModifierComponent once a unit is added to the squad..</p>
 
 <hr>
 
@@ -913,6 +913,43 @@
 <p>Add a new entry to <a href="https://github.com/veeneck/With-War-Woe/blob/master/With%20War%20%26%20Woe/Abilities.plist">Abilities.pList</a> named <q>Sprint</q>. Reference other entries to see specific format. Key decisions about the ability would be to give it a <a href="http://veeneck.github.io/Classes/Ability.html#/s:OC14With_War___Woe7Ability8Behavior">behavior</a> of <code>.Instant</code> which means it applies when clicked. A <a href="http://veeneck.github.io/Classes/Ability.html#/s:OC14With_War___Woe7Ability10Validation">validation</a> of <code>.Move</code> can be applied which will limit its use to moving squads. Finally, a <a href="http://veeneck.github.io/Structs/Modifier.html#/s:OV14With_War___Woe8Modifier8Behavior">Modifier behavior</a> of <code>.Duration</code> can be applied with +WalkingSpeed which will make the unit walk faster until the time has expired.</p>
 
 <hr>
+<a href='#supported_abilities_and_modifications' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='supported_abilities_and_modifications'>Supported Abilities and Modifications</h3>
+
+<p>Ability.Behavior &middot; Determines how the ability will act when used. Queue / State machine or process instantly. Also limits what controls show up on HUD, and affects how AI decides what to do next.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center">Suuport</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Move</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>Melee</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>Ranged</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>Instant</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>Spell</td>
+<td style="text-align: center"></td>
+<td></td>
+</tr>
+</tbody></table>
 <a href='#navigation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='navigation'>Navigation</h3>
 
 <p><a href="http://veeneck.github.io/Classes/Navmesh.html">Navmesh</a> &middot;

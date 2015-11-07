@@ -406,7 +406,6 @@ Combat.swift
 	func pickTargetFromSquad(enemy:Squad) -> CharacterEntity?
 	func shouldEngageBasedOnTargetsAttacking(enemy:CharacterEntity) -> Bool
 	func pickTargetToVolley(enemy:Squad) -> CharacterEntity?
-	func resolveCombat(ability:Ability, attacker:CharacterEntity)
 Wheel.swift
 	class WheelComponent : GKComponent
 	init(radius:Float, reform:Float)
@@ -716,7 +715,6 @@ Thinking.swift
 CharacterFactory.swift
 	class CharacterFactory
 	static let sharedInstance = CharacterFactory()
-	var characterCache = Dictionary<String, CharacterEntity>()
 	func createCharacter(name:String, leader:Bool = false) -> CharacterEntity?
 	func loadPListData(name:String) -> NSDictionary
 	func configureCombat(var character:CharacterEntity,  data:NSDictionary, name:String) -> CharacterEntity
@@ -804,7 +802,6 @@ Squad.swift
 	func getAgents(exclude:CharacterEntity? = nil) -> [GKAgent]
 	func == (lh: Squad, rh: Squad) -> Bool
 Attack.swift
-	class AttackComponent : GKComponent
 	var attackRequested : Bool = false
 	var currentAttack : Ability?
 	override init()
