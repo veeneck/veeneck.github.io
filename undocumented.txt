@@ -68,6 +68,18 @@ BattleReport.swift
 	func setDefaults(victory:Bool)
 	func continueTapped()
 	override func handleButtonPress(name: String, node: SKNode)
+DialogueSequence.swift
+	struct KeyPosition
+	var coords : CGPoint
+	var alignment : SKLabelHorizontalAlignmentMode
+	init(coords:CGPoint, alignment:SKLabelHorizontalAlignmentMode)
+	var sequences = Array<ActionSequence>()
+	var currentSequence : ActionSequence?
+	weak var scene : GameScene?
+	init(scene:GameScene)
+	func playNextAction(completion:()->())
+	func prepForNextAction(completion:()->())
+	func touched()
 String+Extensions.swift
 	func replace(target: String, withString: String) -> String
 Action.swift
@@ -241,6 +253,12 @@ MainMenu.swift
 	func moveAssetsOutOfView()
 	override class func loadSceneAssetsWithCompletionHandler(handler:()->())
 	override func willMoveFromView(view: SKView)
+SpeakerBubble.swift
+	class SpeakerBubble : SKCropNode
+	var pictureToMask : SKSpriteNode
+	init(width:CGFloat, scene:SKScene)
+	required init?(coder aDecoder: NSCoder)
+	func setInnerPosition(position:CGPoint)
 Slide.swift
 	protocol SlideMenu
 	func show()
@@ -285,6 +303,10 @@ SquadFactory.swift
 	static let sharedInstance = SquadFactory()
 	var squads = [Squad]()
 	func createSquad(unit:String, count: Int, position:CGPoint, scene:GameScene, enemy:Bool = false, heading:Float? = nil, columns:Int = 3, spacing:Int = 48, exp:Double = 0) -> Squad
+UINode.swift
+	func showNavbar()
+	func hideNavBar()
+	func addDialogueCapabilities(scene:GameScene)
 WorldMap.swift
 	class WorldMap : GameScene
 	var pins = Array<MapPin>()
@@ -351,7 +373,7 @@ LevelData.swift
 	var completed : Bool = false
 	var revealed : Bool = false
 	var cutscene : String = "Intro"
-	init(id:Int, name: String, startScale:CGFloat, startPosition:CGPoint, endPosition:CGPoint, iconPosition:CGPoint, footprintPosition:CGPoint, footprintFrames:Int, type:LevelType, dialogueCount : Int, cutscene:String, exp:Float = 0)
+	init(id:Int, name: String, startScale:CGFloat, endScale:CGFloat, startPosition:CGPoint, endPosition:CGPoint, iconPosition:CGPoint, footprintPosition:CGPoint, footprintFrames:Int, type:LevelType, dialogueCount : Int, cutscene:String, exp:Float = 0)
 	required init?(coder: NSCoder)
 	func encodeWithCoder(coder: NSCoder)
 	class LevelData : NSObject, NSCoding
@@ -392,6 +414,10 @@ MusicService.swift
 	class var sharedInstance: MusicService
 	init()
 	func playBackgroundMusic(filename: String)
+	func prepareCrossFade(filename: String)
+	func transitionsCrossToBackground()
+	func fadeVolumeAndPause(player:AVAudioPlayer)
+	func increaseVolume(player:AVAudioPlayer)
 	func stopBackgroundMusic()
 	func changeVolume(change:Int)
 	func getSoundVolume() -> Float
@@ -539,10 +565,17 @@ NavBar.swift
 	class NavBar : ButtonNode, ButtonNodeResponder
 	var root : SKNode?
 	override init()
+	func move(desired:CGPoint, duration:Double = 0.4)
 	required init?(coder aDecoder: NSCoder)
 	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+Dialogue.swift
+	class Dialogue : SKLabelNode
+	override init()
+	init(text:String, alignment:SKLabelHorizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center, font:String = "Anivers-Regular")
+	required init?(coder aDecoder: NSCoder)
+	func createLabelWithText(text:String, alignment:SKLabelHorizontalAlignmentMode)
 Camp.swift
 	class Camp : LevelScene
 	var selectedSquad : Squad?
@@ -606,6 +639,13 @@ LevelScene.swift
 	func showBattleReport(victory:Bool)
 	func finishLevel()
 	func markLevelAsCompleted(id:Int)
+CustomAction.swift
+	class CustomAction : CSAction
+	var action : ((callback:()->())->())?
+	required init?(coder aDecoder: NSCoder)
+	init(object:SKNode)
+	func setCustomAction(action:((callback:()->())->()))
+	override func process(callback:()->())
 Volleying.swift
 	unowned var entity: CharacterEntity
 	var elapsedTime: NSTimeInterval = 0.0
@@ -900,6 +940,15 @@ Targeting.swift
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 	override func isValidNextState(stateClass: AnyClass) -> Bool
 	func debugTargeting()
+DialogueAction.swift
+	class DialogueAction : CSAction
+	var label : Dialogue
+	var fadeUp : Bool = false
+	var duration : Double = 2
+	required init?(coder aDecoder: NSCoder)
+	init(text:String, position:CGPoint, fadeUp:Bool = false, duration:Double = 2)
+	override func process(callback:()->())
+	func slideIn(duration:Double = 2, offset:CGFloat, callback:()->())
 Dying.swift
 	unowned var entity: CharacterEntity
 	var elapsedTime: NSTimeInterval = 0.0
@@ -985,10 +1034,45 @@ Shooting.swift
 	func debugShooting()
 RevealService.swift
 	class RevealService
-	class func revealNextLevel(map:SKNode, var level:Level)
+	class func revealNextLevel(camera:SKCameraNode, map:SKNode, level:Level, scene:GameScene, callback:()->())
 	class func addFootprintsMask(map:SKNode, level:Level)
+	class func addTravelDialogue(map:SKNode, level:Level, cutscene:DialogueSequence, scene:GameScene)
 	class func determineTravelDuration(level:Level) -> Double
 	class func determineAnimationSpeedForFootsteps(level:Level) -> NSTimeInterval
+CSAction.swift
+	weak var object : SKNode?
+	var delay : Double = 0
+	var finishEarly : Bool = false
+	required init?(coder aDecoder: NSCoder)
+	override init()
+	func process(callback:()->())
+	func finish()
+	func timingFunc(time:Float) -> Float
+	func setTimingFunctionsForActions(var actions:Array<SKAction>) -> Array<SKAction>
+Speakers.swift
+	struct Speaker
+	var node : SKSpriteNode?
+	var endPosition : CGPoint?
+	var startPosition : CGPoint?
+	var cropNode : SpeakerBubble?
+	class SpeakerBox : SKNode
+	var speakers = Array<Speaker>()
+	let speakerHeight : CGFloat = 193
+	let bgHeight : CGFloat = 115
+	let bubbleHeight : CGFloat = 135
+	var box : SKShapeNode?
+	var topBox : SKShapeNode?
+	override init()
+	required init?(coder aDecoder: NSCoder)
+	func addBackground()
+	func addSpeaker(name:String)
+	func setPositionsForSpeakers(first:Bool = true)
+	func getSpeakerPosition(speaker:Speaker, index:CGFloat, speakerCount:CGFloat) -> (startPos:CGPoint, endPos:CGPoint)
+	func getBubblePosition(speaker:Speaker, index:CGFloat, speakerCount:CGFloat) -> (startPos:CGPoint, width:CGFloat)
+	func animateIntoView()
+	func appearIntoView()
+	func animateOutOfView()
+	func removeSpeaker(index:Int)
 CGPath+Extensions.swift
 	class func lineToPoint(start:CGPoint, end:CGPoint) -> CGMutablePathRef
 	class func arcToPoint(start:CGPoint, end:CGPoint, next:CGPoint?) -> CGMutablePathRef
@@ -1066,3 +1150,14 @@ Ability.swift
 	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
 	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
 	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
+ActionSequence.swift
+	var actions = Array<CSAction>()
+	var actionIndex : Int = 0
+	var callbackIndex : Int = 0
+	weak var scene : GameScene?
+	var running : Bool = true
+	init(scene:GameScene?)
+	func run(callback:()->())
+	func skip()
+	func finish()
+	func delay(delay:Double, closure:()->())

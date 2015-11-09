@@ -12,7 +12,7 @@
     <a title="  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html"> Docs</a> (33% documented)</p>
+        <p><a href="index.html"> Docs</a> (32% documented)</p>
         <p class="header-right"><a href="https://github.com/veeneck/With-War-Woe"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -475,6 +475,9 @@
                 <a href="Classes/AbilityRuleSnapshot.html">AbilityRuleSnapshot</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/ActionSequence.html">ActionSequence</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AppDelegate.html">AppDelegate</a>
               </li>
               <li class="nav-group-task">
@@ -484,13 +487,28 @@
                 <a href="Classes/AttributesComponent.html">AttributesComponent</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/CSAction.html">CSAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/CacheService.html">CacheService</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/CharacterFactory.html">CharacterFactory</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/CustomAction.html">CustomAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/DebugOverlay.html">DebugOverlay</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Dialogue.html">Dialogue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/DialogueAction.html">DialogueAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/DialogueSequence.html">DialogueSequence</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ExperienceReport.html">ExperienceReport</a>
@@ -515,6 +533,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SoundEffects.html">SoundEffects</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SpeakerBox.html">SpeakerBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SpeakerBubble.html">SpeakerBubble</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/SquadFactory.html">SquadFactory</a>
@@ -847,10 +871,16 @@
                 <a href="Structs/AbilityRuleTargetData.html">AbilityRuleTargetData</a>
               </li>
               <li class="nav-group-task">
+                <a href="Structs/KeyPosition.html">KeyPosition</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Structs/Spawn.html">Spawn</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/SpawnPoint.html">SpawnPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Speaker.html">Speaker</a>
               </li>
               <li class="nav-group-task">
                 <a href="Structs/Wave.html">Wave</a>
@@ -867,6 +897,17 @@
 <a href='#introduction' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='introduction'>Introduction</h3>
 
 <p>This is the main repository for the entire With War &amp; Woe project. There are no sub modules or other configuration options needs. Just download, build and run to get started. Simulator performance is horrible, so work with a connected device. Currently requires at least an iPhone6 or iPad Air running iOS9. As of iOS9.2, performance returns to expected levels.</p>
+<a href='#table_of_contents' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='table_of_contents'>Table of Contents</h3>
+
+<p><a href="#abilities-modifiers-and-attributes">Abilities, Modifiers &amp; Attributes</a></p>
+
+<p><a href="#supported-abilities-and-modifications">Supported Abilities and Modifications</a></p>
+
+<p><a href="#leveling-up">Leveling Up</a></p>
+
+<p><a href="#navigation">Navigation</a></p>
+
+<p><a href="#documentation">Documentation</a></p>
 <a href='#abilities_modifiers_and_attributes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='abilities_modifiers_and_attributes'>Abilities, Modifiers and Attributes</h3>
 
 <p><a href="http://veeneck.github.io/Classes/Ability.html">Ability</a> &middot; <a href="http://veeneck.github.io/Classes/Modifier.html">Modifier</a> &middot; <a href="http://veeneck.github.io/Classes/AbilitiesComponent.html">AbilitiesComponent</a> &middot;
@@ -1115,6 +1156,15 @@
 <td>Proof of concept to work with .Blunt</td>
 </tr>
 </tbody></table>
+<a href='#leveling_up' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='leveling_up'>Leveling Up</h3>
+
+<p>Leveling up is currently in a proof of concept state. Notes on the code flow and concerns.</p>
+
+<p><em>Exp Granted</em>: In <a href="http://veeneck.github.io/Classes/ExperienceReport.html">ExperienceReport</a> the results at the end of the battle are shown. All calculations are made here, but this should maybe be a dumb UI that uses a service or class. For example, exp required for the next level is pulled from <a href="http://veeneck.github.io/Classes/SquadFactory.html#/s:FC14With_War___Woe12SquadFactory18getExpForNextLevelFS0_FSSGSqSd_">SquadFactory.getExpForNextLevel</a> which isn&rsquo;t the best place for that function. Lastly, other parts of the code (like the Camp Scene) will need to show unit experience, so it shoul dbe reusable.</p>
+
+<p><em>Calculating Unit Contribution</em>: Currently, each modifier is tallied as a contribution point and stored in the squads <a href="http://veeneck.github.io/Classes/BattleComponent.html#/s:vC14With_War___Woe15BattleComponent16modifiersAppliedSd">BattleComponent</a>. This is unfair to larger units with ranged attacks as they would get 10 points for every single catapult shot. Need to think through final formula which should consider damage done, damage taken, etc.</p>
+
+<p><em>Getting New Abilities</em>: This part does work. If the UnitName.pList file has abilities as upgrade, they will be applied to the squad if the squads exp level matches or exceeds the abilities. <strong>NOTE</strong>: Only abilities with the <code>Automatic</code> flag will be applied. The idea is that future support for branched choices needs to be there. A branched choice would have to cross reference the save file to see what the user selected.</p>
 <a href='#navigation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='navigation'>Navigation</h3>
 
 <p><a href="http://veeneck.github.io/Classes/Navmesh.html">Navmesh</a> &middot;
