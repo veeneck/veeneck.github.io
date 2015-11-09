@@ -915,12 +915,12 @@
 <hr>
 <a href='#supported_abilities_and_modifications' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='supported_abilities_and_modifications'>Supported Abilities and Modifications</h3>
 
-<p>Ability.Behavior &middot; Determines how the ability will act when used. Queue / State machine or process instantly. Also limits what controls show up on HUD, and affects how AI decides what to do next.</p>
+<p><a href="http://veeneck.github.io/Classes/Ability.html#/s:OC14With_War___Woe7Ability8Behavior">Ability.Behavior</a> &middot; Determines how the ability will act when used. Queue / State machine or process instantly. Also limits what controls show up on HUD, and affects how AI decides what to do next.</p>
 
 <table><thead>
 <tr>
 <th></th>
-<th style="text-align: center">Suuport</th>
+<th style="text-align: center">Support</th>
 <th>Comments</th>
 </tr>
 </thead><tbody>
@@ -950,6 +950,171 @@
 <td></td>
 </tr>
 </tbody></table>
+
+<p><a href="http://veeneck.github.io/Classes/Ability.html#/s:OC14With_War___Woe7Ability10Validation">Ability.Validation</a> &middot; Limits when the ability can be used. Checkd by HUD and AI.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center">Support</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Moving</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>NotMoving</td>
+<td style="text-align: center"></td>
+<td></td>
+</tr>
+<tr>
+<td>InCombat</td>
+<td style="text-align: center"></td>
+<td></td>
+</tr>
+<tr>
+<td>NotInCombat</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><a href="http://veeneck.github.io/Classes/Ability.html#/s:vC14With_War___Woe7Ability9modifiersGSqGSaVS_8Modifier__">Ability Modifiers</a> &middot; Abilities support an array of modifiers. So, while their default modifiers are loaded when the Ability is constructed, a Squad can also enhance them.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center">Support</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pList Level Modifiers</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td>abilityName(String) must be set and match the actual Ability name.</td>
+</tr>
+</tbody></table>
+
+<p><a href="http://veeneck.github.io/Classes/AbilitiesComponenet.html#/s:vC14With_War___Woe19AbilitiesComponenet13unitModifiersGSaVS_8Modifier_">Unit Modifiers</a> &middot; A modifier applied to a Squad, which then is processed immediately on each unit as the unit joins the Squad. Subject to normal modifier rules.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center">Support</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pList Level Modifiers</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td>abilityName(String) must <strong>not</strong> be set to anything.</td>
+</tr>
+</tbody></table>
+
+<p><a href="http://veeneck.github.io/Structs/Modifier.html#/s:vV14With_War___Woe8Modifier8behaviorOS0_8Behavior">Modifier.Behavior</a> &middot; Determines the duration and frequency of the modifier.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center">Support</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Instant</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>Duration</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>DoT</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td>Works with temporary but would not stack each tick. Makes more sense with permanent modification.</td>
+</tr>
+<tr>
+<td>Permanent</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td>Should work but not verified.</td>
+</tr>
+</tbody></table>
+
+<p><a href="http://veeneck.github.io/Structs/Modifier.html#/s:OV14With_War___Woe8Modifier12Modification">Modifier.Modification</a> &middot; Specifies if the change in Character Attribute is permanent or temporary.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center">Support</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Permanent</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+<tr>
+<td>Temporary</td>
+<td style="text-align: center">:white_check_mark:</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><a href="http://veeneck.github.io/Structs/Modifier.html#/s:OV14With_War___Woe8Modifier15CombatAttribute">Modifier.CombatAttribute</a> &middot; Specifies the type of attack which is used to evaluate strengths and weaknesses.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th style="text-align: center">Support</th>
+<th>Comments</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Blunt</td>
+<td style="text-align: center"></td>
+<td>Currently the default setting. Other than being passed through the code, it does nothing.</td>
+</tr>
+</tbody></table>
+
+<p><a href="http://veeneck.github.io/Classes/AttributesComponent.html#/s:OC14With_War___Woe19AttributesComponent9Attribute">AttributesComponent.Attribute</a> &middot; Ultimately, Abilities and Modifiers are adjusting Character Attributes. Here are the Attributes along with the combinations of Abilities / Modifiers that they are compatible with. Future support could be added to make anything work &ndash; this is just the list that is expected to work.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th>Ability.Behavior</th>
+<th>Modifier.Behavior</th>
+<th>Modifier.Modification</th>
+<th>Modifier.CombatAttribute</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>WalkingSpeed</td>
+<td>.Instant</td>
+<td>.Duration<br>.Permanent</td>
+<td>.Temporary</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>HitPoints</td>
+<td>.Instant<br>.Melee<br>.Ranged</td>
+<td>All</td>
+<td>.Permanent</td>
+<td>Not implemented</td>
+</tr>
+<tr>
+<td>Strength</td>
+<td>.Instant<br>.Melee<br>.Ranged</td>
+<td>.Instant<br>.Duration<br>.Permanent</td>
+<td>All</td>
+<td>Proof of concept to work with .Blunt</td>
+</tr>
+</tbody></table>
 <a href='#navigation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='navigation'>Navigation</h3>
 
 <p><a href="http://veeneck.github.io/Classes/Navmesh.html">Navmesh</a> &middot;
@@ -974,7 +1139,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-07)</p>
+          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

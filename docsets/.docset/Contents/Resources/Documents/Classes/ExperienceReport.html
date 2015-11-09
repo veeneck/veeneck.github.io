@@ -864,7 +864,13 @@
         <section>
           <section class="section">
             <h1>ExperienceReport</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="Swift">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ExperienceReport</span> <span class="p">:</span> <span class="kt">Slide</span></code></pre>
+
+                </div>
+              </div>
+            <p>This class should show experience gained at the end of combat. It is responsible for saving the exp, not rewarding if the level is replayed or if the user lost, among other logic.</p>
 
           </section>
           <section class="section task-group-section">
@@ -883,8 +889,43 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether or not the fight was won.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">victory</span> <span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC14With_War___Woe16ExperienceReport5levelGSqCS_5Level_"></a>
+                    <a name="//apple_ref/swift/Property/level" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC14With_War___Woe16ExperienceReport5levelGSqCS_5Level_">level</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current level. necessary to find out maxExp to reward.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">level</span> <span class="p">:</span> <span class="kt">Level</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -902,8 +943,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The node that is copied for each unit to show individual experience.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">experienceTemplate</span> <span class="p">:</span> <span class="kt">SKNode</span><span class="o">!</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -911,9 +960,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe16ExperienceReportcFMS0_FT5sceneCS_9GameScene7victorySb_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(scene:victory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe16ExperienceReportcFMS0_FT5sceneCS_9GameScene7victorySb_S0_">init(scene:victory:)</a>
+                    <a name="/s:FC14With_War___Woe16ExperienceReportcFMS0_FT5sceneCS_9GameScene7victorySb5levelCS_5Level_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(scene:victory:level:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16ExperienceReportcFMS0_FT5sceneCS_9GameScene7victorySb5levelCS_5Level_S0_">init(scene:victory:level:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -921,8 +970,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The only proper way to init this object.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">scene</span><span class="p">:</span><span class="kt">GameScene</span><span class="p">,</span> <span class="nv">victory</span><span class="p">:</span><span class="kt">Bool</span><span class="p">,</span> <span class="nv">level</span><span class="p">:</span><span class="kt">Level</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -943,6 +1000,14 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ExperienceReport</span> <span class="p">:</span> <span class="kt">Slide</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
@@ -950,10 +1015,10 @@
             </div>
             <div class="task-group">
                 <div class="task-name-container">
-                  <a name="/Set%20Defaults"></a>
-                  <a name="//apple_ref/swift/Section/Set Defaults" class="dashAnchor"></a>
-                  <a href="#/Set%20Defaults">
-                    <h3 class="section-name">Set Defaults</h3>
+                  <a name="/Set%20Data"></a>
+                  <a name="//apple_ref/swift/Section/Set Data" class="dashAnchor"></a>
+                  <a href="#/Set%20Data">
+                    <h3 class="section-name">Set Data</h3>
                   </a>
                 </div>
               <ul>
@@ -970,8 +1035,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Show with data set.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">show</span><span class="p">()</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -989,8 +1062,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Loop over each unit and calculate exp to reward.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setDefaults</span><span class="p">(</span><span class="nv">victory</span><span class="p">:</span><span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -998,9 +1079,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC14With_War___Woe16ExperienceReport25addExperienceNodeForSquadFS0_FTCS_9SquadData11indexOffsetSi_T_"></a>
-                    <a name="//apple_ref/swift/Method/addExperienceNodeForSquad(_:indexOffset:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC14With_War___Woe16ExperienceReport25addExperienceNodeForSquadFS0_FTCS_9SquadData11indexOffsetSi_T_">addExperienceNodeForSquad(_:indexOffset:)</a>
+                    <a name="/s:FC14With_War___Woe16ExperienceReport20calculateExpToRewardFS0_FTSd17totalActionPointsSd16unitActionPointsSd_Sd"></a>
+                    <a name="//apple_ref/swift/Method/calculateExpToReward(_:totalActionPoints:unitActionPoints:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16ExperienceReport20calculateExpToRewardFS0_FTSd17totalActionPointsSd16unitActionPointsSd_Sd">calculateExpToReward(_:totalActionPoints:unitActionPoints:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1011,9 +1092,82 @@
                         <p>Undocumented</p>
 
                       </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ExperienceReport</span> <span class="p">:</span> <span class="kt">Slide</span></code></pre>
+
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe16ExperienceReport26calculateTotalActionPointsFS0_FT_Sd"></a>
+                    <a name="//apple_ref/swift/Method/calculateTotalActionPoints()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16ExperienceReport26calculateTotalActionPointsFS0_FT_Sd">calculateTotalActionPoints()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Loop through remaining (alive) friendly squads and find out how many points they have each used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">calculateTotalActionPoints</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe16ExperienceReport25addExperienceNodeForSquadFS0_FTCS_9SquadData15expForNextLevelSd11rewardedExpSd11indexOffsetSi_T_"></a>
+                    <a name="//apple_ref/swift/Method/addExperienceNodeForSquad(_:expForNextLevel:rewardedExp:indexOffset:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe16ExperienceReport25addExperienceNodeForSquadFS0_FTCS_9SquadData15expForNextLevelSd11rewardedExpSd11indexOffsetSi_T_">addExperienceNodeForSquad(_:expForNextLevel:rewardedExp:indexOffset:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This will copy the experience node template for a particular unit. Called multiple times when scene loads.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">addExperienceNodeForSquad</span><span class="p">(</span><span class="nv">squadData</span><span class="p">:</span><span class="kt">SquadData</span><span class="p">,</span> <span class="nv">expForNextLevel</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">rewardedExp</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">indexOffset</span><span class="p">:</span><span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+                <div class="task-name-container">
+                  <a name="/User%20Input"></a>
+                  <a name="//apple_ref/swift/Section/User Input" class="dashAnchor"></a>
+                  <a href="#/User%20Input">
+                    <h3 class="section-name">User Input</h3>
+                  </a>
+                </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1027,8 +1181,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Logic to handle user input if necessary.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="Swift">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">handleButtonPress</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">SKNode</span><span class="p">)</span></code></pre>
+
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -1038,7 +1200,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-07)</p>
+          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.3.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

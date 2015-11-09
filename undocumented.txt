@@ -347,10 +347,11 @@ LevelData.swift
 	var type : LevelType = LevelType.Battle
 	var dialogueCount : Int = 0
 	var highScore : Double = 0
+	var expReward : Float = 0
 	var completed : Bool = false
 	var revealed : Bool = false
 	var cutscene : String = "Intro"
-	init(id:Int, name: String, startScale:CGFloat, startPosition:CGPoint, endPosition:CGPoint, iconPosition:CGPoint, footprintPosition:CGPoint, footprintFrames:Int, type:LevelType, dialogueCount : Int, cutscene:String)
+	init(id:Int, name: String, startScale:CGFloat, startPosition:CGPoint, endPosition:CGPoint, iconPosition:CGPoint, footprintPosition:CGPoint, footprintFrames:Int, type:LevelType, dialogueCount : Int, cutscene:String, exp:Float = 0)
 	required init?(coder: NSCoder)
 	func encodeWithCoder(coder: NSCoder)
 	class LevelData : NSObject, NSCoding
@@ -591,6 +592,7 @@ LevelScene.swift
 	let maximumUpdateDeltaTime: NSTimeInterval = 1.0 / 60.0
 	var entities = Array<GKEntity>()
 	var navmesh : Navmesh?
+	var level : Level?
 	lazy var componentSystems: [GKComponentSystem] =
 	func loadInitialTroops()
 	func beginBattle()
@@ -837,15 +839,8 @@ Formation.swift
 	func buildPositions(maxUnits:Int, spacing:Int)
 	func addRow(depthX:Int, leftSpots:Int, rightSpots:Int, spacing:Int)
 ExperienceReport.swift
-	class ExperienceReport : Slide
-	var victory : Bool = false
-	var experienceTemplate : SKNode!
-	init(scene:GameScene, victory:Bool)
 	required init?(coder aDecoder: NSCoder)
-	override func show()
-	func setDefaults(victory:Bool)
-	func addExperienceNodeForSquad(squadData:SquadData, indexOffset:Int)
-	override func handleButtonPress(name: String, node: SKNode)
+	func calculateExpToReward(expForLevel:Double, totalActionPoints:Double, unitActionPoints:Double) -> Double
 Modifiers.swift
 	override init()
 UnitDesc.swift
