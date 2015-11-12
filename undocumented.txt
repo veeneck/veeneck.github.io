@@ -10,6 +10,12 @@ ActionBar.swift
 	init(parentNode:SKNode)
 	func selectSquad(squad:Squad)
 	func unselectSquad()
+DecisionScene.swift
+	class DecisionScene : GameScene
+	var subscene : String?
+	func loadDecision()
+	func exitAction(action:()->(), choice:Decision)
+	override class func loadSceneAssetsWithCompletionHandler(handler:()->())
 ActionBarRender.swift
 	class ActionBarRender : GKComponent, ButtonNodeResponder
 	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
@@ -68,6 +74,18 @@ BattleReport.swift
 	func setDefaults(victory:Bool)
 	func continueTapped()
 	override func handleButtonPress(name: String, node: SKNode)
+Decision.swift
+	var hasChoice : Bool = true
+	var actionLabel1 : String?
+	var actionLabel2 : String?
+	var action1 : ()->() = {}
+	var action2 : ()->() = {}
+	var level : Int
+	var identifier : String
+	var beforeBattle : Bool
+	var meetsCriteria : ()->(Bool)
+	class DecisionService
+	class func getDecisionForLevel(id:Int) -> Decision?
 DialogueSequence.swift
 	struct KeyPosition
 	var coords : CGPoint
@@ -179,10 +197,11 @@ Blocked.swift
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 	override func isValidNextState(stateClass: AnyClass) -> Bool
 Physics.swift
-	case Ground = 0, GroundLeader, Flying, Invisible
-	case Ground = 0, GroundLeader, Flying, Invisible
-	case Ground = 0, GroundLeader, Flying, Invisible
-	case Ground = 0, GroundLeader, Flying, Invisible
+	case Ground = 0, GroundLeader, Flying, Invisible, OnWall
+	case Ground = 0, GroundLeader, Flying, Invisible, OnWall
+	case Ground = 0, GroundLeader, Flying, Invisible, OnWall
+	case Ground = 0, GroundLeader, Flying, Invisible, OnWall
+	case Ground = 0, GroundLeader, Flying, Invisible, OnWall
 	func contactWithEnvironmentEnded(node:SKNode)
 	func contactWithUnitEnded(entity:CharacterEntity)
 PhysicsHandler.swift
@@ -226,6 +245,7 @@ AI.swift
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 	func determineNextAction()
 	func buildStateDictionary() -> AbilityRuleSnapshot?
+	func enemyIsValid(enemy:Squad) -> Bool
 	override func grade() -> Float
 	init() { super.init(fact: AIComponenet.Fact.closeToTarget) }
 	override func grade() -> Float
@@ -303,6 +323,7 @@ SquadFactory.swift
 	static let sharedInstance = SquadFactory()
 	var squads = [Squad]()
 	func createSquad(unit:String, count: Int, position:CGPoint, scene:GameScene, enemy:Bool = false, heading:Float? = nil, columns:Int = 3, spacing:Int = 48, exp:Double = 0) -> Squad
+	func handleWorldData(squad:Squad, data:NSMutableDictionary)
 UINode.swift
 	func showNavbar()
 	func hideNavBar()
@@ -442,6 +463,19 @@ PanGesture.swift
 	func handlePan(recognizer:UIPanGestureRecognizer, target:SKCameraNode)
 	func handlePanChanged(recognizer:UIPanGestureRecognizer, target:SKCameraNode)
 	func handlePanEnded(recognizer:UIPanGestureRecognizer, target:SKCameraNode)
+DecisionChoice.swift
+	class DecisionChoice : Slide
+	init(scene:GameScene, subscene:String)
+	required init?(coder aDecoder: NSCoder)
+	func loadDecision()
+	func loadTitle()
+	func loadImage()
+	func loadDescription()
+	func loadChoice1(decision:Decision)
+	func loadChoice2(decision:Decision)
+	func saveChoice1()
+	func saveChoice2()
+	override func handleButtonPress(name: String, node: SKNode)
 GameData.swift
 	var saveFile : String = ""
 	class GameData : NSObject, NSCoding
@@ -1039,6 +1073,13 @@ RevealService.swift
 	class func addTravelDialogue(map:SKNode, level:Level, cutscene:DialogueSequence, scene:GameScene)
 	class func determineTravelDuration(level:Level) -> Double
 	class func determineAnimationSpeedForFootsteps(level:Level) -> NSTimeInterval
+ASAttributedLabelNode.swift
+	class ASAttributedLabelNode: SKSpriteNode
+	required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+	init(size: CGSize)
+	var attributedString: NSAttributedString!
+	func draw()
+	func buildText(myString:String, mySize: CGFloat, myFont:String, alignment:NSTextAlignment = NSTextAlignment.Left) -> (NSMutableAttributedString)
 CSAction.swift
 	weak var object : SKNode?
 	var delay : Double = 0
@@ -1140,6 +1181,15 @@ WaveService.swift
 	func beginWaves()
 	func spawnCurrentWave()
 	func isLastWave() -> Bool
+Hills.swift
+	class Hills : LevelScene
+	override func didMoveToView(view: SKView)
+	func loadWaves()
+	override func clickedOrTapped(location: CGPoint)
+	override class func loadSceneAssetsWithCompletionHandler(handler:()->())
+	func configureNavmesh()
+	override func beginBattle()
+	override func finishLevel()
 Ability.swift
 	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
 	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
