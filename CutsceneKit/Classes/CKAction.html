@@ -13,14 +13,14 @@
     <a title="CKAction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a></p>
+        <p><a href="../index.html">CutsceneKit Docs</a></p>
         <p class="header-right"><a href="https://github.com/veeneck/CutsceneKit"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2F%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FCutsceneKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="../index.html"> Reference</a>
+        <a href="../index.html">CutsceneKit Reference</a>
         <img id="carat" src="../img/carat.png" />
         CKAction Class Reference
       </p>
@@ -48,7 +48,19 @@
         <section>
           <section class="section">
             <h1>CKAction</h1>
-            <p>Undocumented</p>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CKAction</span></code></pre>
+
+                </div>
+              </div>
+            <p>A container for SKActions and the nodes they should run on. Also manages the timing function that allows SKActions to be skipped. To use a CKAction, it must be added to a <a href="../Classes/CKSequence.html">CKSequence</a>, which is then controlled by a <a href="../Classes/CKCutscene.html">CKCutscene</a>.</p>
+
+<div class="aside aside-note">
+          <p class="aside-title">Note</p>
+          From a technical perspective, this imlementation is required because a bool must be set as a member variable of the SKAction. The <code>timingFunc</code> uses that state to determine when to skip an action.
+
+        </div>
 
           </section>
           <section class="section task-group-section">
@@ -57,9 +69,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC11CutsceneKit8CKAction5delaySd"></a>
-                    <a name="//apple_ref/swift/Property/delay" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11CutsceneKit8CKAction5delaySd">delay</a>
+                    <a name="/s:FC11CutsceneKit8CKActioncFMS0_FT4nodeCSo6SKNode6actionCSo8SKAction13desiredTimingGSqFSfSf__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(node:action:desiredTiming:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11CutsceneKit8CKActioncFMS0_FT4nodeCSo6SKNode6actionCSo8SKAction13desiredTimingGSqFSfSf__S0_">init(node:action:desiredTiming:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -67,152 +79,62 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initilize an <a href="../Classes/CKAction.html">CKAction</a> and override the timing function to allow skip functionality.</p>
 
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC11CutsceneKit8CKAction11finishEarlySb"></a>
-                    <a name="//apple_ref/swift/Property/finishEarly" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC11CutsceneKit8CKAction11finishEarlySb">finishEarly</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span><span class="kt">SKNode</span><span class="p">,</span> <span class="nv">action</span><span class="p">:</span><span class="kt">SKAction</span><span class="p">,</span> <span class="nv">desiredTiming</span><span class="p">:</span><span class="kt">SKActionTimingFunction</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
+                        </div>
                       </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11CutsceneKit8CKActioncFMS0_FT_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit8CKActioncFMS0_FT_S0_">init()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>node</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The node to run the action on.</p>
 
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11CutsceneKit8CKActioncFMS0_FT5coderCSo7NSCoder_GSqS0__"></a>
-                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit8CKActioncFMS0_FT5coderCSo7NSCoder_GSqS0__">init(coder:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>action</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SKAction to run.</p>
 
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Running%20an%20Action"></a>
-                <a name="//apple_ref/swift/Section/Running an Action" class="dashAnchor"></a>
-                <a href="#/Running%20an%20Action">
-                  <h3 class="section-name">Running an Action</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11CutsceneKit8CKAction7processFS0_FFT_T_T_"></a>
-                    <a name="//apple_ref/swift/Method/process(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit8CKAction7processFS0_FFT_T_T_">process(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>desiredTiming</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code>SKActionTimingFunction</code> to assign to the <code>action</code>. This is the only way to control playback speed.</p>
 
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11CutsceneKit8CKAction6finishFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/finish()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit8CKAction6finishFS0_FT_T_">finish()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11CutsceneKit8CKAction10timingFuncFS0_FSfSf"></a>
-                    <a name="//apple_ref/swift/Method/timingFunc(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit8CKAction10timingFuncFS0_FSfSf">timingFunc(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC11CutsceneKit8CKAction28setTimingFunctionsForActionsFS0_FGSaCSo8SKAction_GSaS1__"></a>
-                    <a name="//apple_ref/swift/Method/setTimingFunctionsForActions(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit8CKAction28setTimingFunctionsForActionsFS0_FGSaCSo8SKAction_GSaS1__">setTimingFunctionsForActions(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -222,7 +144,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-11-18)</p>
+          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-18)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
