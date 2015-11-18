@@ -38,6 +38,9 @@
                 <a href="../Classes/CKCutscene.html">CKCutscene</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/CKDialogueAction.html">CKDialogueAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/CKSequence.html">CKSequence</a>
               </li>
             </ul>
@@ -58,7 +61,11 @@
 
 <div class="aside aside-note">
           <p class="aside-title">Note</p>
-          From a technical perspective, this imlementation is required because a bool must be set as a member variable of the SKAction. The <code>timingFunc</code> uses that state to determine when to skip an action.
+          <p>From a technical perspective, this imlementation is required because a bool must be set as a member variable of the SKAction. The <code>timingFunc</code> uses that state to determine when to skip an action.</p>
+
+        </div><div class="aside aside-precondition">
+          <p class="aside-title">Precondition</p>
+          <p>If you are adding a child to <code>node</code> with a <code>runBlock</code>, you can name the child <q>CKActionObject</q> and it will automatically be removed when the action has finished.</p>
 
         </div>
 

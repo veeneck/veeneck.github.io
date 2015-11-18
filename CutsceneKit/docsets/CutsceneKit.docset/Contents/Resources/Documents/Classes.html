@@ -37,6 +37,9 @@
                 <a href="Classes/CKCutscene.html">CKCutscene</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/CKDialogueAction.html">CKDialogueAction</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/CKSequence.html">CKSequence</a>
               </li>
             </ul>
@@ -70,7 +73,11 @@
 
 <div class="aside aside-note">
           <p class="aside-title">Note</p>
-          From a technical perspective, this imlementation is required because a bool must be set as a member variable of the SKAction. The <code>timingFunc</code> uses that state to determine when to skip an action.
+          <p>From a technical perspective, this imlementation is required because a bool must be set as a member variable of the SKAction. The <code>timingFunc</code> uses that state to determine when to skip an action.</p>
+
+        </div><div class="aside aside-precondition">
+          <p class="aside-title">Precondition</p>
+          <p>If you are adding a child to <code>node</code> with a <code>runBlock</code>, you can name the child <q>CKActionObject</q> and it will automatically be removed when the action has finished.</p>
 
         </div>
 
@@ -165,6 +172,48 @@ nodeB.runAction(SKAction.moveToX(500, duration:5)
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CKCutscene</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C11CutsceneKit16CKDialogueAction"></a>
+                    <a name="//apple_ref/swift/Class/CKDialogueAction" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C11CutsceneKit16CKDialogueAction">CKDialogueAction</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The purpose of this class is to provide an example of how <a href="Classes/CKAction.html">CKAction</a> can be subclassed to enapsulate common cutscene features. For this specific use case, sequences of dialogue can be added.</p>
+
+<pre class="highlight plaintext"><code>let action = CKDialogueAction(
+    node: nodeA,
+    position: CGPoint(x:0, y:0),
+    duration:3, 
+    text:"Hello World")
+self.cutscene.addSequences([<a href="Classes/CKSequence.html">CKSequence</a>(actions: [action])])
+</code></pre>
+
+<p>The example code above would add a text string of <q>Hello World</q> to <code>nodeA</code> for 3 seconds.</p>
+
+                        <a href="Classes/CKDialogueAction.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CKDialogueAction</span> <span class="p">:</span> <span class="kt">CKAction</span></code></pre>
 
                         </div>
                       </div>
