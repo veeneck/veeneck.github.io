@@ -1,0 +1,11 @@
+CKSequence.swift
+	public class CKSequence
+CKAction.swift
+	public class CKAction : SKNode
+CKCutscene.swift
+	var sequences = [CKSequence]()
+	var currentSequence : CKSequence?
+	public init()
+	func playNextAction(completion:()->())
+	func prepForNextAction(completion:()->())
+	func skipCurrentSequence()
