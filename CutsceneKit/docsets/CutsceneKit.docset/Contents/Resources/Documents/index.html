@@ -69,7 +69,7 @@ self.cutscene.begin() {
 }
 </code></pre>
 
-<p>The code above will move two unrelated nodes (<code>nodeA</code> and <code>nodeB</code>). Each will move at their own speed / duration, and the callback will be called when the action with the longest duration has finished. Think of it as SKAction.group() on different nodes. This first benefit is nice, but it&rsquo;s worth noting that there is a workaround using <a href="https://developer.apple.com/library/prerelease/mac/documentation/SpriteKit/Reference/SKAction_Ref/index.html#//apple_ref/occ/clm/SKAction/runAction:onChildWithName:"><code>SKAction.runAction(_:onChildWithName:)</code></a> along with a <code>waitForDuration</code>.</p>
+<p>The code above will move two unrelated nodes (<code>nodeA</code> and <code>nodeB</code>). Each will move at their own speed / duration, and the callback will be called when the action with the longest duration has finished. Think of it as <code>SKAction.group()</code> on different nodes. This first benefit is nice, but it&rsquo;s worth noting that there is a workaround using <a href="https://developer.apple.com/library/prerelease/mac/documentation/SpriteKit/Reference/SKAction_Ref/index.html#//apple_ref/occ/clm/SKAction/runAction:onChildWithName:"><code>SKAction.runAction(_:onChildWithName:)</code></a> along with a <code>waitForDuration</code>.</p>
 
 <p>Fortunately, there are more benefits to this approach. Among them are:</p>
 
@@ -78,7 +78,7 @@ self.cutscene.begin() {
 <li>Allows for flags like <code>skipable</code> and <code>autoplay</code> to be applied to groups of actions. This enables sequences that can be paused and controlled by user input.</li>
 </ul>
 
-<p>To dive in, start by looking at CKCutscene and then you can begin constructing a CKSequence</p>
+<p>To dive in, start by looking at <a href="http://veeneck.github.io/CutsceneKit/Classes/CKCutscene.html">CKCutscene</a> and then you can begin constructing a <a href="http://veeneck.github.io/CutsceneKit/Classes/CKSequence.html">CKSequence</a></p>
 <a href='#status' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='status'>Status</h2>
 
 <p>Not ready for use.</p>
