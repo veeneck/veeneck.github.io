@@ -18,6 +18,8 @@ DecisionScene.swift
 	override class func loadSceneAssetsWithCompletionHandler(handler:()->())
 ActionBarRender.swift
 	class ActionBarRender : GKComponent, ButtonNodeResponder
+	func show()
+	func hide()
 	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
@@ -86,18 +88,6 @@ Decision.swift
 	var meetsCriteria : ()->(Bool)
 	class DecisionService
 	class func getDecisionForLevel(id:Int) -> Decision?
-DialogueSequence.swift
-	struct KeyPosition
-	var coords : CGPoint
-	var alignment : SKLabelHorizontalAlignmentMode
-	init(coords:CGPoint, alignment:SKLabelHorizontalAlignmentMode)
-	var sequences = Array<ActionSequence>()
-	var currentSequence : ActionSequence?
-	weak var scene : GameScene?
-	init(scene:GameScene)
-	func playNextAction(completion:()->())
-	func prepForNextAction(completion:()->())
-	func touched()
 String+Extensions.swift
 	func replace(target: String, withString: String) -> String
 Action.swift
@@ -203,6 +193,7 @@ Physics.swift
 	case Ground = 0, GroundLeader, Flying, Invisible, OnWall
 	case Ground = 0, GroundLeader, Flying, Invisible, OnWall
 	func contactWithEnvironmentEnded(node:SKNode)
+	func contactWithAoEEnded(node:AoE)
 	func contactWithUnitEnded(entity:CharacterEntity)
 PhysicsHandler.swift
 	protocol ContactNotifiableType
@@ -213,7 +204,7 @@ PhysicsHandler.swift
 	enum ColliderType: UInt32
 	case Attacker = 1
 	case Defender = 2
-	case AttackerProjectile = 4
+	case Projectile = 4
 	case DefenderProjectile = 8
 	case Environment = 16
 	case UI = 32
@@ -273,12 +264,6 @@ MainMenu.swift
 	func moveAssetsOutOfView()
 	override class func loadSceneAssetsWithCompletionHandler(handler:()->())
 	override func willMoveFromView(view: SKView)
-SpeakerBubble.swift
-	class SpeakerBubble : SKCropNode
-	var pictureToMask : SKSpriteNode
-	init(width:CGFloat, scene:SKScene)
-	required init?(coder aDecoder: NSCoder)
-	func setInnerPosition(position:CGPoint)
 Slide.swift
 	protocol SlideMenu
 	func show()
@@ -322,7 +307,7 @@ SquadFactory.swift
 	class SquadFactory
 	static let sharedInstance = SquadFactory()
 	var squads = [Squad]()
-	func createSquad(unit:String, count: Int, position:CGPoint, scene:GameScene, enemy:Bool = false, heading:Float? = nil, columns:Int = 3, spacing:Int = 48, exp:Double = 0) -> Squad
+	func createSquad(unit:String, count: Int, position:CGPoint, scene:GameScene, controller:Squad.Controller = .Player, heading:Float? = nil, columns:Int = 3, spacing:Int = 48, exp:Double = 0) -> Squad
 	func handleWorldData(squad:Squad, data:NSMutableDictionary)
 UINode.swift
 	func showNavbar()
@@ -359,7 +344,6 @@ Attributes.swift
 	case Base = "Base", WalkingSpeed = "WalkingSpeed", HitPoints = "HitPoints", Strength = "Strength"
 Defending.swift
 	unowned var entity: Squad
-	func shouldEngageTarget(target:Squad) -> Bool
 Engaging.swift
 	class EngagingState: GKState
 	unowned var entity: Squad
@@ -411,22 +395,10 @@ MoveAction.swift
 	override init(squad:Squad, ability:Ability, entity:ActionBar)
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 Heraldry.swift
-	class HeraldryComponent : GKComponent, ButtonNodeResponder
-	var root : ButtonNode?
-	var maskedHealthBars = SKSpriteNode()
-	var touchCallback : ()->() = { }
-	let crestColors : Dictionary<String, UIColor> = [
-	func removeHealth()
-	func snapToLeadersPosition()
-	func moveToDesiredPositionWithBounds(desired:CGPoint, scene:GameScene)
-	func highlightCrest(color:String? = nil, pulse:Bool = false)
+	var backgroundShield : SKSpriteNode!
+	var foregroundShield : SKSpriteNode!
+	func highlightCrest(color:UIColor? = nil)
 	func unhighlightCrest()
-	func addTimerMask(duration:Double)
-	func removeTimerMask(node:SKNode)
-	override func updateWithDeltaTime(seconds: NSTimeInterval)
-	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
-	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
-	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
 MusicService.swift
 	var MASTER_MUSIC_VOLUME : Int = 2
 	class MusicService
@@ -493,8 +465,11 @@ Projectile.swift
 	var bounce : Int = -1
 	var velocity : CGFloat = 600
 	var offset : CGPoint = CGPoint(x:0, y:0)
+	var ability : String?
 	required init?(coder aDecoder: (NSCoder!))
 	func fire(start:CGPoint, var end:CGPoint, data:NSMutableDictionary)
+	func randomizeLift() -> CGFloat
+	func runAbilityAfterImpact(squad:Squad, endPosition:CGPoint)
 Animation.swift
 	struct Animation
 	var textures = Array<SKTexture>()
@@ -523,6 +498,7 @@ float2+Extensions.swift
 Arrow.swift
 	class Arrow : Projectile
 	override func fire(start: CGPoint, var end: CGPoint, data: NSMutableDictionary)
+	override func getMissOffset(target:CharacterEntity, end:CGPoint) -> CGPoint
 SceneObject.swift
 	enum SceneGroup : Int
 	case Main = 0, World, Battle, Misc
@@ -566,6 +542,11 @@ LevelPreview.swift
 Time.swift
 	class Time
 	class func delay(delay:Double, closure:()->())
+Rocks.swift
+	class Rocks : Projectile
+	override func fire(start: CGPoint, var end: CGPoint, data: NSMutableDictionary)
+	func debugArc(scene:GameScene, path:CGPath)
+	override func getMissOffset(target:CharacterEntity, end:CGPoint) -> CGPoint
 MapPin.swift
 	class MapPin : ButtonNode, ButtonNodeResponder
 	var level : Level
@@ -604,12 +585,6 @@ NavBar.swift
 	func buttonTouchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
 	func buttonTouchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
-Dialogue.swift
-	class Dialogue : SKLabelNode
-	override init()
-	init(text:String, alignment:SKLabelHorizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center, font:String = "Anivers-Regular")
-	required init?(coder aDecoder: NSCoder)
-	func createLabelWithText(text:String, alignment:SKLabelHorizontalAlignmentMode)
 Camp.swift
 	class Camp : LevelScene
 	var selectedSquad : Squad?
@@ -653,6 +628,14 @@ ArmyData.swift
 	override init()
 	required init?(coder: NSCoder)
 	func encodeWithCoder(coder: NSCoder)
+AoE.swift
+	class AoE : SKSpriteNode
+	let range : Double
+	let modifiers : [Modifier]
+	let ability : Ability
+	init(range:Double, modifiers:[Modifier], ability:Ability)
+	required init?(coder aDecoder: NSCoder)
+	func process(scene:LevelScene, position:CGPoint)
 LevelScene.swift
 	class LevelScene : GameScene, SKPhysicsContactDelegate
 	var lastUpdateTimeInterval: NSTimeInterval = 0
@@ -673,13 +656,6 @@ LevelScene.swift
 	func showBattleReport(victory:Bool)
 	func finishLevel()
 	func markLevelAsCompleted(id:Int)
-CustomAction.swift
-	class CustomAction : CSAction
-	var action : ((callback:()->())->())?
-	required init?(coder aDecoder: NSCoder)
-	init(object:SKNode)
-	func setCustomAction(action:((callback:()->())->()))
-	override func process(callback:()->())
 Volleying.swift
 	unowned var entity: CharacterEntity
 	var elapsedTime: NSTimeInterval = 0.0
@@ -727,8 +703,6 @@ Cutscene.swift
 	var sceneName : String?
 	let nextScene : Dictionary<String, String> = [
 	override func didMoveToView(view: SKView)
-	func createAVVideoPlayer(name:String) -> AVPlayer
-	func playerDidFinishPlaying(note: NSNotification?)
 	override func clickedOrTapped(location:CGPoint)
 Following.swift
 	static let ArrivalDistance : CGFloat = 10 // 10 squared
@@ -876,6 +850,9 @@ Squad.swift
 	func getLeader() -> CharacterEntity?
 	func getAgentsToAvoid(exclude:CharacterEntity? = nil) -> [GKAgent]
 	func getAgents(exclude:CharacterEntity? = nil) -> [GKAgent]
+	case Player = 0, EnemyNPC = 1, FriendlyNPC = 2
+	case Player = 0, EnemyNPC = 1, FriendlyNPC = 2
+	case Player = 0, EnemyNPC = 1, FriendlyNPC = 2
 	func == (lh: Squad, rh: Squad) -> Bool
 Attack.swift
 	var attackRequested : Bool = false
@@ -938,18 +915,19 @@ SceneManager.swift
 	func preloadRelatedScenesInBackground(sceneObj:SceneObject)
 DebugFlags.swift
 	enum Debug : Int
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
-	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
+	case PathFinding = 0, State, Layers, Time, Heraldry, SquadPositions, AnchorPoints, Navigation, MeshObstacles, ConnectedNodes, CombatPositions, SquadState, Trebuchet
 	var enabled : Bool
 	class DebugOverlay
 	class func drawPoints(points:Array<CGPoint>, scene:LevelScene)
@@ -974,15 +952,6 @@ Targeting.swift
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
 	override func isValidNextState(stateClass: AnyClass) -> Bool
 	func debugTargeting()
-DialogueAction.swift
-	class DialogueAction : CSAction
-	var label : Dialogue
-	var fadeUp : Bool = false
-	var duration : Double = 2
-	required init?(coder aDecoder: NSCoder)
-	init(text:String, position:CGPoint, fadeUp:Bool = false, duration:Double = 2)
-	override func process(callback:()->())
-	func slideIn(duration:Double = 2, offset:CGFloat, callback:()->())
 Dying.swift
 	unowned var entity: CharacterEntity
 	var elapsedTime: NSTimeInterval = 0.0
@@ -1032,6 +1001,12 @@ Forest.swift
 	func configureNavmesh()
 	override func beginBattle()
 	override func finishLevel()
+	override func update(currentTime: CFTimeInterval)
+	func addOpeningCutscene()
+	func addFirstEnemy()
+	func addNPC()
+	func addIceGuard()
+	func testHeraldry()
 Settings.swift
 	class SettingsButton : ButtonNode, ButtonNodeResponder
 	override init()
@@ -1070,7 +1045,7 @@ RevealService.swift
 	class RevealService
 	class func revealNextLevel(camera:SKCameraNode, map:SKNode, level:Level, scene:GameScene, callback:()->())
 	class func addFootprintsMask(map:SKNode, level:Level)
-	class func addTravelDialogue(map:SKNode, level:Level, cutscene:DialogueSequence, scene:GameScene)
+	class func addTravelDialogue(map:SKNode, level:Level, cutscene:CKCutscene, scene:GameScene)
 	class func determineTravelDuration(level:Level) -> Double
 	class func determineAnimationSpeedForFootsteps(level:Level) -> NSTimeInterval
 ASAttributedLabelNode.swift
@@ -1080,40 +1055,6 @@ ASAttributedLabelNode.swift
 	var attributedString: NSAttributedString!
 	func draw()
 	func buildText(myString:String, mySize: CGFloat, myFont:String, alignment:NSTextAlignment = NSTextAlignment.Left) -> (NSMutableAttributedString)
-CSAction.swift
-	weak var object : SKNode?
-	var delay : Double = 0
-	var finishEarly : Bool = false
-	required init?(coder aDecoder: NSCoder)
-	override init()
-	func process(callback:()->())
-	func finish()
-	func timingFunc(time:Float) -> Float
-	func setTimingFunctionsForActions(var actions:Array<SKAction>) -> Array<SKAction>
-Speakers.swift
-	struct Speaker
-	var node : SKSpriteNode?
-	var endPosition : CGPoint?
-	var startPosition : CGPoint?
-	var cropNode : SpeakerBubble?
-	class SpeakerBox : SKNode
-	var speakers = Array<Speaker>()
-	let speakerHeight : CGFloat = 193
-	let bgHeight : CGFloat = 115
-	let bubbleHeight : CGFloat = 135
-	var box : SKShapeNode?
-	var topBox : SKShapeNode?
-	override init()
-	required init?(coder aDecoder: NSCoder)
-	func addBackground()
-	func addSpeaker(name:String)
-	func setPositionsForSpeakers(first:Bool = true)
-	func getSpeakerPosition(speaker:Speaker, index:CGFloat, speakerCount:CGFloat) -> (startPos:CGPoint, endPos:CGPoint)
-	func getBubblePosition(speaker:Speaker, index:CGFloat, speakerCount:CGFloat) -> (startPos:CGPoint, width:CGFloat)
-	func animateIntoView()
-	func appearIntoView()
-	func animateOutOfView()
-	func removeSpeaker(index:Int)
 CGPath+Extensions.swift
 	class func lineToPoint(start:CGPoint, end:CGPoint) -> CGMutablePathRef
 	class func arcToPoint(start:CGPoint, end:CGPoint, next:CGPoint?) -> CGMutablePathRef
@@ -1191,23 +1132,13 @@ Hills.swift
 	override func beginBattle()
 	override func finishLevel()
 Ability.swift
-	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
-	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
-	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
-	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
-	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell", AoE = "AoE"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell", AoE = "AoE"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell", AoE = "AoE"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell", AoE = "AoE"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell", AoE = "AoE"
+	case Move = "Move", Melee = "Melee", Ranged = "Ranged", Instant = "Instant", Spell = "Spell", AoE = "AoE"
 	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
 	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
 	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
 	case Moving = "Moving", NotMoving = "NotMoving", InCombat = "InCombat", NotInCombat = "NotInCombat"
-ActionSequence.swift
-	var actions = Array<CSAction>()
-	var actionIndex : Int = 0
-	var callbackIndex : Int = 0
-	weak var scene : GameScene?
-	var running : Bool = true
-	init(scene:GameScene?)
-	func run(callback:()->())
-	func skip()
-	func finish()
-	func delay(delay:Double, closure:()->())

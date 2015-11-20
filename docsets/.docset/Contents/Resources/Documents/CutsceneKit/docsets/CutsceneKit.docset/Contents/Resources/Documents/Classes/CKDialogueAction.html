@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CKDialogueAction Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CKDialogueAction" class="dashAnchor"></a>
+    <a title="CKDialogueAction Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CutsceneKit Docs</a></p>
+        <p class="header-right"><a href="https://github.com/veeneck/CutsceneKit"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FCutsceneKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CutsceneKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CKDialogueAction Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CKAction.html">CKAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CKCutscene.html">CKCutscene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CKDialogueAction.html">CKDialogueAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CKSequence.html">CKSequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CKVideoNode.html">CKVideoNode</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CKDialogueAction</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CKDialogueAction</span> <span class="p">:</span> <span class="kt">CKAction</span></code></pre>
+
+                </div>
+              </div>
+            <p>The purpose of this class is to provide an example of how <a href="../Classes/CKAction.html">CKAction</a> can be subclassed to enapsulate common cutscene features. For this specific use case, sequences of dialogue can be added.</p>
+
+<pre class="highlight plaintext"><code>let action = CKDialogueAction(
+    node: nodeA,
+    position: CGPoint(x:0, y:0),
+    duration:3, 
+    text:"Hello World")
+self.cutscene.addSequences([<a href="../Classes/CKSequence.html">CKSequence</a>(actions: [action])])
+</code></pre>
+
+<p>The example code above would add a text string of <q>Hello World</q> to <code>nodeA</code> for 3 seconds.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11CutsceneKit16CKDialogueActioncFMS0_FT4nodeCSo6SKNode8durationSd5labelCSo11SKLabelNode_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(node:duration:label:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11CutsceneKit16CKDialogueActioncFMS0_FT4nodeCSo6SKNode8durationSd5labelCSo11SKLabelNode_S0_">init(node:duration:label:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize by creating your own SKLabelNode. The label will be assigned a default action to add it to the provided <code>node</code> where it will remain for the set <code>duration</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span><span class="kt">SKNode</span><span class="p">,</span> <span class="nv">duration</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">label</span><span class="p">:</span><span class="kt">SKLabelNode</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>node</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The node to make the label a child of.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>duration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The length of time for the label to appear.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>label</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The SKLabelNode to use.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11CutsceneKit16CKDialogueActioncFMS0_FT4nodeCSo6SKNode8positionVSC7CGPoint8durationSd4textSS_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(node:position:duration:text:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11CutsceneKit16CKDialogueActioncFMS0_FT4nodeCSo6SKNode8positionVSC7CGPoint8durationSd4textSS_S0_">init(node:position:duration:text:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Convenience initializer that creates a SKLabelNode with default settings. The label will be assigned a default action to add it to the provided <code>node</code> where it will remain for the set <code>duration</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span><span class="kt">SKNode</span><span class="p">,</span> <span class="nv">position</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">duration</span><span class="p">:</span><span class="kt">Double</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>node</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The node to make the label a child of.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The position of the SKLabelNode in the coordinate system of <code>node</code></p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>duration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The length of time for the label to appear.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>text</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The string for the label.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-19)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

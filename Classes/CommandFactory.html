@@ -476,7 +476,7 @@
                 <a href="../Classes/AbilityRuleSnapshot.html">AbilityRuleSnapshot</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/ActionSequence.html">ActionSequence</a>
+                <a href="../Classes/AoE.html">AoE</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AppDelegate.html">AppDelegate</a>
@@ -488,16 +488,10 @@
                 <a href="../Classes/AttributesComponent.html">AttributesComponent</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CSAction.html">CSAction</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/CacheService.html">CacheService</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/CharacterFactory.html">CharacterFactory</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/CustomAction.html">CustomAction</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/DebugOverlay.html">DebugOverlay</a>
@@ -512,15 +506,6 @@
                 <a href="../Classes/DecisionService.html">DecisionService</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/Dialogue.html">Dialogue</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/DialogueAction.html">DialogueAction</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/DialogueSequence.html">DialogueSequence</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Classes/ExperienceReport.html">ExperienceReport</a>
               </li>
               <li class="nav-group-task">
@@ -531,6 +516,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/MusicService.html">MusicService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Rocks.html">Rocks</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/Settings.html">Settings</a>
@@ -546,12 +534,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SoundEffects.html">SoundEffects</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SpeakerBox.html">SpeakerBox</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/SpeakerBubble.html">SpeakerBubble</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SquadFactory.html">SquadFactory</a>
@@ -890,16 +872,10 @@
                 <a href="../Structs/Decision.html">Decision</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Structs/KeyPosition.html">KeyPosition</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="../Structs/Spawn.html">Spawn</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/SpawnPoint.html">SpawnPoint</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Structs/Speaker.html">Speaker</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/Wave.html">Wave</a>
@@ -1244,6 +1220,44 @@ Build on this as we add things like must be engaged, moving, etc</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
+                <a name="/AoE%20Validation"></a>
+                <a name="//apple_ref/swift/Section/AoE Validation" class="dashAnchor"></a>
+                <a href="#/AoE%20Validation">
+                  <h3 class="section-name">AoE Validation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC14With_War___Woe14CommandFactory11validateAoEFS0_FTCS_5Squad7abilityCS_7Ability12instructionsVS_19CommandInstructions_Sb"></a>
+                    <a name="//apple_ref/swift/Method/validateAoE(_:ability:instructions:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC14With_War___Woe14CommandFactory11validateAoEFS0_FTCS_5Squad7abilityCS_7Ability12instructionsVS_19CommandInstructions_Sb">validateAoE(_:ability:instructions:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Currently no criteria for invalidating <a href="../Classes/AoE.html">AoE</a></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">validateAoE</span><span class="p">(</span><span class="nv">squad</span><span class="p">:</span><span class="kt">Squad</span><span class="p">,</span> <span class="nv">ability</span><span class="p">:</span><span class="kt">Ability</span><span class="p">,</span> <span class="nv">instructions</span><span class="p">:</span><span class="kt">CommandInstructions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="/Cooldown%20Validation"></a>
                 <a name="//apple_ref/swift/Section/Cooldown Validation" class="dashAnchor"></a>
                 <a href="#/Cooldown%20Validation">
@@ -1404,7 +1418,7 @@ Primary use is lightweight, per frame checks to lock UI icons, or to help AI dec
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-11-11)</p>
+          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2015-11-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
