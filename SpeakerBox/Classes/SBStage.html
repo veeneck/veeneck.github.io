@@ -55,10 +55,11 @@
 
 <pre class="highlight plaintext"><code> let speakerBox = SBStage()
  uiNode.addChild(speakerBox)
- speakerBox.setup()
 
  speakerBox.addSpeaker("Stou")
  speakerBox.addSpeaker("Princess")
+
+ speakerBox.setup()
 
  speakerBox.animateIntoView()
 </code></pre>
@@ -166,7 +167,11 @@
 
 <div class="aside aside-precondition">
           <p class="aside-title">Precondition</p>
-          The <a href="../Classes/SBStage.html">SBStage</a> must be added to the scene before calling this function.
+          <p>The <a href="../Classes/SBStage.html">SBStage</a> must be added to the scene before calling this function.</p>
+
+        </div><div class="aside aside-note">
+          <p class="aside-title">Note</p>
+          <p>This is called after adding speakers because it sets the <code>endPosition</code> of speakers. Other parts of the code can then access that position and show something near the chatBubble (i.e.: Dialogue).</p>
 
         </div>
 
