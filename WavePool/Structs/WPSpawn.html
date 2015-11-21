@@ -32,7 +32,7 @@
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes.html#/s:C8WavePool6WPPool">WPPool</a>
+                <a href="../Classes/WPPool.html">WPPool</a>
               </li>
             </ul>
           </li>
@@ -194,7 +194,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>From when the wave starts, how long shoud this spawn wait to process.</p>
+                        <p>From when the wave starts, how long shoud this spawn should wait to process.</p>
+
+<div class="aside aside-note">
+          <p class="aside-title">Note</p>
+          It is up to the delegate to handle the delay. WPWavePool will do nothing with it. An example would be showing an indicator that a spawn is about to happen. The spawn will be triggered, and then the delegate will show an indicator. The delegate will then reference this <code>waitTime</code> before spawning the unit.
+
+        </div>
 
                       </div>
                       <div class="declaration">
