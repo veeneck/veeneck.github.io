@@ -1,0 +1,5 @@
+WPPool.swift
+	public struct SpawnPoint
+	public init(waves:Array<WPWave>, spawnPoints:Array<SpawnPoint>, delegate:WPLifeguardProtocol)
+WPSpawn.swift
+	public var path : Int = 0
