@@ -1,0 +1,2 @@
+PBMusic.swift
+	public func changeVolumeByIncrement(increment:Int)
