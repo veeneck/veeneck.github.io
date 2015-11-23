@@ -74,17 +74,17 @@
 <a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='example'>Example</h2>
 
 <p>Example code to set up the pool.</p>
-<pre class="highlight plaintext"><code>var spawnA = WPPool.SpawnPoint()
-spawnA.point = CGPoint(x:1050, y:1100)
-spawnA.heading = 4.5
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">spawnA</span> <span class="o">=</span> <span class="kt">WPPool</span><span class="o">.</span><span class="kt">SpawnPoint</span><span class="p">()</span>
+<span class="n">spawnA</span><span class="o">.</span><span class="n">point</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="mi">1050</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="mi">1100</span><span class="p">)</span>
+<span class="n">spawnA</span><span class="o">.</span><span class="n">heading</span> <span class="o">=</span> <span class="mf">4.5</span>
 
-var spawnB = WPPool.SpawnPoint()
-spawnB.point = CGPoint(x:1500, y:460)
-spawnB.heading = 3
+<span class="k">var</span> <span class="nv">spawnB</span> <span class="o">=</span> <span class="kt">WPPool</span><span class="o">.</span><span class="kt">SpawnPoint</span><span class="p">()</span>
+<span class="n">spawnB</span><span class="o">.</span><span class="n">point</span> <span class="o">=</span> <span class="kt">CGPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span><span class="mi">460</span><span class="p">)</span>
+<span class="n">spawnB</span><span class="o">.</span><span class="n">heading</span> <span class="o">=</span> <span class="mi">3</span>
 
 
-self.wavePool = WPPool(fileName: "Sample", spawnPoints: [spawnA, spawnB], delegate: self)
-self.wavePool.beginWaves()
+<span class="k">self</span><span class="o">.</span><span class="n">wavePool</span> <span class="o">=</span> <span class="kt">WPPool</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span> <span class="s">"Sample"</span><span class="p">,</span> <span class="nv">spawnPoints</span><span class="p">:</span> <span class="p">[</span><span class="n">spawnA</span><span class="p">,</span> <span class="n">spawnB</span><span class="p">],</span> <span class="nv">delegate</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
+<span class="k">self</span><span class="o">.</span><span class="n">wavePool</span><span class="o">.</span><span class="nf">beginWaves</span><span class="p">()</span>
 </code></pre>
 
 <p>The <code>fileName</code> above refers to the pList config file. See the <a href="https://github.com/veeneck/WavePool/blob/master/sample.plist">sample file</a> for an example of how to configure the data.</p>
