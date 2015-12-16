@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PBMusic Class Reference</title>
+    <title>Int Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/PBMusic" class="dashAnchor"></a>
-    <a title="PBMusic Class Reference"></a>
+    <a name="//apple_ref/swift/Extension/Int" class="dashAnchor"></a>
+    <a title="Int Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Particleboard Docs</a></p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Particleboard Reference</a>
         <img id="carat" src="../img/carat.png" />
-        PBMusic Class Reference
+        Int Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -185,15 +185,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>PBMusic</h1>
+            <h1>Int</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">PBMusic</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Int</span> <span class="p">:</span> <span class="kt">SignedIntegerType</span><span class="p">,</span> <span class="kt">Comparable</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
 
                 </div>
               </div>
-            <p>Static class to help playback of background tracks. Intended for longer music where PBSound is aimed at sound effects. The separation can allow for greater customization / performance down the road.</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -201,9 +200,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC13Particleboard7PBMusic6volumeSi"></a>
-                    <a name="//apple_ref/swift/Property/volume" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC13Particleboard7PBMusic6volumeSi">volume</a>
+                    <a name="/s:FE13ParticleboardSi7clampedFSiFGVSs5RangeSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamped(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE13ParticleboardSi7clampedFSiFGVSs5RangeSi_Si">clamped(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -211,90 +210,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>AVPlayer expects a volume of 0 to 1. Making this an Int just abstracts it to something easier to read. If you set it to 6, 0.6 would be passed to AVPlayer.</p>
+                        <p>Ensures that the integer value stays with the specified range.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">volume</span> <span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Initialization"></a>
-                <a name="//apple_ref/swift/Section/Initialization" class="dashAnchor"></a>
-                <a href="#/Initialization">
-                  <h3 class="section-name">Initialization</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZvC13Particleboard7PBMusic14sharedInstanceS0_"></a>
-                    <a name="//apple_ref/swift/Variable/sharedInstance" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvC13Particleboard7PBMusic14sharedInstanceS0_">sharedInstance</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Shared instance and only way to properly access the class.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">sharedInstance</span> <span class="o">=</span> <span class="kt">PBMusic</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Playback"></a>
-                <a name="//apple_ref/swift/Section/Playback" class="dashAnchor"></a>
-                <a href="#/Playback">
-                  <h3 class="section-name">Playback</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC13Particleboard7PBMusic4playFS0_FSST_"></a>
-                    <a name="//apple_ref/swift/Method/play(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC13Particleboard7PBMusic4playFS0_FSST_">play(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Start playing the music file on a loop.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">play</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clamped</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -304,9 +227,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC13Particleboard7PBMusic16prepareCrossFadeFS0_FSST_"></a>
-                    <a name="//apple_ref/swift/Method/prepareCrossFade(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC13Particleboard7PBMusic16prepareCrossFadeFS0_FSST_">prepareCrossFade(_:)</a>
+                    <a name="/s:FE13ParticleboardSi5clampFRSiFGVSs5RangeSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamp(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE13ParticleboardSi5clampFRSiFGVSs5RangeSi_Si">clamp(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -314,14 +237,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets up the second player with the new track to fade to. Call <code>transitionToCrossFade</code> to start playing.</p>
+                        <p>Ensures that the integer value stays with the specified range.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">prepareCrossFade</span><span class="p">(</span><span class="nv">fileName</span><span class="p">:</span><span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">clamp</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -331,9 +254,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC13Particleboard7PBMusic21transitionToCrossFadeFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/transitionToCrossFade()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC13Particleboard7PBMusic21transitionToCrossFadeFS0_FT_T_">transitionToCrossFade()</a>
+                    <a name="/s:FE13ParticleboardSi7clampedFSiFTSiSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamped(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE13ParticleboardSi7clampedFSiFTSiSi_Si">clamped(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -341,14 +264,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gradually switch between tracks</p>
+                        <p>Ensures that the integer value stays between the given values, inclusive.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">transitionToCrossFade</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clamped</span><span class="p">(</span><span class="nv">v1</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">v2</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -358,9 +281,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC13Particleboard7PBMusic5pauseFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/pause()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC13Particleboard7PBMusic5pauseFS0_FT_T_">pause()</a>
+                    <a name="/s:FE13ParticleboardSi5clampFRSiFTSiSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/clamp(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FE13ParticleboardSi5clampFRSiFTSiSi_Si">clamp(_:_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -368,14 +291,95 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Pause the active player.</p>
+                        <p>Ensures that the integer value stays between the given values, inclusive.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pause</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">clamp</span><span class="p">(</span><span class="nv">v1</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">v2</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFE13ParticleboardSi6randomFMSiFGVSs5RangeSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/random(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFE13ParticleboardSi6randomFMSiFGVSs5RangeSi_Si">random(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a random integer in the specified range.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">random</span><span class="p">(</span><span class="nv">range</span><span class="p">:</span> <span class="kt">Range</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFE13ParticleboardSi6randomFMSiFSiSi"></a>
+                    <a name="//apple_ref/swift/Method/random(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFE13ParticleboardSi6randomFMSiFSiSi">random(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a random integer between 0 and n-1.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">random</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFE13ParticleboardSi6randomFMSiFT3minSi3maxSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/random(min:max:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFE13ParticleboardSi6randomFMSiFT3minSi3maxSi_Si">random(min:max:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a random integer in the range min&hellip;max, inclusive.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">random</span><span class="p">(</span><span class="n">min</span> <span class="nv">min</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">max</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
