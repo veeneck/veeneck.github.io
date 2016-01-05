@@ -1,7 +1,20 @@
-SBViewDelegate.swift
-	public protocol SBViewDelegate
 SBGameScene.swift
-	public class SBGameScene : SKScene
-	public class SBGameScene : SKScene
+	case World = 0, UI, Debug, PermanentDebug
+	case World = 0, UI, Debug, PermanentDebug
+	case World = 0, UI, Debug, PermanentDebug
+	case World = 0, UI, Debug, PermanentDebug
+	public init(lower:CGFloat, left:CGFloat, upper:CGFloat, right:CGFloat)
+	public func registerGestures()
+	public func detectPan(recognizer:UIPanGestureRecognizer)
+	public func detectPinch(recognizer:UIPinchGestureRecognizer)
+	public class func loadSceneAssetsWithCompletionHandler(handler:()->())
+SBScreenRecord.swift
+	public func startScreenRecording()
+	public func stopScreenRecordingWithHandler(handler:(() -> Void))
+	public func screenRecorder(screenRecorder: RPScreenRecorder, didStopRecordingWithError error: NSError, previewViewController: RPPreviewViewController?)
+	public func previewControllerDidFinish(previewController: RPPreviewViewController)
 SBSceneContainer.swift
-	public struct SBSceneContainer
+	case Main = 0, World, Battle, Misc
+	case Main = 0, World, Battle, Misc
+	case Main = 0, World, Battle, Misc
+	case Main = 0, World, Battle, Misc

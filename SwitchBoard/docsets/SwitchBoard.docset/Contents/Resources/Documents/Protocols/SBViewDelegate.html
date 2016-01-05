@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>SBViewDelegate Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/SBViewDelegate" class="dashAnchor"></a>
+    <a title="SBViewDelegate Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">SwitchBoard Docs</a></p>
+        <p class="header-right"><a href="https://github.com/veeneck/SwitchBoard"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FSwitchBoard%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">SwitchBoard Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        SBViewDelegate Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11SwitchBoard10PanGesture">PanGesture</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11SwitchBoard12PinchGesture">PinchGesture</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBGameScene.html">SBGameScene</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SBSceneManager.html">SBSceneManager</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:v11SwitchBoard18globalTextureCacheGVSs10DictionarySSCSo14SKTextureAtlas_">globalTextureCache</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SBViewDelegate.html">SBViewDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/SBSceneContainer.html">SBSceneContainer</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>SBViewDelegate</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SBViewDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>Each scene must be aware of how to finish and start the next scene. Instead of extending the view controller and continusouly accessing that, we can create a class that implements this protocol. In this project, SBSceneManager implements this protocol, and each scene contains a reference to the scene manager. Then, each scene can just access the scene manager for informaiton on scenes, and also trigger a new scene to begin without worrying about the view.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP11SwitchBoard14SBViewDelegate6scenesGVSs10DictionarySSVS_16SBSceneContainer_"></a>
+                    <a name="//apple_ref/swift/Property/scenes" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP11SwitchBoard14SBViewDelegate6scenesGVSs10DictionarySSVS_16SBSceneContainer_">scenes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>List of all available scenes that the implementer is aware of.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">scenes</span> <span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">SBSceneContainer</span><span class="o">&gt;</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP11SwitchBoard14SBViewDelegate14sceneDidFinishuRq_S0__Fq_FVS_16SBSceneContainerT_"></a>
+                    <a name="//apple_ref/swift/Method/sceneDidFinish(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP11SwitchBoard14SBViewDelegate14sceneDidFinishuRq_S0__Fq_FVS_16SBSceneContainerT_">sceneDidFinish(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicate that the current scene is done, and the passed in scene should begin.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">sceneDidFinish</span><span class="p">(</span><span class="nv">nextScene</span><span class="p">:</span><span class="kt">SBSceneContainer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2016-01-05)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
