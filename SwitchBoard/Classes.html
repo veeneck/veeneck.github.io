@@ -181,7 +181,17 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Default template for a game scene. Each custom scene in a project should extend this.</p>
+                        <p>Default template for a game scene. Each custom scene in a project should extend this in order to work with other items like <code><a href="Classes/SBSceneManager.html">SBSceneManager</a></code>, <code><a href="Classes.html#/s:C11SwitchBoard10PanGesture">PanGesture</a></code>, etc. Benefits of extending this class are:</p>
+
+<ul>
+<li>Built in layering. See <code>WorldLayer</code></li>
+<li>Built in debug layer that auto clears</li>
+<li>Ties to viewDelegate for easy scene switching and management of atlases</li>
+<li>Built in screen recording through <code>previewViewController</code></li>
+<li>Call <code>registureGestures</code> to automatically enable panning and zooming of your scene</li>
+</ul>
+
+<p><strong>Note</strong>: This project is still in development, so some items / implementations aren&rsquo;t flexible. If you encounter problems, the source is heavily documented.</p>
 
                         <a href="Classes/SBGameScene.html" class="slightly-smaller">See more</a>
                       </div>

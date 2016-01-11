@@ -169,6 +169,80 @@
 </code></pre>
 
 <p>This allows you to perform logic before loading the assets. By then calling <code>loadAndCacheSceneAssets</code>, the caching mechanism is still utilized.</p>
+<a href='#strong_extendeding_sbgamescene_strong' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='strong_extendeding_sbgamescene_strong'><strong>Extendeding SBGameScene</strong></h3>
+
+<p>Here is an example of how I extend SBGameScene to utilize all of the features it has:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">GameScene</span> <span class="p">:</span> <span class="kt">SBGameScene</span> <span class="p">{</span>
+
+    <span class="c1">/// Stored reference to UI / HUD elemtns for quick lookup</span>
+    <span class="k">weak</span> <span class="k">var</span> <span class="nv">ui</span> <span class="p">:</span> <span class="kt">UINode</span><span class="p">?</span>
+
+    <span class="c1">// MARK: World Layers</span>
+
+    <span class="c1">/// Setup an array of child SKNodes to hold different visual elements</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">buildWorldLayers</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="c1">/// I have an action bar at bototm of screen, so this will offset camera boundaries.</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">cameraBounds</span> <span class="o">=</span> <span class="kt">CameraBounds</span><span class="p">(</span><span class="nv">lower</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nv">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">upper</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">right</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1">/// Change width of scene if iPad</span>
+        <span class="k">if</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="nf">currentDevice</span><span class="p">()</span><span class="o">.</span><span class="n">userInterfaceIdiom</span> <span class="o">==</span> <span class="o">.</span><span class="kt">Pad</span> <span class="p">{</span>
+            <span class="k">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="kt">CGSize</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">2048</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">1536</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="c1">/// Call SBGamescene .buildWorldLayers which will set up the array of world nodes.</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">buildWorldLayers</span><span class="p">()</span>
+
+        <span class="c1">/// Manually create my own UI layer since it is custom and not empty. Add it to self.layers for easy adding and lookup</span>
+        <span class="k">let</span> <span class="nv">ui</span> <span class="o">=</span> <span class="kt">UINode</span><span class="p">()</span>
+        <span class="n">ui</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"UI"</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">childNodeWithName</span><span class="p">(</span><span class="s">"Camera"</span><span class="p">)?</span><span class="o">.</span><span class="nf">addChild</span><span class="p">(</span><span class="n">ui</span><span class="p">)</span>
+        <span class="n">ui</span><span class="o">.</span><span class="nf">initDefaults</span><span class="p">(</span><span class="k">self</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">ui</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">ui</span>
+
+        <span class="c1">/// Set the camera as the scenes camera.</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">camera</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="nf">childNodeWithName</span><span class="p">(</span><span class="s">"Camera"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">SKCameraNode</span>
+
+        <span class="c1">/// Contrain the camera</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">setCameraBounds</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">cameraBounds</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// MARK: Debug</span>
+
+    <span class="c1">/// If debug is enabled in my project, call super function to clean the debug layer every frame.</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">updateDebugLayer</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="kt">Debug</span><span class="o">.</span><span class="kt">Layers</span><span class="o">.</span><span class="n">enabled</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">super</span><span class="o">.</span><span class="nf">updateDebugLayer</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+</code></pre>
+
+<p>By doing this, I&rsquo;ll have the support of <code>SBGameScene</code>, and can then add onto <code>GameScene</code> for code specific to my project. In the example above, I showed a small snippet of that with the UI layer. The idea behind layers is that the camera will know what the world is, adding children won&rsquo;t require searching the node tree, etc. </p>
+<a href='#strong_screen_recording_strong' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='strong_screen_recording_strong'><strong>Screen Recording</strong></h3>
+
+<p>Example code to use screen recording:</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">recordButtonTapped</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">scene</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">scene</span> <span class="k">as?</span> <span class="kt">GameScene</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">scene</span><span class="o">.</span><span class="n">recording</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">scene</span><span class="o">.</span><span class="nf">stopScreenRecordingWithHandler</span><span class="p">({</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="k">in</span>
+                <span class="k">if</span> <span class="k">let</span> <span class="nv">icon</span> <span class="o">=</span> <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">root</span><span class="p">?</span><span class="o">.</span><span class="nf">childNodeWithName</span><span class="p">(</span><span class="s">"button_Record"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">SKSpriteNode</span> <span class="p">{</span>
+                    <span class="n">icon</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="kt">SKTexture</span><span class="p">(</span><span class="nv">imageNamed</span><span class="p">:</span> <span class="s">"icon_Record"</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">icon</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">root</span><span class="p">?</span><span class="o">.</span><span class="nf">childNodeWithName</span><span class="p">(</span><span class="s">"button_Record"</span><span class="p">)</span> <span class="k">as?</span> <span class="kt">SKSpriteNode</span> <span class="p">{</span>
+                <span class="n">icon</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="kt">SKTexture</span><span class="p">(</span><span class="nv">imageNamed</span><span class="p">:</span> <span class="s">"icon_StopRecord"</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">scene</span><span class="o">.</span><span class="nf">startScreenRecording</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 <a href='#documentation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='documentation'>Documentation</h2>
 
 <p>Docs are located at <a href="http://veeneck.github.io/SwitchBoard">veeneck.github.io/SwitchBoard</a> and are generated with <a href="https://github.com/Realm/jazzy">Jazzy</a>. The config file for the documentation is in the project as <code>config.yml</code>. Docs can be generated by running this command <strong>in</strong> the project directory:</p>

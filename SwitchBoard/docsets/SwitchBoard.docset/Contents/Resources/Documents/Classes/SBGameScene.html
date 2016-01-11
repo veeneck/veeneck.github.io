@@ -76,7 +76,17 @@
 
                 </div>
               </div>
-            <p>Default template for a game scene. Each custom scene in a project should extend this.</p>
+            <p>Default template for a game scene. Each custom scene in a project should extend this in order to work with other items like <code><a href="../Classes/SBSceneManager.html">SBSceneManager</a></code>, <code><a href="../Classes.html#/s:C11SwitchBoard10PanGesture">PanGesture</a></code>, etc. Benefits of extending this class are:</p>
+
+<ul>
+<li>Built in layering. See <code>WorldLayer</code></li>
+<li>Built in debug layer that auto clears</li>
+<li>Ties to viewDelegate for easy scene switching and management of atlases</li>
+<li>Built in screen recording through <code>previewViewController</code></li>
+<li>Call <code>registureGestures</code> to automatically enable panning and zooming of your scene</li>
+</ul>
+
+<p><strong>Note</strong>: This project is still in development, so some items / implementations aren&rsquo;t flexible. If you encounter problems, the source is heavily documented.</p>
 
           </section>
           <section class="section task-group-section">
@@ -265,7 +275,8 @@ the scene object so that children scenes can easily access the functionality.</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>ReplayKit preview view controller used when viewing recorded content.</p>
+                        <p>ReplayKit preview view controller used when viewing recorded content.
+See README for example usages as the extension is not showing in the documentation.</p>
 
                       </div>
                       <div class="declaration">
@@ -331,8 +342,7 @@ the scene object so that children scenes can easily access the functionality.</p
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This can be used for any game, but is somewhat limited since it only supports 4 layers. Constructs the 4 layers and adds them to the scene
-in addition to storing locally under <code><a href="../Classes/SBGameScene.html#/s:vC11SwitchBoard11SBGameScene6layersGSaCSo6SKNode_">layers</a></code> for quick lookup. Goal is to avoid using <code>childNodeWithName</code> when adding or accessing elements.
-TODO: Show how I use this with custom code in GameScene</p>
+in addition to storing locally under <code><a href="../Classes/SBGameScene.html#/s:vC11SwitchBoard11SBGameScene6layersGSaCSo6SKNode_">layers</a></code> for quick lookup. Goal is to avoid using <code>childNodeWithName</code> when adding or accessing elements.</p>
 
                       </div>
                       <div class="declaration">
@@ -367,6 +377,44 @@ TODO: Show how I use this with custom code in GameScene</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addChild</span><span class="p">(</span><span class="nv">node</span><span class="p">:</span><span class="kt">SKNode</span><span class="p">,</span> <span class="nv">layer</span><span class="p">:</span><span class="kt">WorldLayer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Registering%20Gestures"></a>
+                <a name="//apple_ref/swift/Section/Registering Gestures" class="dashAnchor"></a>
+                <a href="#/Registering%20Gestures">
+                  <h3 class="section-name">Registering Gestures</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC11SwitchBoard11SBGameScene16registerGesturesFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/registerGestures()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11SwitchBoard11SBGameScene16registerGesturesFS0_FT_T_">registerGestures()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Call this to register pinch and pan gestures which will be tied to <q>World/bg</q> in your node tree. See <code>setCameraBounds</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">registerGestures</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -422,6 +470,33 @@ TODO: Show how I use this with custom code in GameScene</p>
                 </a>
               </div>
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC11SwitchBoard11SBGameScene36loadSceneAssetsWithCompletionHandlerFMS0_FFT_T_T_"></a>
+                    <a name="//apple_ref/swift/Method/loadSceneAssetsWithCompletionHandler(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC11SwitchBoard11SBGameScene36loadSceneAssetsWithCompletionHandlerFMS0_FFT_T_T_">loadSceneAssetsWithCompletionHandler(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Each scene should override this to preload necessary assets</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">loadSceneAssetsWithCompletionHandler</span><span class="p">(</span><span class="nv">handler</span><span class="p">:()</span><span class="o">-&gt;</span><span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -490,6 +565,17 @@ was successfully deallocated. If you don&rsquo;t see the log line, there is prob
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Debug%20Layer"></a>
+                <a name="//apple_ref/swift/Section/Debug Layer" class="dashAnchor"></a>
+                <a href="#/Debug%20Layer">
+                  <h3 class="section-name">Debug Layer</h3>
+                </a>
+              </div>
+              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -503,8 +589,7 @@ was successfully deallocated. If you don&rsquo;t see the log line, there is prob
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>MARK: Debug Layer
-Call this to replace the debug layer each frame. Example use would be lines drawing a characters heading. The heading updates each frame.
+                        <p>Call this to replace the debug layer each frame. Example use would be lines drawing a characters heading. The heading updates each frame.
 Instead of keeping tabs of the lines, this just deletes the entire debug layer and recreates it.
 TODO: Create DebugNode with extended functionality?</p>
 

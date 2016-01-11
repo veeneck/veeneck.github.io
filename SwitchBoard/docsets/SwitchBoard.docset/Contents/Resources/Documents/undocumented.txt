@@ -6,10 +6,8 @@ SBGameScene.swift
 	case World = 0, UI, Debug, PermanentDebug
 	case World = 0, UI, Debug, PermanentDebug
 	public init(lower:CGFloat, left:CGFloat, upper:CGFloat, right:CGFloat)
-	public func registerGestures()
 	public func detectPan(recognizer:UIPanGestureRecognizer)
 	public func detectPinch(recognizer:UIPinchGestureRecognizer)
-	public class func loadSceneAssetsWithCompletionHandler(handler:()->())
 SBScreenRecord.swift
 	public func startScreenRecording()
 	public func stopScreenRecordingWithHandler(handler:(() -> Void))
