@@ -38,18 +38,13 @@
                 <a href="../Classes.html#/s:C11SwitchBoard12PinchGesture">PinchGesture</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/s:C11SwitchBoard7SBCache">SBCache</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/SBGameScene.html">SBGameScene</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/SBSceneManager.html">SBSceneManager</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Global Variables.html">Global Variables</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Global Variables.html#/s:v11SwitchBoard18globalTextureCacheGVSs10DictionarySSCSo14SKTextureAtlas_">globalTextureCache</a>
               </li>
             </ul>
           </li>
@@ -283,6 +278,33 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vV11SwitchBoard16SBSceneContainer7atlasesGSaSS_"></a>
+                    <a name="//apple_ref/swift/Property/atlases" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vV11SwitchBoard16SBSceneContainer7atlasesGSaSS_">atlases</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Which atlases are necessary and should be loade dby default for this scene</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">atlases</span> <span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
             <div class="task-group">
@@ -297,9 +319,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV11SwitchBoard16SBSceneContainercFMS0_FT9classTypeMCS_11SBGameScene4nameSS10transitionGSqCSo12SKTransition_11preloadableSb8categoryOS0_10SceneGroup_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init(classType:name:transition:preloadable:category:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV11SwitchBoard16SBSceneContainercFMS0_FT9classTypeMCS_11SBGameScene4nameSS10transitionGSqCSo12SKTransition_11preloadableSb8categoryOS0_10SceneGroup_S0_">init(classType:name:transition:preloadable:category:)</a>
+                    <a name="/s:FV11SwitchBoard16SBSceneContainercFMS0_FT9classTypeMCS_11SBGameScene4nameSS10transitionGSqCSo12SKTransition_11preloadableSb8categoryOS0_10SceneGroup7atlasesGSaSS__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(classType:name:transition:preloadable:category:atlases:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FV11SwitchBoard16SBSceneContainercFMS0_FT9classTypeMCS_11SBGameScene4nameSS10transitionGSqCSo12SKTransition_11preloadableSb8categoryOS0_10SceneGroup7atlasesGSaSS__S0_">init(classType:name:transition:preloadable:category:atlases:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -314,7 +336,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">classType</span><span class="p">:</span><span class="kt">SBGameScene</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">transition</span><span class="p">:</span><span class="kt">SKTransition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">preloadable</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span><span class="kt">SceneGroup</span> <span class="o">=</span> <span class="kt">SceneGroup</span><span class="o">.</span><span class="kt">World</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">classType</span><span class="p">:</span><span class="kt">SBGameScene</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span> <span class="nv">transition</span><span class="p">:</span><span class="kt">SKTransition</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">preloadable</span><span class="p">:</span><span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">category</span><span class="p">:</span><span class="kt">SceneGroup</span> <span class="o">=</span> <span class="kt">SceneGroup</span><span class="o">.</span><span class="kt">World</span><span class="p">,</span> <span class="nv">atlases</span><span class="p">:[</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span><span class="p">]())</span></code></pre>
 
                         </div>
                       </div>
@@ -326,7 +348,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2016-01-05)</p>
+          <p>&copy; 2016 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2016-01-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

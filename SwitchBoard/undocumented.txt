@@ -1,3 +1,5 @@
+SBCache.swift
+	public static let sharedInstance = SBCache()
 SBGameScene.swift
 	case World = 0, UI, Debug, PermanentDebug
 	case World = 0, UI, Debug, PermanentDebug
