@@ -1,0 +1,80 @@
+FKRankComponent.swift
+	internal init(squad:FKSquadEntity)
+FKFormationProtocol.swift
+	var instructions : FKFormationComponent.ArrangementInstructions { get set }
+	var positions : [FKStandingPosition] { get set }
+	var radius : Float { get }
+	init(instructions:FKFormationComponent.ArrangementInstructions)
+	func rebuild(instructions:FKFormationComponent.ArrangementInstructions)
+	func buildFixedLocations()
+	func adjustLocations(position:CGPoint, rotation:Float, translate:float2?, offset:CGPoint?, random:Int?)
+FKMovementType.swift
+	case Towards = 0, Teleport, Path
+	case Towards = 0, Teleport, Path
+	case Towards = 0, Teleport, Path
+FKUnitAgent.swift
+	var actualPosition = CGPoint(x:0, y:0)
+	var actualHeading : Float = 0
+FKFollowingState.swift
+	unowned var entity: FKUnitEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: FKUnitEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func moveTowardsDesiredPosition(desired:CGPoint)
+	override func willExitWithNextState(nextState: GKState)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+FKFormationComponent.swift
+	var elapsedTime : NSTimeInterval = 0.0
+	var strategy : FKFormationProtocol
+	var instructions : ArrangementInstructions
+	init(instructions: ArrangementInstructions)
+	public struct ArrangementInstructions
+	case Grid = 0
+FKSquadEntity.swift
+	public let formationComponent : FKFormationComponent
+	public let navigationComponent : FKNavigationComponent
+	case Player = 0, EnemyNPC = 1, FriendlyNPC = 2
+	case Player = 0, EnemyNPC = 1, FriendlyNPC = 2
+	case Player = 0, EnemyNPC = 1, FriendlyNPC = 2
+FKIdleState.swift
+	unowned var entity: FKUnitEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: FKUnitEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
+FKRenderComponent.swift
+	var elapsedTime : NSTimeInterval = 0.0
+FKIntelligenceComponent.swift
+	let stateMachine: GKStateMachine
+	let initialStateClass: AnyClass
+	init(states: [GKState])
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	func enterInitialState()
+FKUnitFactory.swift
+	public func addUnitToScene(unit:FKUnitEntity)
+FKUnitEntity.swift
+	let identifier : String
+	var agent : FKUnitAgent
+	var renderComponent : FKRenderComponent!
+	public let movementComponent : FKMovementComponent
+FKMovementInstructions.swift
+	public init(position:CGPoint? = nil, path:GKPath? = nil, trackingAgent:GKAgent2D? = nil, type:FKMovementType)
+	deinit
+FKSquadFactory.swift
+	public init(name:String, position:CGPoint, heading:Float, currentUnits:Int, maxUnits:Int, controller:FKSquadEntity.Controller, scene:SKScene? = nil, layer:SKNode? = nil, formation:FKFormationComponent.Arrangement, columns:Int, spacing:Int)
+	private func createUnitsForSquad(squad:FKSquadEntity, construction:FKSquadConstruction)
+FKSquadAgent.swift
+	var actualPosition = CGPoint(x:0, y:0)
+	var actualHeading : Float = 0
+Flags.swift
+	internal struct DebugFlags
+	internal struct CombatPerformance
+	internal struct AIPerformance
+	internal struct MovementSettings
+FKGridFormation.swift
+	private func translateVectorToIsometric(vector:float2) -> float2
+FKSquadDebugComponent.swift
+	var baseNode = SKNode()
+	var elapsedTime : NSTimeInterval = 0.0

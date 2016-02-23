@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FKGridFormation Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/FKGridFormation" class="dashAnchor"></a>
+    <a title="FKGridFormation Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">FormationKit Docs</a></p>
+        <p class="header-right"><a href="https://github.com/veeneck/FormationKit"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FFormationKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">FormationKit Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        FKGridFormation Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Squads.html">Squads</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKSquadEntity.html">FKSquadEntity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Squad Components.html">Squad Components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKSquadAgent.html">FKSquadAgent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKFormationComponent.html">FKFormationComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKNavigationComponent.html">FKNavigationComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKSquadDebugComponent.html">FKSquadDebugComponent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Squad Formations.html">Squad Formations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Squad Formations.html#/s:P12FormationKit19FKFormationProtocol">FKFormationProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKStandingPosition.html">FKStandingPosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKGridFormation.html">FKGridFormation</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Units.html">Units</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKUnitEntity.html">FKUnitEntity</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Unit Components.html">Unit Components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKUnitAgent.html">FKUnitAgent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKRenderComponent.html">FKRenderComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKMovementComponent.html">FKMovementComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKRankComponent.html">FKRankComponent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Unit Intelligence.html">Unit Intelligence</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Unit Intelligence.html#/s:C12FormationKit11FKIdleState">FKIdleState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Unit Intelligence.html#/s:C12FormationKit16FKFollowingState">FKFollowingState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Shared Classes.html">Shared Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKMovementInstructions.html">FKMovementInstructions</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Shared Classes.html#/s:O12FormationKit14FKMovementType">FKMovementType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Shared Classes.html#/s:C12FormationKit23FKIntelligenceComponent">FKIntelligenceComponent</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Factories.html">Factories</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKSquadFactory.html">FKSquadFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKUnitFactory.html">FKUnitFactory</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Classes.html">Other Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKEntitySpriteNode.html">FKEntitySpriteNode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Other Functions.html">Other Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Other Functions.html#/s:ZF12FormationKitoi2eeFTCS_13FKSquadEntityS0__Sb">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FKGridFormation</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">FKGridFormation</span> <span class="p">:</span> <span class="kt">FKFormationProtocol</span></code></pre>
+
+                </div>
+              </div>
+            <p>Place units in a grid with a set amount of columns. Organizes priority from center out.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12FormationKit15FKGridFormation12instructionsVCS_20FKFormationComponent23ArrangementInstructions"></a>
+                    <a name="//apple_ref/swift/Property/instructions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12FormationKit15FKGridFormation12instructionsVCS_20FKFormationComponent23ArrangementInstructions">instructions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The instructions for grid require data for columns</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="k">var</span> <span class="nv">instructions</span> <span class="p">:</span> <span class="kt">FKFormationComponent</span><span class="o">.</span><span class="kt">ArrangementInstructions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12FormationKit15FKGridFormation9positionsGSaCS_18FKStandingPosition_"></a>
+                    <a name="//apple_ref/swift/Property/positions" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12FormationKit15FKGridFormation9positionsGSaCS_18FKStandingPosition_">positions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The assigned positions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="k">var</span> <span class="nv">positions</span> <span class="o">=</span> <span class="p">[</span><span class="kt">FKStandingPosition</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC12FormationKit15FKGridFormation6radiusSf"></a>
+                    <a name="//apple_ref/swift/Property/radius" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12FormationKit15FKGridFormation6radiusSf">radius</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Uses current columns and spacing to determine radius</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="k">var</span> <span class="nv">radius</span> <span class="p">:</span> <span class="kt">Float</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializing%20a%20FKGridFormation"></a>
+                <a name="//apple_ref/swift/Section/Initializing a FKGridFormation" class="dashAnchor"></a>
+                <a href="#/Initializing%20a%20FKGridFormation">
+                  <h3 class="section-name">Initializing a FKGridFormation</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit15FKGridFormationcFMS0_FT12instructionsVCS_20FKFormationComponent23ArrangementInstructions_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(instructions:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit15FKGridFormationcFMS0_FT12instructionsVCS_20FKFormationComponent23ArrangementInstructions_S0_">init(instructions:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Construct the positions according to instructions</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="nv">instructions</span><span class="p">:</span> <span class="kt">FKFormationComponent</span><span class="o">.</span><span class="kt">ArrangementInstructions</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit15FKGridFormation7rebuildFS0_FVCS_20FKFormationComponent23ArrangementInstructionsT_"></a>
+                    <a name="//apple_ref/swift/Method/rebuild(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit15FKGridFormation7rebuildFS0_FVCS_20FKFormationComponent23ArrangementInstructionsT_">rebuild(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Same as init, but allows reconstructing on the dly</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">rebuild</span><span class="p">(</span><span class="nv">instructions</span><span class="p">:</span> <span class="kt">FKFormationComponent</span><span class="o">.</span><span class="kt">ArrangementInstructions</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Building%20Fixed%20Locations"></a>
+                <a name="//apple_ref/swift/Section/Building Fixed Locations" class="dashAnchor"></a>
+                <a href="#/Building%20Fixed%20Locations">
+                  <h3 class="section-name">Building Fixed Locations</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit15FKGridFormation19buildFixedLocationsFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/buildFixedLocations()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit15FKGridFormation19buildFixedLocationsFS0_FT_T_">buildFixedLocations()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For a grid, build from inside out, with first row up front.
+| 0.0 | 0.1 | 0.2 | 0.3 | 0.4 |
+| 1.0 | 1.1 | 1.2 | 1.3 | 1.4 |
+| 2.0 | 2.1 | 2.2 | 2.3 | 2.4 |</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">buildFixedLocations</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit15FKGridFormationP33_8B58DAD73CE25A33B7124C78BE40A89922findPriorityOfPositionFS0_FTSi5gridYSi7columnsSi_Si"></a>
+                    <a name="//apple_ref/swift/Method/findPriorityOfPosition(_:gridY:columns:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit15FKGridFormationP33_8B58DAD73CE25A33B7124C78BE40A89922findPriorityOfPositionFS0_FTSi5gridYSi7columnsSi_Si">findPriorityOfPosition(_:gridY:columns:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Attempts to rank a position by row and proximity to center.
+Grid above would be ranked like this:
+| 5  | 3  | 1  | 2  | 4  |
+| 10 | 8  | 6  | 7  | 9  |
+| 15 | 13 | 11 | 12 | 14 |</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">findPriorityOfPosition</span><span class="p">(</span><span class="nv">gridX</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">gridY</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">columns</span><span class="p">:</span><span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Calculated%20Adjusted%20Locations"></a>
+                <a name="//apple_ref/swift/Section/Calculated Adjusted Locations" class="dashAnchor"></a>
+                <a href="#/Calculated%20Adjusted%20Locations">
+                  <h3 class="section-name">Calculated Adjusted Locations</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit15FKGridFormation15adjustLocationsFS0_FTVSC7CGPoint8rotationSf9translateGSqV4simd6float2_6offsetGSqS1__6randomGSqSi__T_"></a>
+                    <a name="//apple_ref/swift/Method/adjustLocations(_:rotation:translate:offset:random:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit15FKGridFormation15adjustLocationsFS0_FTVSC7CGPoint8rotationSf9translateGSqV4simd6float2_6offsetGSqS1__6randomGSqSi__T_">adjustLocations(_:rotation:translate:offset:random:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This will calculate the expected position for every unit, given the parameters. Updates the array of standing positions.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">adjustLocations</span><span class="p">(</span><span class="nv">position</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="k">var</span> <span class="nv">rotation</span><span class="p">:</span><span class="kt">Float</span><span class="p">,</span> <span class="nv">translate</span><span class="p">:</span><span class="n">float2</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">offset</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">random</span><span class="p">:</span><span class="kt">Int</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The world position to start the calculations from</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rotation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The heading that the formation should face, in radians</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>translate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>If the rotation should translate to a specific unit, defaults to center</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>After rotation, offsets to apply to the units</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>random</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Add a small offset to each position to make it look more organic</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit15FKGridFormationP33_8B58DAD73CE25A33B7124C78BE40A89912rotateVectorFS0_FTV4simd6float23cosSf3sinSf_S2_"></a>
+                    <a name="//apple_ref/swift/Method/rotateVector(_:cos:sin:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit15FKGridFormationP33_8B58DAD73CE25A33B7124C78BE40A89912rotateVectorFS0_FTV4simd6float23cosSf3sinSf_S2_">rotateVector(_:cos:sin:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Given a cached sin and cos of a rotation, return the adjusted vector</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">rotateVector</span><span class="p">(</span><span class="nv">vector</span><span class="p">:</span><span class="n">float2</span><span class="p">,</span> <span class="nv">cos</span><span class="p">:</span><span class="kt">Float</span><span class="p">,</span> <span class="nv">sin</span><span class="p">:</span><span class="kt">Float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">float2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2016-02-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
