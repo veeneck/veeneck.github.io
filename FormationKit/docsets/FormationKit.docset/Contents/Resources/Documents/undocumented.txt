@@ -3,11 +3,19 @@ FKRankComponent.swift
 FKFormationProtocol.swift
 	var instructions : FKFormationComponent.ArrangementInstructions { get set }
 	var positions : [FKStandingPosition] { get set }
+	var totalRows : Int { get }
 	var radius : Float { get }
 	init(instructions:FKFormationComponent.ArrangementInstructions)
 	func rebuild(instructions:FKFormationComponent.ArrangementInstructions)
 	func buildFixedLocations()
 	func adjustLocations(position:CGPoint, rotation:Float, translate:float2?, offset:CGPoint?, random:Int?)
+FKDyingState.swift
+	unowned var entity: FKUnitEntity
+	var elapsedTime: NSTimeInterval = 0.0
+	required init(entity: FKUnitEntity)
+	override func didEnterWithPreviousState(previousState: GKState?)
+	override func updateWithDeltaTime(seconds: NSTimeInterval)
+	override func isValidNextState(stateClass: AnyClass) -> Bool
 FKMovementType.swift
 	case Towards = 0, Teleport, Path
 	case Towards = 0, Teleport, Path
@@ -21,7 +29,6 @@ FKFollowingState.swift
 	required init(entity: FKUnitEntity)
 	override func didEnterWithPreviousState(previousState: GKState?)
 	override func updateWithDeltaTime(seconds: NSTimeInterval)
-	func moveTowardsDesiredPosition(desired:CGPoint)
 	override func willExitWithNextState(nextState: GKState)
 	override func isValidNextState(stateClass: AnyClass) -> Bool
 FKFormationComponent.swift
@@ -68,6 +75,8 @@ FKSquadFactory.swift
 FKSquadAgent.swift
 	var actualPosition = CGPoint(x:0, y:0)
 	var actualHeading : Float = 0
+FKDeathComponent.swift
+	public func beginDeath()
 Flags.swift
 	internal struct DebugFlags
 	internal struct CombatPerformance

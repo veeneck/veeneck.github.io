@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FKUnitFactory Class Reference</title>
+    <title>FKDeathComponent Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/FKUnitFactory" class="dashAnchor"></a>
-    <a title="FKUnitFactory Class Reference"></a>
+    <a name="//apple_ref/swift/Class/FKDeathComponent" class="dashAnchor"></a>
+    <a title="FKDeathComponent Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">FormationKit Docs</a></p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">FormationKit Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FKUnitFactory Class Reference
+        FKDeathComponent Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -158,14 +158,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>FKUnitFactory</h1>
+            <h1>FKDeathComponent</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FKUnitFactory</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FKDeathComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
 
                 </div>
               </div>
-            <p>FKUnitEntites are quite complex. All units should be created through this entry point</p>
+            <p>Handles cleanup when a unit dies.</p>
 
           </section>
           <section class="section task-group-section">
@@ -174,9 +174,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZvC12FormationKit13FKUnitFactory14sharedInstanceS0_"></a>
-                    <a name="//apple_ref/swift/Variable/sharedInstance" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZvC12FormationKit13FKUnitFactory14sharedInstanceS0_">sharedInstance</a>
+                    <a name="/s:vC12FormationKit16FKDeathComponent5dyingSb"></a>
+                    <a name="//apple_ref/swift/Property/dying" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12FormationKit16FKDeathComponent5dyingSb">dying</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -184,117 +184,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Handle on shared factory object</p>
+                        <p>In case cleanup takes a few frames (i.e.: animation finishes playing), reference this bool to know if a unit is dead</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">sharedInstance</span> <span class="o">=</span> <span class="kt">FKUnitFactory</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Creating%20a%20Unit"></a>
-                <a name="//apple_ref/swift/Section/Creating a Unit" class="dashAnchor"></a>
-                <a href="#/Creating%20a%20Unit">
-                  <h3 class="section-name">Creating a Unit</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC12FormationKit13FKUnitFactory10createUnitFS0_FVCS_14FKSquadFactory19FKSquadConstructionCS_12FKUnitEntity"></a>
-                    <a name="//apple_ref/swift/Method/createUnit(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit13FKUnitFactory10createUnitFS0_FVCS_14FKSquadFactory19FKSquadConstructionCS_12FKUnitEntity">createUnit(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Main entry point for creating units</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createUnit</span><span class="p">(</span><span class="nv">construction</span><span class="p">:</span><span class="kt">FKSquadFactory</span><span class="o">.</span><span class="kt">FKSquadConstruction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">FKUnitEntity</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Component%20Systems"></a>
-                <a name="//apple_ref/swift/Section/Component Systems" class="dashAnchor"></a>
-                <a href="#/Component%20Systems">
-                  <h3 class="section-name">Component Systems</h3>
-                </a>
-              </div>
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC12FormationKit13FKUnitFactoryP33_1AC31AA341621C78E8CD28964FE693E524addUnitToComponentSystemFS0_FCS_12FKUnitEntityT_"></a>
-                    <a name="//apple_ref/swift/Method/addUnitToComponentSystem(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit13FKUnitFactoryP33_1AC31AA341621C78E8CD28964FE693E524addUnitToComponentSystemFS0_FCS_12FKUnitEntityT_">addUnitToComponentSystem(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Add squad to component system</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">addUnitToComponentSystem</span><span class="p">(</span><span class="nv">unit</span><span class="p">:</span><span class="kt">FKUnitEntity</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vC12FormationKit13FKUnitFactory16componentSystemsGSaCSo17GKComponentSystem_"></a>
-                    <a name="//apple_ref/swift/Property/componentSystems" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12FormationKit13FKUnitFactory16componentSystemsGSaCSo17GKComponentSystem_">componentSystems</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Components must be run in this order for the squad to function / update in game</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">componentSystems</span><span class="p">:</span> <span class="p">[</span><span class="kt">GKComponentSystem</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">dying</span> <span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
 
                         </div>
                       </div>

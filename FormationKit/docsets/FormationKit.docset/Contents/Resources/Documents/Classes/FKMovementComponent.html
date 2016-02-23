@@ -90,6 +90,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/FKRankComponent.html">FKRankComponent</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKDeathComponent.html">FKDeathComponent</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -99,7 +102,10 @@
                 <a href="../Unit Intelligence.html#/s:C12FormationKit11FKIdleState">FKIdleState</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Unit Intelligence.html#/s:C12FormationKit16FKFollowingState">FKFollowingState</a>
+                <a href="../Classes/FKFollowingState.html">FKFollowingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Unit Intelligence.html#/s:C12FormationKit12FKDyingState">FKDyingState</a>
               </li>
             </ul>
           </li>
@@ -131,6 +137,9 @@
           <li class="nav-group-name">
             <a href="../Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/FKCasualtyComponenet.html">FKCasualtyComponenet</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Classes/FKEntitySpriteNode.html">FKEntitySpriteNode</a>
               </li>
@@ -409,7 +418,7 @@ Instead, just update tracking agent. Mainly useful for moves that update often, 
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When an agent has arrived we can stop steering, so this is checked frequently.</p>
+                        <p>When an agent has arrived we can stop steering, so this is checked frequently. This checks difference between points in scene instead of agent simulation.</p>
 
                       </div>
                       <div class="declaration">

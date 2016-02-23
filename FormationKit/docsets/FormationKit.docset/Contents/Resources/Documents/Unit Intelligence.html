@@ -89,6 +89,9 @@
               <li class="nav-group-task">
                 <a href="Classes/FKRankComponent.html">FKRankComponent</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Classes/FKDeathComponent.html">FKDeathComponent</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -98,7 +101,10 @@
                 <a href="Unit Intelligence.html#/s:C12FormationKit11FKIdleState">FKIdleState</a>
               </li>
               <li class="nav-group-task">
-                <a href="Unit Intelligence.html#/s:C12FormationKit16FKFollowingState">FKFollowingState</a>
+                <a href="Classes/FKFollowingState.html">FKFollowingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Unit Intelligence.html#/s:C12FormationKit12FKDyingState">FKDyingState</a>
               </li>
             </ul>
           </li>
@@ -130,6 +136,9 @@
           <li class="nav-group-name">
             <a href="Other Classes.html">Other Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/FKCasualtyComponenet.html">FKCasualtyComponenet</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Classes/FKEntitySpriteNode.html">FKEntitySpriteNode</a>
               </li>
@@ -203,12 +212,44 @@ formation.</p>
                         <p>A unit will go into follow state on its own if out of position, or might be ordered by a squad. Following will just attempt to keep up with 
 the desired standing position.</p>
 
+                        <a href="Classes/FKFollowingState.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">class</span> <span class="kt">FKFollowingState</span><span class="p">:</span> <span class="kt">GKState</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C12FormationKit12FKDyingState"></a>
+                    <a name="//apple_ref/swift/Class/FKDyingState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C12FormationKit12FKDyingState">FKDyingState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Empty state to play when death animtion is running.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kt">FKDyingState</span><span class="p">:</span> <span class="kt">GKState</span></code></pre>
 
                         </div>
                       </div>

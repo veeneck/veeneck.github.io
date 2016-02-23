@@ -49,6 +49,9 @@
                 <a href="../Classes/FKNavigationComponent.html">FKNavigationComponent</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/FKCasualtyComponent.html">FKCasualtyComponent</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/FKSquadDebugComponent.html">FKSquadDebugComponent</a>
               </li>
             </ul>
@@ -90,6 +93,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/FKRankComponent.html">FKRankComponent</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FKDeathComponent.html">FKDeathComponent</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -99,7 +105,10 @@
                 <a href="../Unit Intelligence.html#/s:C12FormationKit11FKIdleState">FKIdleState</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Unit Intelligence.html#/s:C12FormationKit16FKFollowingState">FKFollowingState</a>
+                <a href="../Classes/FKFollowingState.html">FKFollowingState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Unit Intelligence.html#/s:C12FormationKit12FKDyingState">FKDyingState</a>
               </li>
             </ul>
           </li>
@@ -265,9 +274,9 @@ Optionally pass in own heading to override squads agent heading</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12FormationKit20FKFormationComponent28reassignAllStandingPositionsFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/reassignAllStandingPositions()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponent28reassignAllStandingPositionsFS0_FT_T_">reassignAllStandingPositions()</a>
+                    <a name="/s:FC12FormationKit20FKFormationComponent35reassignStandingPositionsByPriorityFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/reassignStandingPositionsByPriority()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponent35reassignStandingPositionsByPriorityFS0_FT_T_">reassignStandingPositionsByPriority()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -283,7 +292,171 @@ At the end of it, the squad should have a general shape again without units tryi
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reassignAllStandingPositions</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reassignStandingPositionsByPriority</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit20FKFormationComponent35reassignStandingPositionsByDistanceFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/reassignStandingPositionsByDistance()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponent35reassignStandingPositionsByDistanceFS0_FT_T_">reassignStandingPositionsByDistance()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Does the same as reassignStandingPositionsByPriority except it actually checks the distance in the game layer
+and moves the closest distance to each priority. Much more intensive, so it is used only when necessary (reforming)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">reassignStandingPositionsByDistance</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E928unassignAllStandingPositionsFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/unassignAllStandingPositions()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E928unassignAllStandingPositionsFS0_FT_T_">unassignAllStandingPositions()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start with a clean slate by removing any existing orders to units</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">unassignAllStandingPositions</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit20FKFormationComponent29unassignUnitsStandingPositionFS0_FCS_12FKUnitEntityT_"></a>
+                    <a name="//apple_ref/swift/Method/unassignUnitsStandingPosition(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponent29unassignUnitsStandingPositionFS0_FCS_12FKUnitEntityT_">unassignUnitsStandingPosition(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Unassign position for 1 unit</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">unassignUnitsStandingPosition</span><span class="p">(</span><span class="nv">unit</span><span class="p">:</span><span class="kt">FKUnitEntity</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E932findUnitOccupyingClosestPositionFS0_FCS_18FKStandingPositionGSqCS_12FKUnitEntity_"></a>
+                    <a name="//apple_ref/swift/Method/findUnitOccupyingClosestPosition(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E932findUnitOccupyingClosestPositionFS0_FCS_18FKStandingPositionGSqCS_12FKUnitEntity_">findUnitOccupyingClosestPosition(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This function will search all rows behind the position that needs filling to see if there is a unit that can move</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">findUnitOccupyingClosestPosition</span><span class="p">(</span><span class="nv">standingPositionToFill</span><span class="p">:</span><span class="kt">FKStandingPosition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">FKUnitEntity</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E927getClosestUnitFromRowBehindFS0_FTSi14positionToFillCS_18FKStandingPosition_GSqCS_12FKUnitEntity_"></a>
+                    <a name="//apple_ref/swift/Method/getClosestUnitFromRowBehind(_:positionToFill:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E927getClosestUnitFromRowBehindFS0_FTSi14positionToFillCS_18FKStandingPosition_GSqCS_12FKUnitEntity_">getClosestUnitFromRowBehind(_:positionToFill:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Score units based on how close they are to the position that needs filling. Favors outside units to fill spots
+over inside units</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getClosestUnitFromRowBehind</span><span class="p">(</span><span class="nv">rowBehind</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">positionToFill</span><span class="p">:</span><span class="kt">FKStandingPosition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">FKUnitEntity</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E935getBestUnitToReassignFromCurrentRowFS0_FTSi14positionToFillCS_18FKStandingPosition_GSqCS_12FKUnitEntity_"></a>
+                    <a name="//apple_ref/swift/Method/getBestUnitToReassignFromCurrentRow(_:positionToFill:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKFormationComponentP33_06FCAC728E0236758DE8FE1D3DC589E935getBestUnitToReassignFromCurrentRowFS0_FTSi14positionToFillCS_18FKStandingPosition_GSqCS_12FKUnitEntity_">getBestUnitToReassignFromCurrentRow(_:positionToFill:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Have to come up with a smart forumla for this.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">getBestUnitToReassignFromCurrentRow</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span><span class="kt">Int</span><span class="p">,</span> <span class="nv">positionToFill</span><span class="p">:</span><span class="kt">FKStandingPosition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">FKUnitEntity</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
