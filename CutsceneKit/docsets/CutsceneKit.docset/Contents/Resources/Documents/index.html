@@ -4,54 +4,83 @@
     <title>CutsceneKit  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
+
+
     <a title="CutsceneKit  Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="index.html">CutsceneKit Docs</a></p>
-        <p class="header-right"><a href="https://github.com/veeneck/CutsceneKit"><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FCutsceneKit%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="index.html">CutsceneKit Reference</a>
-        <img id="carat" src="img/carat.png" />
-        CutsceneKit  Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          CutsceneKit Docs
+        </a>
+        
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/veeneck/CutsceneKit">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FCutsceneKit%2Exml">
+            <img class="header-icon" src="img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">CutsceneKit Reference</a>
+      <img class="carat" src="img/carat.png" />
+      CutsceneKit  Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="Classes.html">Classes</a>
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="Classes/CKAction.html">CKAction</a>
+                <a class="nav-group-task-link" href="Classes/CKAction.html">CKAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/CKCutscene.html">CKCutscene</a>
+                <a class="nav-group-task-link" href="Classes/CKCutscene.html">CKCutscene</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/CKDialogueAction.html">CKDialogueAction</a>
+                <a class="nav-group-task-link" href="Classes/CKDialogueAction.html">CKDialogueAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/CKSequence.html">CKSequence</a>
+                <a class="nav-group-task-link" href="Classes/CKSequence.html">CKSequence</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/CKVideoNode.html">CKVideoNode</a>
+                <a class="nav-group-task-link" href="Classes/CKVideoNode.html">CKVideoNode</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             
             <a href='#cutscenekit' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='cutscenekit'>CutsceneKit</h1>
 
@@ -61,7 +90,7 @@
 <li>Provide an event sequence that can run any group of SKActions on different nodes and allow them to be skipped.</li>
 <li>Add timed hooks to SKVideoNodes that allows them to be skimmed, skipped, and have dialogue overlay.</li>
 </ul>
-<a href='#getting_started_with_ckcutscene' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting_started_with_ckcutscene'>Getting Started with CKCutscene</h2>
+<a href='#getting-started-with-ckcutscene' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='getting-started-with-ckcutscene'>Getting Started with CKCutscene</h2>
 
 <p>The main goal of CKCutscene is to provide playback control of SKActions. Here is a basic example:</p>
 <pre class="highlight plaintext"><code>self.cutscene = CKCutscene()
@@ -85,10 +114,10 @@ self.cutscene.begin() {
 </ul>
 
 <p>To dive in, start by looking at <a href="http://veeneck.github.io/CutsceneKit/Classes/CKCutscene.html">CKCutscene</a> and then you can begin constructing a <a href="http://veeneck.github.io/CutsceneKit/Classes/CKSequence.html">CKSequence</a></p>
-<a href='#creating_custom_ckactions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='creating_custom_ckactions'>Creating Custom CKActions</h2>
+<a href='#creating-custom-ckactions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='creating-custom-ckactions'>Creating Custom CKActions</h2>
 
 <p>There is a lot of power in extending CKAction to create reusable cutscene features. Included in this framework is <a href="http://veeneck.github.io/CutsceneKit/Classes/CKDialogueAction.html">CKDialogueAction</a> which manages groups of text in the cutscene. View the source code of that file as a starting reference.</p>
-<a href='#working_with_ckvideonode' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='working_with_ckvideonode'>Working with CKVideoNode</h2>
+<a href='#working-with-ckvideonode' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='working-with-ckvideonode'>Working with CKVideoNode</h2>
 
 <p>Instead of using nodes and the in game engine to show a cutscene, it may be desirable to use a video instead. The goal of <a href="http://veeneck.github.io/CutsceneKit/Classes/CKVideoNode.html">CKVideoNode</a> is to make it convenient to combine AVPlayer with SKVideoNode and to add additional functionality. A basic example would be:</p>
 <pre class="highlight plaintext"><code>self.videoPlayer = CKVideoNode(name: "MovieName", ext: "mov")
@@ -113,14 +142,16 @@ self.videoPlayer.play()
 
 <p><strong>Note</strong>: The output in the <code>config.yml</code> is hard coded to one computer. Edit the file and update the <code>output</code> flag to a valid location.</p>
 
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
+
       </article>
     </div>
+    <section class="footer">
+      <p>&copy; 2017 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2017-04-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>

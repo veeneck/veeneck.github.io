@@ -4,55 +4,84 @@
     <title>CKCutscene Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
+
     <a name="//apple_ref/swift/Class/CKCutscene" class="dashAnchor"></a>
+
     <a title="CKCutscene Class Reference"></a>
-    <header>
-      <div class="content-wrapper">
-        <p><a href="../index.html">CutsceneKit Docs</a></p>
-        <p class="header-right"><a href="https://github.com/veeneck/CutsceneKit"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FCutsceneKit%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
-      </div>
-    </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">CutsceneKit Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        CKCutscene Class Reference
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          CutsceneKit Docs
+        </a>
+        
       </p>
-    </div>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/veeneck/CutsceneKit">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Fveeneck%2Egithub%2Eio%2Fdocsets%2FCutsceneKit%2Exml">
+            <img class="header-icon" src="../img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">CutsceneKit Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      CKCutscene Class Reference
+    </p>
+
     <div class="content-wrapper">
-      <nav class="sidebar">
+      <nav class="navigation">
         <ul class="nav-groups">
           <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Classes/CKAction.html">CKAction</a>
+                <a class="nav-group-task-link" href="../Classes/CKAction.html">CKAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CKCutscene.html">CKCutscene</a>
+                <a class="nav-group-task-link" href="../Classes/CKCutscene.html">CKCutscene</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CKDialogueAction.html">CKDialogueAction</a>
+                <a class="nav-group-task-link" href="../Classes/CKDialogueAction.html">CKDialogueAction</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CKSequence.html">CKSequence</a>
+                <a class="nav-group-task-link" href="../Classes/CKSequence.html">CKSequence</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/CKVideoNode.html">CKVideoNode</a>
+                <a class="nav-group-task-link" href="../Classes/CKVideoNode.html">CKVideoNode</a>
               </li>
             </ul>
           </li>
         </ul>
       </nav>
       <article class="main-content">
-        <section>
-          <section class="section">
+
+        <section class="section">
+          <div class="section-content">
             <h1>CKCutscene</h1>
               <div class="declaration">
                 <div class="language">
@@ -60,16 +89,19 @@
 
                 </div>
               </div>
-            <p>Handles cleanup, management and playback of a collection of <a href="../Classes/CKSequence.html">CKSequence</a> objects that make up a cutscene.</p>
+            <p>Handles cleanup, management and playback of a collection of CKSequence objects that make up a cutscene.</p>
 
 <div class="aside aside-warning">
-          <p class="aside-title">Warning</p>
-          Because this class deals with closures and callbacks, you must keep the instance of it in scope / reference while it is running.
+    <p class="aside-title">Warning</p>
+    Because this class deals with closures and callbacks, you must keep the instance of it in scope / reference while it is running.
 
-        </div>
+</div>
 
-          </section>
-          <section class="section task-group-section">
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Initializing%20a%20CKCutscene"></a>
@@ -78,13 +110,13 @@
                   <h3 class="section-name">Initializing a CKCutscene</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11CutsceneKit10CKCutscenecFMS0_FT_S0_"></a>
+                    <a name="/s:FC11CutsceneKit10CKCutscenecFT_S0_"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscenecFMS0_FT_S0_">init()</a>
+                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscenecFT_S0_">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -95,10 +127,10 @@
                         <p>Empty initializer to retain object for future use.</p>
 
 <div class="aside aside-warning">
-          <p class="aside-title">Warning</p>
-          Without any sequences, <a href="../Classes/CKCutscene.html">CKCutscene</a> has no functionality.
+    <p class="aside-title">Warning</p>
+    Without any sequences, CKCutscene has no functionality.
 
-        </div>
+</div>
 
                       </div>
                       <div class="declaration">
@@ -115,9 +147,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11CutsceneKit10CKCutscenecFMS0_FT9sequencesGSaCS_10CKSequence__S0_"></a>
+                    <a name="/s:FC11CutsceneKit10CKCutscenecFT9sequencesGSaCS_10CKSequence__S0_"></a>
                     <a name="//apple_ref/swift/Method/init(sequences:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscenecFMS0_FT9sequencesGSaCS_10CKSequence__S0_">init(sequences:)</a>
+                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscenecFT9sequencesGSaCS_10CKSequence__S0_">init(sequences:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -132,7 +164,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">sequences</span><span class="p">:[</span><span class="kt">CKSequence</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">sequences</span><span class="p">:[</span><span class="kt"><a href="../Classes/CKSequence.html">CKSequence</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -169,13 +201,13 @@
                   <h3 class="section-name">Adding Sequences</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11CutsceneKit10CKCutscene12addSequencesFS0_FGSaCS_10CKSequence_T_"></a>
-                    <a name="//apple_ref/swift/Method/addSequences(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscene12addSequencesFS0_FGSaCS_10CKSequence_T_">addSequences(_:)</a>
+                    <a name="/s:FC11CutsceneKit10CKCutscene12addSequencesFT9sequencesGSaCS_10CKSequence__T_"></a>
+                    <a name="//apple_ref/swift/Method/addSequences(sequences:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscene12addSequencesFT9sequencesGSaCS_10CKSequence__T_">addSequences(sequences:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -190,7 +222,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addSequences</span><span class="p">(</span><span class="nv">sequences</span><span class="p">:[</span><span class="kt">CKSequence</span><span class="p">])</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addSequences</span><span class="p">(</span><span class="nv">sequences</span><span class="p">:[</span><span class="kt"><a href="../Classes/CKSequence.html">CKSequence</a></span><span class="p">])</span></code></pre>
 
                         </div>
                       </div>
@@ -227,13 +259,13 @@
                   <h3 class="section-name">Starting the Cutscene</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11CutsceneKit10CKCutscene5beginFS0_FFT_T_T_"></a>
-                    <a name="//apple_ref/swift/Method/begin(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscene5beginFS0_FFT_T_T_">begin(_:)</a>
+                    <a name="/s:FC11CutsceneKit10CKCutscene5beginFT10completionFT_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/begin(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscene5beginFT10completionFT_T__T_">begin(completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -241,21 +273,21 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Begin playing through each <a href="../Classes/CKSequence.html">CKSequence</a> until completion. Once a <a href="../Classes/CKSequence.html">CKSequence</a> has been completed,
-it will be permanently removed from the <a href="../Classes/CKCutscene.html">CKCutscene</a>.</p>
+                        <p>Begin playing through each CKSequence until completion. Once a CKSequence has been completed,
+it will be permanently removed from the CKCutscene.</p>
 
 <div class="aside aside-note">
-          <p class="aside-title">Note</p>
-          <p>There is no way to pause or stop playback. You can control this by only adding CKSequences that you wish to execute now, and delay adding others.</p>
+    <p class="aside-title">Note</p>
+    <p>There is no way to pause or stop playback. You can control this by only adding CKSequences that you wish to execute now, and delay adding others.</p>
 
-        </div>
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">begin</span><span class="p">(</span><span class="nv">completion</span><span class="p">:()</span><span class="o">-&gt;</span><span class="p">())</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">begin</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span><span class="kd">@escaping</span> <span class="p">()</span><span class="o">-&gt;</span><span class="p">())</span></code></pre>
 
                         </div>
                       </div>
@@ -292,13 +324,13 @@ it will be permanently removed from the <a href="../Classes/CKCutscene.html">CKC
                   <h3 class="section-name">Skipping an Action</h3>
                 </a>
               </div>
-              <ul>
+              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC11CutsceneKit10CKCutscene19skipCurrentSequenceFS0_FT_T_"></a>
+                    <a name="/s:FC11CutsceneKit10CKCutscene19skipCurrentSequenceFT_T_"></a>
                     <a name="//apple_ref/swift/Method/skipCurrentSequence()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscene19skipCurrentSequenceFS0_FT_T_">skipCurrentSequence()</a>
+                    <a class="token" href="#/s:FC11CutsceneKit10CKCutscene19skipCurrentSequenceFT_T_">skipCurrentSequence()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -306,7 +338,7 @@ it will be permanently removed from the <a href="../Classes/CKCutscene.html">CKC
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Force the current running <a href="../Classes/CKSequence.html">CKSequence</a> to skip, and automatically start playing the next <a href="../Classes/CKSequence.html">CKSequence</a> if applicable.</p>
+                        <p>Force the current running CKSequence to skip, and automatically start playing the next CKSequence if applicable.</p>
 
                       </div>
                       <div class="declaration">
@@ -322,14 +354,15 @@ it will be permanently removed from the <a href="../Classes/CKCutscene.html">CKC
                 </li>
               </ul>
             </div>
-          </section>
+          </div>
         </section>
-        <section id="footer">
-          <p>&copy; 2015 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2015-11-19)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.4.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
-        </section>
+
       </article>
     </div>
+    <section class="footer">
+      <p>&copy; 2017 <a class="link" href="http://battleofbrothers.com" target="_blank" rel="external">Ryan Campbell</a>. All rights reserved. (Last updated: 2017-04-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.5</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
   </body>
 </div>
 </html>
