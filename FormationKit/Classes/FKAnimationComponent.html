@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FKSquadAgent Class Reference</title>
+    <title>FKAnimationComponent Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -9,8 +9,8 @@
     <script src="../js/jazzy.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/FKSquadAgent" class="dashAnchor"></a>
-    <a title="FKSquadAgent Class Reference"></a>
+    <a name="//apple_ref/swift/Class/FKAnimationComponent" class="dashAnchor"></a>
+    <a title="FKAnimationComponent Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">FormationKit Docs</a></p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">FormationKit Reference</a>
         <img id="carat" src="../img/carat.png" />
-        FKSquadAgent Class Reference
+        FKAnimationComponent Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -161,15 +161,16 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>FKSquadAgent</h1>
+            <h1>FKAnimationComponent</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">FKSquadAgent</span> <span class="p">:</span> <span class="kt">GKAgent2D</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">FKAnimationComponent</span> <span class="p">:</span> <span class="kt">GKComponent</span></code></pre>
 
                 </div>
               </div>
-            <p>Generic agent class that mainly serves as a basic GKAgent2D. Encapsulated in case custom
-overrides are needed in the future.</p>
+            <p>Handles running a requested animation. Other components will request starting and stopping animations.
+In theory, this could be expanded to prevent certain state changes (i.e.: cant go from walking to attacking), but that shouldn&rsquo;t
+be required for this simulation.</p>
 
           </section>
           <section class="section task-group-section">
@@ -178,9 +179,9 @@ overrides are needed in the future.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC12FormationKit12FKSquadAgent9baseSpeedSf"></a>
-                    <a name="//apple_ref/swift/Property/baseSpeed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12FormationKit12FKSquadAgent9baseSpeedSf">baseSpeed</a>
+                    <a name="/s:vC12FormationKit20FKAnimationComponent10animationsGVSs10DictionaryOS0_14AnimationStateVS0_9Animation_"></a>
+                    <a name="//apple_ref/swift/Property/animations" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12FormationKit20FKAnimationComponent10animationsGVSs10DictionaryOS0_14AnimationStateVS0_9Animation_">animations</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -188,14 +189,14 @@ overrides are needed in the future.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Used as default of no modifiers applied</p>
+                        <p>Cached textures to use</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">baseSpeed</span> <span class="p">:</span> <span class="kt">Float</span> <span class="o">=</span> <span class="mi">50</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">animations</span> <span class="o">=</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">AnimationState</span><span class="p">,</span> <span class="kt">Animation</span><span class="o">&gt;</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -205,9 +206,9 @@ overrides are needed in the future.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC12FormationKit12FKSquadAgent13layerPositionVSC7CGPoint"></a>
-                    <a name="//apple_ref/swift/Property/layerPosition" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC12FormationKit12FKSquadAgent13layerPositionVSC7CGPoint">layerPosition</a>
+                    <a name="/s:vC12FormationKit20FKAnimationComponent18requestedAnimationGSqOS0_14AnimationState_"></a>
+                    <a name="//apple_ref/swift/Property/requestedAnimation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12FormationKit20FKAnimationComponent18requestedAnimationGSqOS0_14AnimationState_">requestedAnimation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,37 +216,26 @@ overrides are needed in the future.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Position of the squad is determined by the position of the agent</p>
+                        <p>Pending animation</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">layerPosition</span> <span class="p">:</span> <span class="kt">CGPoint</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">requestedAnimation</span> <span class="p">:</span> <span class="kt">AnimationState</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Initializing%20a%20FKSquadAgent"></a>
-                <a name="//apple_ref/swift/Section/Initializing a FKSquadAgent" class="dashAnchor"></a>
-                <a href="#/Initializing%20a%20FKSquadAgent">
-                  <h3 class="section-name">Initializing a FKSquadAgent</h3>
-                </a>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12FormationKit12FKSquadAgentcFMS0_FT_S0_"></a>
-                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit12FKSquadAgentcFMS0_FT_S0_">init()</a>
+                    <a name="/s:vC12FormationKit20FKAnimationComponent16currentAnimationGSqOS0_14AnimationState_"></a>
+                    <a name="//apple_ref/swift/Property/currentAnimation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC12FormationKit20FKAnimationComponent16currentAnimationGSqOS0_14AnimationState_">currentAnimation</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -253,14 +243,14 @@ overrides are needed in the future.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets up default mass, speed and empty behaviors.</p>
+                        <p>Handle on current animation for easy lookup</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">override</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">currentAnimation</span> <span class="p">:</span> <span class="kt">AnimationState</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -271,19 +261,19 @@ overrides are needed in the future.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Positioning"></a>
-                <a name="//apple_ref/swift/Section/Positioning" class="dashAnchor"></a>
-                <a href="#/Positioning">
-                  <h3 class="section-name">Positioning</h3>
+                <a name="/Processing%20Animations"></a>
+                <a name="//apple_ref/swift/Section/Processing Animations" class="dashAnchor"></a>
+                <a href="#/Processing%20Animations">
+                  <h3 class="section-name">Processing Animations</h3>
                 </a>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12FormationKit12FKSquadAgent10setHeadingFS0_FSfT_"></a>
-                    <a name="//apple_ref/swift/Method/setHeading(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit12FKSquadAgent10setHeadingFS0_FSfT_">setHeading(_:)</a>
+                    <a name="/s:FC12FormationKit20FKAnimationComponent25resolveRequestedAnimationFS0_FT_T_"></a>
+                    <a name="//apple_ref/swift/Method/resolveRequestedAnimation()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKAnimationComponent25resolveRequestedAnimationFS0_FT_T_">resolveRequestedAnimation()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -291,14 +281,14 @@ overrides are needed in the future.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Helper method to set both at once</p>
+                        <p>Run an animation if it isn&rsquo;t already running. Or, if .Idle is requested, stop animations.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setHeading</span><span class="p">(</span><span class="nv">rotation</span><span class="p">:</span><span class="kt">Float</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">resolveRequestedAnimation</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -308,9 +298,9 @@ overrides are needed in the future.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12FormationKit12FKSquadAgent6setPosFS0_FVSC7CGPointT_"></a>
-                    <a name="//apple_ref/swift/Method/setPos(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit12FKSquadAgent6setPosFS0_FVSC7CGPointT_">setPos(_:)</a>
+                    <a name="/s:FC12FormationKit20FKAnimationComponentP33_ACFF380A7568AD52FCB69D8436A226C712runAnimationFS0_FTCS_12FKUnitEntity7requestOS0_14AnimationState_T_"></a>
+                    <a name="//apple_ref/swift/Method/runAnimation(_:request:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKAnimationComponentP33_ACFF380A7568AD52FCB69D8436A226C712runAnimationFS0_FTCS_12FKUnitEntity7requestOS0_14AnimationState_T_">runAnimation(_:request:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -318,68 +308,14 @@ overrides are needed in the future.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Helper method to set both at once</p>
+                        <p>Runs the animation of it exists in cache. Will run once or repeat based on .shouldRepeat. Updates handle on current animation.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setPos</span><span class="p">(</span><span class="nv">position</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC12FormationKit12FKSquadAgent12setPlacementFS0_FTVSC7CGPoint8rotationSf_T_"></a>
-                    <a name="//apple_ref/swift/Method/setPlacement(_:rotation:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit12FKSquadAgent12setPlacementFS0_FTVSC7CGPoint8rotationSf_T_">setPlacement(_:rotation:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Helper method to set both at once</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setPlacement</span><span class="p">(</span><span class="nv">position</span><span class="p">:</span><span class="kt">CGPoint</span><span class="p">,</span> <span class="nv">rotation</span><span class="p">:</span><span class="kt">Float</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FC12FormationKit12FKSquadAgent24updateFormationPositionsFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/updateFormationPositions()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit12FKSquadAgent24updateFormationPositionsFS0_FT_T_">updateFormationPositions()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Whenever the suads position is changed, the formation should update standingPositions</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateFormationPositions</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">runAnimation</span><span class="p">(</span><span class="nv">unit</span><span class="p">:</span><span class="kt">FKUnitEntity</span><span class="p">,</span> <span class="nv">request</span><span class="p">:</span><span class="kt">AnimationState</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -390,19 +326,19 @@ overrides are needed in the future.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Utility"></a>
-                <a name="//apple_ref/swift/Section/Utility" class="dashAnchor"></a>
-                <a href="#/Utility">
-                  <h3 class="section-name">Utility</h3>
+                <a name="/%20Update%20Loop"></a>
+                <a name="//apple_ref/swift/Section/ Update Loop" class="dashAnchor"></a>
+                <a href="#/%20Update%20Loop">
+                  <h3 class="section-name"> Update Loop</h3>
                 </a>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC12FormationKit12FKSquadAgent15setWalkingSpeedFS0_FT_T_"></a>
-                    <a name="//apple_ref/swift/Method/setWalkingSpeed()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC12FormationKit12FKSquadAgent15setWalkingSpeedFS0_FT_T_">setWalkingSpeed()</a>
+                    <a name="/s:FC12FormationKit20FKAnimationComponent19updateWithDeltaTimeFS0_FSdT_"></a>
+                    <a name="//apple_ref/swift/Method/updateWithDeltaTime(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC12FormationKit20FKAnimationComponent19updateWithDeltaTimeFS0_FSdT_">updateWithDeltaTime(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -410,14 +346,104 @@ overrides are needed in the future.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Figure out what to do with squad walking speed? Set to same as leader? Or slow leader down to same as everyone else, and make squad 10% faster?</p>
+                        <p>Constantly checking to see if an animation is requested. If so, put it in motion.
+The animation will run as a SKAction once or on a loop. Requesting .Idle will stop any animation.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">setWalkingSpeed</span><span class="p">()</span></code></pre>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">updateWithDeltaTime</span><span class="p">(</span><span class="nv">seconds</span><span class="p">:</span> <span class="kt">NSTimeInterval</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Data%20Structure"></a>
+                <a name="//apple_ref/swift/Section/Data Structure" class="dashAnchor"></a>
+                <a href="#/Data%20Structure">
+                  <h3 class="section-name">Data Structure</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:VC12FormationKit20FKAnimationComponent9Animation"></a>
+                    <a name="//apple_ref/swift/Struct/Animation" class="dashAnchor"></a>
+                    <a class="token" href="#/s:VC12FormationKit20FKAnimationComponent9Animation">Animation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Defines everything need for the animation to run.
+In the future, could be expanded to allow different timing per frame and other advanced functionality.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Animation</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Animation%20States"></a>
+                <a name="//apple_ref/swift/Section/Animation States" class="dashAnchor"></a>
+                <a href="#/Animation%20States">
+                  <h3 class="section-name">Animation States</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:OC12FormationKit20FKAnimationComponent14AnimationState"></a>
+                    <a name="//apple_ref/swift/Enum/AnimationState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:OC12FormationKit20FKAnimationComponent14AnimationState">AnimationState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Different keys used to classify animations. 
+Important: Never set a ket an animation for Idle unless we create idle animations. For now, it resets back to base frame.
+Note: The string key is used to tag the SKAction</p>
+
+<ul>
+<li>Idle</li>
+<li>WalkFront</li>
+<li>WalkBack</li>
+<li>AttackFront</li>
+<li>AttackBack</li>
+<li>GetHit</li>
+<li>Death</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">enum</span> <span class="kt">AnimationState</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>

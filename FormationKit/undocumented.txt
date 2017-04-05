@@ -1,5 +1,19 @@
 FKRankComponent.swift
 	internal init(squad:FKSquadEntity)
+FKAnimationComponent.swift
+	var textures = Array<SKTexture>()
+	var rightAnchor = CGPoint(x: 0, y: 0)
+	var leftAnchor = CGPoint(x: 0, y: 0)
+	var speed : NSTimeInterval = 0.1
+	var shouldRepeat : Bool = true
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	case Idle = 0, WalkFront, WalkBack, AttackFront, AttackBack, GetHit, Death
+	var key : String
 FKFormationProtocol.swift
 	var instructions : FKFormationComponent.ArrangementInstructions { get set }
 	var positions : [FKStandingPosition] { get set }
