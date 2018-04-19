@@ -1,2 +1,0 @@
-CKVideoNode.swift
-	required public init?(coder aDecoder: NSCoder)

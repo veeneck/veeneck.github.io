@@ -1,4 +1,0 @@
-WPPool.swift
-	public init()
-WPSpawn.swift
-	public var path : Int = 0
