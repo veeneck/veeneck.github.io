@@ -28,13 +28,8 @@
   </url>
   
   <url>
-    <loc>/contact/</loc>
-  </url>
-  
-  <url>
     <loc>/blog/</loc>
     <lastmod>2018-04-20T01:17:47+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -43,7 +38,23 @@
   </url>
   
   <url>
+    <loc>/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/decentralized/</loc>
+    <lastmod>2018-04-20T01:17:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/home/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2018-04-20T01:17:47+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -53,14 +64,8 @@
   </url>
   
   <url>
-    <loc>/tags/projects/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-20T01:17:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
