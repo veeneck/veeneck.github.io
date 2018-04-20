@@ -3,6 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/projects/shuffled/</loc>
+  </url>
+  
+  <url>
+    <loc>/projects/battleofbrothers/</loc>
+  </url>
+  
+  <url>
+    <loc>/projects/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>/projects/charity/</loc>
+  </url>
+  
+  <url>
     <loc>/blog/forestry---hugo---netlify/</loc>
     <lastmod>2018-04-20T01:17:47+00:00</lastmod>
   </url>
@@ -15,16 +31,6 @@
   <url>
     <loc>/blog/first-impressions/</loc>
     <lastmod>2018-04-16T15:17:53-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/projects/shuffled/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/projects/projects/</loc>
-    <lastmod>2015-08-19T20:29:37-07:00</lastmod>
   </url>
   
   <url>
@@ -58,8 +64,11 @@
   </url>
   
   <url>
+    <loc>/projects/particletree/</loc>
+  </url>
+  
+  <url>
     <loc>/projects/</loc>
-    <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -67,6 +76,10 @@
     <loc>/tags/</loc>
     <lastmod>2018-04-20T01:17:47+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/projects/wufoo/</loc>
   </url>
   
   <url>

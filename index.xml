@@ -12,6 +12,48 @@
     
     
     <item>
+      <title>Shuffled - A Photo Wall</title>
+      <link>/projects/shuffled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/shuffled/</guid>
+      <description>&lt;p&gt;For awhile now, my wife and I have had the idea of a smart photo wall. Something that could schedule screen savers, sync across multiple displays, etc. We love documenting memories, and we wanted an elegant way to display them.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Battle of Brothers</title>
+      <link>/projects/battleofbrothers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/battleofbrothers/</guid>
+      <description>&lt;p&gt;Shortly after leaving SurveyMonkey, my brother and I decided to persue a passion: Game Development! How hard could it be, right? We naively created a one year competition to see who could make the better game.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Learning &amp; Blogging</title>
+      <link>/projects/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/blog/</guid>
+      <description>&lt;p&gt;This blog serves the purpose of tracking my progress, and acts as a test bed to leanr new concepts. I&amp;rsquo;ll keep a directory of those projects here.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Helping Charities</title>
+      <link>/projects/charity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/charity/</guid>
+      <description>&lt;p&gt;Amanda and I have a goal of becoming more involved over the next two years. I&amp;rsquo;ll continue to update this space documenting the types of contributions we can make.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Forestry &#43; Hugo &#43; Netlify</title>
       <link>/blog/forestry---hugo---netlify/</link>
       <pubDate>Fri, 20 Apr 2018 01:17:47 +0000</pubDate>
@@ -45,27 +87,6 @@
     </item>
     
     <item>
-      <title>A small project example : add yours !</title>
-      <link>/projects/shuffled/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/shuffled/</guid>
-      <description>Along with Ford Prefect, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a hyperspace bypass. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.
- He rather enjoys tea, but seems to have trouble obtaining it in the far reaches of the galaxy.
- In time, he learns how to fly and carves a niche for himself as a sandwich-maker.</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>/projects/projects/</link>
-      <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
-      
-      <guid>/projects/projects/</guid>
-      <description>In this theme, it is possible to add sections like a Projects one for example. You can add plenty of articles about your projects and a presentation page that will be displayed before the list. All is modulable, if you don&amp;rsquo;t want something.
-A Hollywood-funded film version, produced and filmed in the UK, was released in April 2005, and radio adaptations of the third, fourth, and fifth novels were broadcast from 2004 to 2005.</description>
-    </item>
-    
-    <item>
       <title>Home</title>
       <link>/home/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -73,6 +94,28 @@ A Hollywood-funded film version, produced and filmed in the UK, was released in 
       <guid>/home/</guid>
       <description>I&amp;rsquo;m a husband, father, developer, gamer, runner and lots of other er&amp;rsquo;s. I finish some projects and attempt to finish others.
 I believe writing is a hobby with benefits, so I share my thoughts here.</description>
+    </item>
+    
+    <item>
+      <title>Particletree</title>
+      <link>/projects/particletree/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/particletree/</guid>
+      <description>&lt;p&gt;I credit this blog with any success I have. Chris, Kevin and I were forced to push ourselves, stick to schedules, learn to work together, and generally get inspired.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Wufoo</title>
+      <link>/projects/wufoo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/wufoo/</guid>
+      <description>&lt;p&gt;The company I started with my brother (Chris Campbell) and friend (Kevin Hale) back when I was 23. A form builder! Exciting! Still proud of it, so here is the story.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
