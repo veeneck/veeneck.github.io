@@ -6,10 +6,21 @@
     <description>Recent content in Hugo on ryan.c</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Apr 2018 01:17:47 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Apr 2018 12:36:17 -0400</lastBuildDate>
     
 	<atom:link href="/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Adding a Codepen Shortcode to Hugo</title>
+      <link>/blog/codepen-shortcode/</link>
+      <pubDate>Tue, 24 Apr 2018 12:36:17 -0400</pubDate>
+      
+      <guid>/blog/codepen-shortcode/</guid>
+      <description>&lt;p&gt;Shortcodes allow you to add external content to a blog post in a user friendly way. Someone&amp;rsquo;s tweet, an instagram photo, forms, and so on. Instead of a long ugly snippet of JavaScript, you can paste one line of clean shortcode. Hugo has &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/&#34;&gt;built in shortcode support&lt;/a&gt;, and adding a custom shortcode is super easy.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Forestry &#43; Hugo &#43; Netlify</title>
