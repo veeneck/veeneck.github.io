@@ -6,7 +6,7 @@
     <description>Recent content on ryan.c</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Apr 2018 12:36:17 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 28 Apr 2018 17:29:58 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -51,6 +51,17 @@
       
       <guid>/projects/charity/</guid>
       <description>&lt;p&gt;Amanda and I have a goal of becoming more involved over the next two years. I&amp;rsquo;ll continue to update this space documenting the types of contributions we can make.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>I&#39;m Late to the JAMStack Party</title>
+      <link>/blog/i-m-late-to-the-jamstack-party/</link>
+      <pubDate>Sat, 28 Apr 2018 17:29:58 +0000</pubDate>
+      
+      <guid>/blog/i-m-late-to-the-jamstack-party/</guid>
+      <description>&lt;p&gt;It turns out my new found &lt;a href=&#34;http://ryancampbell.blog/blog/getting-started/&#34;&gt;fascination with decentralized websites&lt;/a&gt; isn&amp;rsquo;t specific to them being decentralized. The movement of static sites has a place on the current web too &amp;ndash; &lt;a href=&#34;https://jamstack.org&#34;&gt;JAMStack&lt;/a&gt;. For the past year people have been researching ways to take away the traditional centralized back end, and it&amp;rsquo;s pretty neat.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
