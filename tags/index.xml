@@ -6,7 +6,7 @@
     <description>Recent content in Tags on ryan.c</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Apr 2018 01:17:47 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Apr 2018 17:29:58 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Decentralized</title>
       <link>/tags/decentralized/</link>
-      <pubDate>Fri, 20 Apr 2018 01:17:47 +0000</pubDate>
+      <pubDate>Sat, 28 Apr 2018 17:29:58 +0000</pubDate>
       
       <guid>/tags/decentralized/</guid>
       <description></description>
@@ -26,6 +26,15 @@
       <pubDate>Tue, 24 Apr 2018 12:36:17 -0400</pubDate>
       
       <guid>/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jamstack</title>
+      <link>/tags/jamstack/</link>
+      <pubDate>Sat, 28 Apr 2018 17:29:58 +0000</pubDate>
+      
+      <guid>/tags/jamstack/</guid>
       <description></description>
     </item>
     
