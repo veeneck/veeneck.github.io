@@ -6,7 +6,7 @@
     <description>Recent content on ryan.c</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 Apr 2018 19:29:30 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 May 2018 00:21:37 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -51,6 +51,17 @@
       
       <guid>/projects/charity/</guid>
       <description>&lt;p&gt;Amanda and I have a goal of becoming more involved over the next two years. I&amp;rsquo;ll continue to update this space documenting the types of contributions we can make.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Automating Workspaces on macOS</title>
+      <link>/blog/automating-workspaces-on-macos/</link>
+      <pubDate>Tue, 01 May 2018 00:21:37 +0000</pubDate>
+      
+      <guid>/blog/automating-workspaces-on-macos/</guid>
+      <description>&lt;p&gt;I now have 4 side projects in motion along with personal tasks like finance and communication. For the first time, my go to workspace solution of mission control and spaces doesn&amp;rsquo;t cut it. Between Xcode, multiple terminal windows running, Photoshop, Mail, Photos, Sketch, and so on I finally felt overwhelmed. It&amp;rsquo;s time for a new solution.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
