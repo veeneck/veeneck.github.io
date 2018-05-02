@@ -6,7 +6,7 @@
     <description>Recent content on ryan.c</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 May 2018 00:21:37 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 May 2018 06:58:34 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -51,6 +51,17 @@
       
       <guid>/projects/charity/</guid>
       <description>&lt;p&gt;Amanda and I have a goal of becoming more involved over the next two years. I&amp;rsquo;ll continue to update this space documenting the types of contributions we can make.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Responsive Design With Moom</title>
+      <link>/blog/responsive-design-with-moom/</link>
+      <pubDate>Wed, 02 May 2018 06:58:34 +0000</pubDate>
+      
+      <guid>/blog/responsive-design-with-moom/</guid>
+      <description>&lt;p&gt;Responsive design is not meant to be about the device. It&amp;rsquo;s about the breakpoints that your design needs, and supporting them correctly. That&amp;rsquo;s why when dragging the browser to resize your site, the design should look good at all widths. And even though that&amp;rsquo;s true, I still have a desire to verify how the design would look on a specific device like a portrait iPad.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>

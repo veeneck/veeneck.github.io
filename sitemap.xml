@@ -19,6 +19,11 @@
   </url>
   
   <url>
+    <loc>/blog/responsive-design-with-moom/</loc>
+    <lastmod>2018-05-02T06:58:34+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/automating-workspaces-on-macos/</loc>
     <lastmod>2018-05-01T00:21:37+00:00</lastmod>
   </url>
@@ -55,7 +60,7 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2018-05-01T00:21:37+00:00</lastmod>
+    <lastmod>2018-05-02T06:58:34+00:00</lastmod>
   </url>
   
   <url>
@@ -117,12 +122,18 @@
   </url>
   
   <url>
+    <loc>/tags/web/</loc>
+    <lastmod>2018-05-02T06:58:34+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/projects/wufoo/</loc>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-05-01T00:21:37+00:00</lastmod>
+    <lastmod>2018-05-02T06:58:34+00:00</lastmod>
     <priority>0</priority>
   </url>
   
