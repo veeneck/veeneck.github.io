@@ -196,6 +196,27 @@ end run
 end run
 </code></pre>
 
+<h3 id="close-fork-tabs">Close Fork Tabs</h3>
+
+<p>Quit all applications is convenient, but some applications like to remember where they were last open. Fork, for example, will reopen with the new repository and all of the previous repositories, which gets cluttered. So, before calling the quit all applications workflow, I run this to close each for tab individually.</p>
+
+<pre><code>on run {input, parameters}
+
+    if application &quot;Fork&quot; is running then
+        activate application &quot;Fork&quot;
+        tell application &quot;System Events&quot;
+            tell process &quot;Fork&quot;
+                repeat 3 times
+                    keystroke &quot;w&quot; using command down
+                end repeat
+            end tell
+        end tell
+    end if
+
+    return input
+end run
+</code></pre>
+
 <h3 id="other-notes">Other Notes</h3>
 
 <p>While configuring all of this, I ran into these oddities:</p>
