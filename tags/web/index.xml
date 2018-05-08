@@ -6,10 +6,21 @@
     <description>Recent content in Web on ryan.c</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 May 2018 06:58:34 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 May 2018 20:06:53 -0400</lastBuildDate>
     
 	<atom:link href="/tags/web/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Add Jazzy Docs to Hugo</title>
+      <link>/blog/add-jazzy-docs-to-hugo/</link>
+      <pubDate>Mon, 07 May 2018 20:06:53 -0400</pubDate>
+      
+      <guid>/blog/add-jazzy-docs-to-hugo/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m still riding this wave of excitement for static sites and free hosting, so the next step for me was to build my code documentation right into my Hugo sites instead of a separate standalone instance on Github Pages.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Responsive Design With Moom</title>

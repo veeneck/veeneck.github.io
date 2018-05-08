@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>Web &middot; ryan.c</title>
+  <title>Add Jazzy Docs to Hugo &middot; ryan.c</title>
 
   
   <link type="text/css" rel="stylesheet" href="../../css/print.css" media="print">
@@ -42,7 +42,7 @@
 
 
   
-  <link href="../../tags/web/index.xml" rel="alternate" type="application/rss+xml" title="ryan.c" />
+  <link href="" rel="alternate" type="application/rss+xml" title="ryan.c" />
 
   
 </head>
@@ -67,31 +67,44 @@
 </div>
 
     <div class="content container">
-    
-
-  <h1>So, you're interested in <mark>Web</mark>.</h1>
-  <span class="post-date">The <b>2</b> results below may catch your eye.</span>
-
+    <div class="post">
+  <h1>Add Jazzy Docs to Hugo</h1>
   
-          
-       <h1>Add Jazzy Docs to Hugo</h1>
-       <p>I&rsquo;m still riding this wave of excitement for static sites and free hosting, so the next step for me was to build my code documentation right into my Hugo sites instead of a separate standalone instance on Github Pages.</p>
+  	<span class="post-date">Mon, May 7, 2018</span>
+  
+  <p>I&rsquo;m still riding this wave of excitement for static sites and free hosting, so the next step for me was to build my code documentation right into my Hugo sites instead of a separate standalone instance on Github Pages.</p>
 
 <p></p>
-      
-      <div>
-        <a href="../../blog/add-jazzy-docs-to-hugo/">Read More…</a>
-      </div>
-          
-       <h1>Responsive Design With Moom</h1>
-       <p>Responsive design is not meant to be about the device. It&rsquo;s about the breakpoints that your design needs, and supporting them correctly. That&rsquo;s why when dragging the browser to resize your site, the design should look good at all widths. And even though that&rsquo;s true, I still have a desire to verify how the design would look on a specific device like a portrait iPad.</p>
 
-<p></p>
-      
-      <div>
-        <a href="../../blog/responsive-design-with-moom/">Read More…</a>
-      </div>
-    
+<p><img src="../../uploads/2018/05/08/Screen Shot 2018-05-07 at 8.09.19 PM.png" alt="" /></p>
+
+<p>The implementation is quite simple, so I&rsquo;m just documenting it here for reference. I just grab <a href="https://github.com/realm/jazzy">Jazzy</a>, my favorite documentation tool. Next, utilize Hugo&rsquo;s <a href="https://gohugo.io/content-management/static-files/">static directory</a> by configuring Jazzy to output there. In the <code>config.yml</code> file for the project, include:</p>
+
+<pre><code>output: /path/to/hugo/site/static/ProjectName
+</code></pre>
+
+<p>Once that is set up build jazzy with:</p>
+
+<pre><code>cd /path/to/xcode/project/ProjectName
+jazzy --config config.yml
+</code></pre>
+
+<p>Jazzy will run, and our docs are generated.</p>
+
+<h3 id="bonus">Bonus</h3>
+
+<p>As I was setting this up, I tripped across these 3 items:</p>
+
+<ol>
+<li>Set <code>clean: yes</code> in <code>config.yml</code> to delete the old files each time the docs are generated.</li>
+<li>Jazzy support for custom themes is great, and I definitely recommend using it. I had to build twice sometimes for updates to appear &ndash; not sure if it is a cache issue in the browser or in Jazzy.</li>
+<li>Avoid hard errors in Jazzy by setting the Swift version: <code>swift_version: 4.1</code></li>
+</ol>
+
+<p>Once everything is running smoothly, I recommend <a href="http://localhost:1313/blog/automating-workspaces-on-macos/">using Automator</a> or a post commit hook to generate the docs effortlessly.</p>
+</div>
+
+
     </div>
 
     
