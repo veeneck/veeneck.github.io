@@ -6,7 +6,7 @@
     <description>Recent content on ryan.c</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 May 2018 20:06:53 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 17 May 2018 07:01:09 -0400</lastBuildDate>
     
 	<atom:link href="https://ryancampbell.blog/index.xml" rel="self" type="application/rss+xml" />
     
@@ -51,6 +51,17 @@
       
       <guid>https://ryancampbell.blog/projects/charity/</guid>
       <description>&lt;p&gt;Amanda and I have a goal of becoming more involved over the next two years. I&amp;rsquo;ll continue to update this space documenting the types of contributions we can make.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Import Wordpress Nested Comments into Hugo</title>
+      <link>https://ryancampbell.blog/blog/import-wordpress-nested-comments-into-hugo/</link>
+      <pubDate>Thu, 17 May 2018 07:01:09 -0400</pubDate>
+      
+      <guid>https://ryancampbell.blog/blog/import-wordpress-nested-comments-into-hugo/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently in the process of converting my most &lt;a href=&#34;http://battleofbrothers.com&#34;&gt;complex Wordpress site&lt;/a&gt; into a Hugo site, and comments proved to be one of the greater challenges. My approach went from screw comments, to let&amp;rsquo;s use Disqus, to no let&amp;rsquo;s do this right and use a static comment system.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;</description>
     </item>
